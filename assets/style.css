@@ -348,3 +348,6 @@ td.num{text-align:right;font-weight:700;white-space:nowrap;font-variant-numeric:
 .mega .mm-all{grid-column:1/5;align-self:end;color:var(--gold-d)!important;font-weight:700!important;background:none!important;padding:8px 0 0!important}
 .mega .mm-all:hover{text-decoration:underline}
 .mm-feat{grid-row:1/4}
+.cal tbody th{text-transform:none;letter-spacing:0;font-size:14.5px;color:var(--ink);background:none;font-weight:600}
+.legend.big i.m0{background:#E3E8EA}.legend.big i.m1{background:#E7C16A}.legend.big i.m2{background:var(--good)}
+.mega a{white-space:normal}
