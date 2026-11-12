@@ -103,9 +103,10 @@ def first_sentence(t): return t.split(". ")[0].rstrip(".") + "."
 # ---------------- layout ----------------
 NAV = [("/regions/", "Destinations"), ("/interests/", "Interests"), ("/when-to-go/", "When to go"), ("/itineraries/", "Itineraries"), ("/plan/", "Plan a trip"), ("/essentials/", "Essentials")]
 def header(active, over):
+    MM_TOP = ["hunza","skardu","fairy-meadows","attabad","deosai","kalam","malam-jabba","mahodand","mingora","naran","shogran","babusar","neelum","arang-kel","rawalakot","chitral","kalash","kumrat","nathia-gali","murree"]
     def mega():
-        cols = "".join(f'<div class="mm-col"><a class="mm-h" href="/regions/{k}/">{e(REGIONS[k]["name"])}</a>' + "".join(f'<a href="/places/{p["id"]}/">{e(p["name"])}</a>' for p in [x for x in PLACES if x["region"] == k and x["kind"] == "famous"][:5]) + '</div>' for k in REGION_ORDER)
-        return f'<div class="mega"><div class="mm-in">{cols}<a class="mm-feat" href="/interests/hidden-gems/"><img src="/img/katora-lake-s.jpg" alt="" loading="lazy"><span><small>Explore</small><b>Hidden gems of the north</b></span></a></div></div>'
+        cols = "".join(f'<div class="mm-col"><a class="mm-h" href="/regions/{k}/">{e(REGIONS[k]["name"])}</a>' + "".join(f'<a href="/places/{p["id"]}/">{e(p["name"])}</a>' for p in sorted([x for x in PLACES if x["region"] == k and x["kind"] == "famous"], key=lambda x: (MM_TOP.index(x["id"]) if x["id"] in MM_TOP else 99))[:5]) + '</div>' for k in REGION_ORDER)
+        return f'<div class="mega"><div class="mm-in">{cols}<a class="mm-all" href="/regions/">All {len(PLACES)} destinations →</a><a class="mm-feat" href="/interests/hidden-gems/"><img src="/img/katora-lake-s.jpg" alt="" loading="lazy"><span><small>Explore</small><b>Hidden gems of the north</b></span></a></div></div>'
     links = "".join((f'<div class="dd"><a href="{u}"{" aria-current=page" if active == u else ""}>{t}</a>{mega()}</div>' if u == "/regions/" else f'<a href="{u}"{" aria-current=page" if active == u else ""}>{t}</a>') for u, t in NAV)
     return f'''<header class="site-head{' over' if over else ''}"><div class="wrap head-in">
 <a class="brand" href="/" aria-label="KohNoor home">{gem()}<b>KohNoor</b><span class="ur" lang="ur">کوہِ نور</span></a>

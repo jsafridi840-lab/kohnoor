@@ -343,3 +343,8 @@ td.num{text-align:right;font-weight:700;white-space:nowrap;font-variant-numeric:
 .hero img{image-rendering:auto}
 .nav a,.brand,.brand b,.brand .ur{white-space:nowrap}
 @media (min-width:901px) and (max-width:1180px){.nav a{font-size:14.5px;padding:8px 9px}.head-in{gap:14px}.brand .ur{display:none}}
+.mega{position:fixed;top:64px;left:50%;transform:translate(-50%,8px)}
+.dd:hover .mega,.dd:focus-within .mega{transform:translate(-50%,0)}
+.mega .mm-all{grid-column:1/5;align-self:end;color:var(--gold-d)!important;font-weight:700!important;background:none!important;padding:8px 0 0!important}
+.mega .mm-all:hover{text-decoration:underline}
+.mm-feat{grid-row:1/4}
