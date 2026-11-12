@@ -487,3 +487,5 @@ td.num{text-align:right;font-weight:700;white-space:nowrap;font-variant-numeric:
 .kstop{background:none;border:0}
 .kstop span{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--gold);color:var(--navy);font:800 14px var(--display);border:3px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.3)}
 .kstop.start span{width:54px;height:26px;border-radius:13px;background:var(--navy);color:#fff;font-size:12px}
+.tile .tile-stamp svg{position:static;width:64px;height:64px;inset:auto}
+.tile .tile-stamp{width:64px;height:64px}
