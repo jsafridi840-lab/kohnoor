@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://kohnoor.pages.dev/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://kohnoor.pages.dev/map/</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://kohnoor.pages.dev/trails/</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://kohnoor.pages.dev/wonders/</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://kohnoor.pages.dev/routes/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://kohnoor.pages.dev/regions/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://kohnoor.pages.dev/interests/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://kohnoor.pages.dev/when-to-go/</loc><lastmod>2026-11-12</lastmod></url>
@@ -97,7 +100,10 @@
   <url><loc>https://kohnoor.pages.dev/ur/regions/gb/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://kohnoor.pages.dev/ur/regions/kaghan/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://kohnoor.pages.dev/ur/regions/swat/</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://kohnoor.pages.dev/ur/routes/</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://kohnoor.pages.dev/ur/trails/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://kohnoor.pages.dev/ur/when-to-go/</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://kohnoor.pages.dev/ur/wonders/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://kohnoor.pages.dev/regions/gb/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://kohnoor.pages.dev/regions/swat/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://kohnoor.pages.dev/regions/kaghan/</loc><lastmod>2026-11-12</lastmod></url>

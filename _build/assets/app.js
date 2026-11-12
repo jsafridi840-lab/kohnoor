@@ -188,7 +188,7 @@ t.querySelectorAll('tbody tr').forEach(function(r){var c=r.querySelectorAll('td'
   function pin(hidden){ return L.divIcon({className:'kpin'+(hidden?' h':''),html:'<svg viewBox="0 0 32 40" aria-hidden="true"><path d="M16 39s13-13.6 13-23A13 13 0 0 0 3 16c0 9.4 13 23 13 23Z"/><path class="gm" d="m16 8 6 6-6 9-6-9 6-6Z"/></svg>',iconSize:[30,38],iconAnchor:[15,37],popupAnchor:[0,-32]}); }
   function init(box){
     var reg=box.getAttribute('data-region'), stops=(box.getAttribute('data-stops')||'').split(',').filter(Boolean);
-    var map=L.map(box,{scrollWheelZoom:false,attributionControl:true});
+    box.innerHTML='';var map=L.map(box,{scrollWheelZoom:false,attributionControl:true});
     L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:15,subdomains:'abc',attribution:'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, SRTM &middot; Map style &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)'}).addTo(map);
     var group=L.featureGroup().addTo(map), all=[];
     if(stops.length){
@@ -223,4 +223,27 @@ t.querySelectorAll('tbody tr').forEach(function(r){var c=r.querySelectorAll('td'
   document.documentElement.classList.add('rv');
   var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('shown');io.unobserve(x.target);}});},{rootMargin:'0px 0px -40px 0px'});
   els.forEach(function(el,i){ var r=el.getBoundingClientRect(); if(r.top<innerHeight){el.classList.add('shown');} else { el.style.transitionDelay=((i%4)*70)+'ms'; io.observe(el);} });
+})();
+/* v7: been-there tracker, pass status, trail filters, route finder */
+(function(){
+  var UR=document.documentElement.lang==="ur", KEY="kn-been", N=(window.KN&&KN.places.length)||57;
+  function get(){try{return JSON.parse(localStorage.getItem(KEY))||[];}catch(e){return [];}}
+  function set(a){try{localStorage.setItem(KEY,JSON.stringify(a));}catch(e){}}
+  function paint(){
+    var b=get();
+    document.querySelectorAll('[data-been]').forEach(function(el){var on=b.indexOf(el.getAttribute('data-been'))>-1; el.classList.toggle('on',on);
+      el.innerHTML=on?(UR?'✓ میں یہاں جا چکا ہوں':'✓ Been there'):(UR?'+ دیکھی ہوئی جگہوں میں شامل کریں':'+ Mark as visited'); el.setAttribute('aria-pressed',on);});
+    var pct=Math.round(b.length/N*100);
+    document.querySelectorAll('.been-progress').forEach(function(el){
+      el.innerHTML=b.length?'<div class="bp-top"><b>'+(UR?'آپ نے شمال کا '+pct+'% دیکھ لیا':'You have explored '+pct+'% of the north')+'</b><span>'+b.length+' / '+N+'</span></div><div class="bp-bar"><i style="width:'+Math.max(2,pct)+'%"></i></div>'
+        :'<div class="bp-top"><b>'+(UR?'اپنی سفری فہرست بنائیں':'Start your travel map')+'</b><span>0 / '+N+'</span></div><p>'+(UR?'کسی بھی جگہ کے صفحے پر ‘دیکھی ہوئی جگہوں میں شامل کریں’ دبائیں۔ یہ صرف آپ کے فون میں محفوظ ہوتا ہے۔':'Tap “Mark as visited” on any place page. It is saved only on this device.')+'</p>';});
+  }
+  document.addEventListener('click',function(e){var el=e.target.closest('[data-been]'); if(!el) return; e.preventDefault(); var id=el.getAttribute('data-been'), b=get(), i=b.indexOf(id); if(i>-1) b.splice(i,1); else b.push(id); set(b); paint();});
+  paint();
+  var m=new Date().getMonth();
+  document.querySelectorAll('.pass').forEach(function(el){var o=el.getAttribute('data-open').charAt(m)==="1", b=el.querySelector('.ps-badge'); el.classList.add(o?'is-open':'is-closed');
+    b.textContent=o?(UR?'عموماً کھلا':'Usually open'):(UR?'عموماً بند':'Usually closed'); var t=el.querySelectorAll('.ps-months i')[m]; if(t) t.classList.add('now');});
+  var tf=document.querySelector('[data-tfilter]'); if(tf){var box=tf.parentNode; box.addEventListener('click',function(e){var b=e.target.closest('[data-tfilter]'); if(!b) return; box.querySelectorAll('.chip').forEach(function(c){c.classList.toggle('on',c===b);}); var v=b.getAttribute('data-tfilter'); document.querySelectorAll('.trail').forEach(function(t){t.hidden=!(v==='all'||t.getAttribute('data-diff')===v);});});}
+  var rf=document.getElementById('rf'); if(rf){var show=function(){document.querySelectorAll('.rblock').forEach(function(b){b.hidden=b.getAttribute('data-r')!==rf.value;}); history.replaceState(null,'','#'+rf.value);};
+    var h=location.hash.slice(1); if(h && document.querySelector('.rblock[data-r="'+h+'"]')) rf.value=h; else rf.value='hunza'; rf.addEventListener('change',show); show();}
 })();

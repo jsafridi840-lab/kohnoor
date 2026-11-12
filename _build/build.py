@@ -49,6 +49,7 @@ I = {
  "bag": '<path d="M5 8h14l-1 13H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>',
  "warnico": '<path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/>',
  "down": '<path d="M12 4v15M6 13l6 6 6-6"/>',
+ "plane": '<path d="M10.5 21 12 14l-7-2-2-1 1-1 8 .5L17 4a1.5 1.5 0 0 1 2.5 1.5L16 11l.5 8-1 1-1-2-2-7"/>',
  "search": '<path d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Zm10 2-4.3-4.3"/>',
  "menu": '<path d="M4 7h16M4 12h16M4 17h16"/>',
  "mountain": '<path d="m3 20 6.5-11 4 6 2.5-3.5L21 20H3Z"/><path d="m8 11.6 1.5 1.4 1.5-1.2"/>',
@@ -113,7 +114,7 @@ fmt = lambda n: f"{n:,}"
 def first_sentence(t): return t.split(". ")[0].rstrip(".") + "."
 
 # ---------------- layout ----------------
-NAV = [("/regions/", "Destinations"), ("/interests/", "Interests"), ("/when-to-go/", "When to go"), ("/map/", "Map"), ("/itineraries/", "Itineraries"), ("/plan/", "Plan a trip"), ("/essentials/", "Essentials")]
+NAV = [("/regions/", "Destinations"), ("/interests/", "Interests"), ("/trails/", "Trails"), ("/when-to-go/", "When to go"), ("/map/", "Map"), ("/plan/", "Plan a trip"), ("/essentials/", "Essentials")]
 def header(active, over, urp=None):
     MM_TOP = ["hunza","skardu","fairy-meadows","attabad","deosai","kalam","malam-jabba","mahodand","mingora","naran","shogran","babusar","neelum","arang-kel","rawalakot","chitral","kalash","kumrat","nathia-gali","murree"]
     def mega():
@@ -135,7 +136,7 @@ def footer():
     return f'''<footer class="site-foot">{topo(3)}<div class="wrap"><div class="foot-grid">
 <div><a class="brand" href="/">{gem()}<b>KohNoor</b></a><p>The jewel of the mountains: the complete, honest guide to Northern Pakistan. Places, history, live weather, trip costs and offline essentials.</p><p class="ur" lang="ur" style="font-size:18px;color:#fff">کوہِ نور — شمالی پاکستان کا مکمل رہنما</p></div>
 <div><h4>Regions</h4>{regs}</div><div><h4>Top places</h4>{top}</div>
-<div><h4>Plan</h4><a href="/interests/">Travel by interest</a><a href="/when-to-go/">When to go</a><a href="/gallery/">Photo gallery</a><a href="/list-your-business/">List your business</a><a href="/ur/" lang="ur">اردو</a><a href="/itineraries/">Itineraries</a><a href="/plan/">Trip cost planner</a><a href="/essentials/">Offline essentials</a><a href="/about/">About KohNoor</a></div>
+<div><h4>Plan</h4><a href="/interests/">Travel by interest</a><a href="/routes/">Route finder</a><a href="/trails/">Trails</a><a href="/wonders/">Curious places</a><a href="/when-to-go/">When to go</a><a href="/gallery/">Photo gallery</a><a href="/list-your-business/">List your business</a><a href="/ur/" lang="ur">اردو</a><a href="/itineraries/">Itineraries</a><a href="/plan/">Trip cost planner</a><a href="/essentials/">Offline essentials</a><a href="/about/">About KohNoor</a></div>
 </div><div class="foot-bottom"><span>© {date.today().year} KohNoor. Costs and travel times are estimates; check road status before you travel.</span><span>Weather: Open-Meteo · Photos used under free licences</span></div></div></footer>
 <div class="net" role="status">You are offline · saved pages still work</div>'''
 
@@ -238,6 +239,12 @@ def build_home():
                 extra=f'''<div class="hero-search"><button data-open-search>{icon("search")}Where do you want to go?</button></div>
 <div class="chips">{"".join(f'<a class="chip" href="/interests/{t["slug"]}/">{icon(t["icon"])}{e(t["name"])}</a>' for t in THEMES[:6])}</div>''', credit="Hunza Valley in autumn")
     body += f'''<div class="strip"><div class="wrap"><div><b>{len(PLACES)}</b><span>destinations, famous and hidden</span></div><div><b>{len(REGIONS)}</b><span>regions, from Murree to Khunjerab</span></div><div><b>Live</b><span>weather for every place</span></div><div><b>Offline</b><span>works where the signal ends</span></div></div></div>
+<section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">Roads & passes</span><h2>What is usually open this month</h2></div><a class="more" href="/essentials/">Safety essentials →</a></div>{passes_html()}</div></section>
+<section class="block tight"><div class="wrap"><div class="feat3">
+<a href="/routes/" class="f3"><img src="/img/babusar-s.jpg" alt="" loading="lazy"><div><span class="kicker">Route finder</span><h3>How do I get there?</h3><p>Step-by-step: car, jeep, foot or flight, with time and cost for every leg.</p></div></a>
+<a href="/trails/" class="f3"><img src="/img/fairy-meadows-s.jpg" alt="" loading="lazy"><div><span class="kicker">Trails</span><h3>{len(EX.TRAILS)} hikes & treks</h3><p>Difficulty, length, elevation gain and profile for every trail.</p></div></a>
+<a href="/wonders/" class="f3"><img src="/img/chilas-s.jpg" alt="" loading="lazy"><div><span class="kicker">Curious places</span><h3>The strange & wonderful</h3><p>Landslide lakes, ancient rock carvings and polo on the roof of the world.</p></div></a>
+</div><div class="been-progress"></div></div></section>
 <section class="block"><div class="wrap"><div class="sec-head"><div><span class="kicker">Choose your trip</span><h2>Travel the north your way</h2><p>Start with what you love. Every interest page lists the places that fit, with season, travel time and cost.</p></div><a class="more" href="/interests/">All interests →</a></div><div class="interests">{"".join(theme_card(t) for t in THEMES)}</div></div></section>
 <section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">Where to go</span><h2>Seven regions, one north</h2><p>Each region page has its history, quick facts and every place we cover there.</p></div><a class="more" href="/regions/">All destinations →</a></div><div class="mosaic">{"".join(tiles)}</div></div></section>
 <section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">Explore the map</span><h2>Every place, one map</h2><p>Gold pins are the famous names, green pins the hidden places. Tap any pin for its guide.</p></div><a class="more" href="/map/">Full-screen map →</a></div>{map_box()}</div></section>
@@ -308,7 +315,7 @@ def build_places():
         bbox = f'{p["lon"]-0.08:.3f}%2C{p["lat"]-0.05:.3f}%2C{p["lon"]+0.08:.3f}%2C{p["lat"]+0.05:.3f}'
         hidden_alert = '<div class="alert"><b>Less verified place.</b> Information is thinner than for famous spots. Go with a local guide and ask in the nearest town about the route.</div>' if p["kind"] == "hidden" else ""
         body = hero(pic(p, True), ("Hidden place · " if p["kind"] == "hidden" else "") + e(r["name"]), e(p["name"]), e(p["ur"]), e(p["intro"]),
-                    crumbs=f'<a href="/">Home</a> › <a href="/regions/{p["region"]}/">{e(r["name"])}</a>', credit=(ph or {}).get("credit", ""))
+                    crumbs=f'<a href="/">Home</a> › <a href="/regions/{p["region"]}/">{e(r["name"])}</a>', credit=(ph or {}).get("credit", ""), extra=f'<button class="been big" data-been="{p["id"]}" type="button"></button>')
         body += f'''<nav class="subnav" aria-label="On this page"><div class="wrap"><a href="#overview">Overview</a><a href="#todo">Things to do</a><a href="#history">History</a><a href="#getting-there">Getting there</a><a href="#costs">Costs</a><a href="#packing">What to pack</a><a href="#stay">Stay & eat</a><a href="#map">Map</a></div></nav>
 <div class="wrap"><div class="glance">
 <div>{icon("mountain")}<span><small>Altitude</small><b>≈ {fmt(p["alt"])} m</b></span></div>
@@ -323,12 +330,14 @@ def build_places():
 {place_alt(p)}
 <h2 id="todo">Top things to do</h2><ol class="top">{"".join(f"<li>{e(t)}</li>" for t in p["todo"])}</ol>
 <h2 id="history">History</h2><p>{e(p["history"])}</p>
-<h2 id="getting-there">Getting there</h2><p>{e(p["reach"])}</p>
+<h2 id="getting-there">Getting there</h2><p>{e(p["reach"])}</p>{route_html(p)}
 <div class="table"><table><thead><tr><th>From</th><th style="text-align:right">Distance</th><th style="text-align:right">Drive time</th></tr></thead><tbody>{dist}</tbody></table></div>{fly}
 <h2 id="costs">Trip cost</h2><div class="card-box" id="calc"><p class="note">Loading the cost planner…</p></div>
 <h2 id="packing">What to pack</h2><div class="card-box" id="packs"></div>
 <h2 id="stay">Where to stay & eat</h2><p><b>Stay:</b> {e(p["stay"])}</p><p><b>Food:</b> {e(p["food"])}</p>
 <h2>Good to know</h2><ul>{"".join(f"<li>{e(t)}</li>" for t in p["tips"])}</ul>
+{"".join(['<h2>Trails here</h2><div class="trails one">' + "".join(trail_card(t) for t in EX.TRAILS if t["place"] == p["id"]) + '</div>']) if any(t["place"] == p["id"] for t in EX.TRAILS) else ""}
+<div class="share-box"><div><h3>Been here recently?</h3><p>Send us a road update, a correction or your photos. We check every message and credit photos we use.</p></div>{f'<a class="btn" href="mailto:{CONTACT["email"]}?subject=KohNoor%20update%3A%20{p["name"].replace(" ", "%20").replace("&", "and")}">Send an update</a>' if CONTACT.get("email") else ""}</div>
 <h2 id="map">Map</h2><iframe class="map" loading="lazy" title="Map of {e(p["name"])}" src="https://www.openstreetmap.org/export/embed.html?bbox={bbox}&amp;layer=mapnik&amp;marker={p["lat"]}%2C{p["lon"]}"></iframe>
 <p class="note">Location is approximate. <a href="https://www.google.com/maps/search/?api=1&amp;query={p["lat"]},{p["lon"]}" rel="noopener">Open in Google Maps</a></p>
 </div>
@@ -381,7 +390,8 @@ def build_essentials():
     sec = "".join(f'<h2>{t}</h2><ul>{"".join(f"<li>{e(i)}</li>" for i in L)}</ul>' for t, L in extra)
     body = hero('<img src="/img/kaghan.jpg" alt="">', "Works offline", "Offline essentials", "ضروری معلومات", "Emergency numbers, altitude sickness, mountain driving and more. Saved on your phone once you open it.", short=True)
     body += f'''<div class="wrap"><div class="layout"><div class="prose">
-<h2>Emergency numbers</h2><div class="num-tiles">{G[0]}</div>
+<div class="dl-box"><div><h3>Save the cheat sheet</h3><p>One image with emergency numbers, altitude steps and mobile networks. Save it to your phone's gallery before you go.</p></div><a class="btn" href="/assets/kohnoor-cheatsheet-en.png" download>Download (English)</a><a class="btn ghost-d" href="/assets/kohnoor-cheatsheet-ur.png" download>اردو</a></div>
+<h2>Emergency numbers</h2><div class="num-tiles">{G[0]}</div><h2>Roads & passes this month</h2>{passes_html()}
 <h2>Altitude sickness</h2>{G[1]}<ul>{"".join(f"<li>{e(t)}</li>" for t in E["altitude"])}</ul>
 <h2>Mountain driving</h2><ul>{"".join(f"<li>{e(t)}</li>" for t in E["road"])}</ul>
 <h2>Packing list</h2>{G[2]}<ul>{"".join(f"<li>{e(t)}</li>" for t in E["packing"])}</ul>
@@ -503,10 +513,10 @@ URP = {}
 for f in sorted(os.listdir(os.path.join(SRC, "ur"))):
     if f.startswith("places"): URP.update(json.load(open(os.path.join(SRC, "ur", f))))
 URS = json.load(open(os.path.join(SRC, "ur", "site.json")))
-UR_PATHS = {"/map/", "/regions/", "/interests/", "/when-to-go/", "/essentials/", "/list-your-business/"} | {f"/regions/{k}/" for k in REGION_ORDER} | {f"/places/{p['id']}/" for p in PLACES if p["id"] in URP} | {f"/interests/{t['slug']}/" for t in THEMES}
+UR_PATHS = {"/map/", "/trails/", "/wonders/", "/routes/", "/regions/", "/interests/", "/when-to-go/", "/essentials/", "/list-your-business/"} | {f"/regions/{k}/" for k in REGION_ORDER} | {f"/places/{p['id']}/" for p in PLACES if p["id"] in URP} | {f"/interests/{t['slug']}/" for t in THEMES}
 UMON = ["جنوری","فروری","مارچ","اپریل","مئی","جون","جولائی","اگست","ستمبر","اکتوبر","نومبر","دسمبر"]
 def urfirst(t): return t.split("۔")[0].strip() + "۔"
-NAV_UR = [("/ur/regions/", "منزلیں"), ("/ur/interests/", "دلچسپیاں"), ("/ur/when-to-go/", "کب جائیں"), ("/ur/map/", "نقشہ"), ("/ur/essentials/", "ضروری معلومات"), ("/ur/list-your-business/", "اپنا کاروبار شامل کریں")]
+NAV_UR = [("/ur/regions/", "منزلیں"), ("/ur/interests/", "دلچسپیاں"), ("/ur/trails/", "ٹریلز"), ("/ur/when-to-go/", "کب جائیں"), ("/ur/map/", "نقشہ"), ("/ur/essentials/", "ضروری معلومات"), ("/ur/list-your-business/", "اپنا کاروبار شامل کریں")]
 def header_ur(active, over, enp="/"):
     links = "".join(f'<a href="{u}"{" aria-current=page" if active == u else ""}>{t}</a>' for u, t in NAV_UR)
     return f'''<header class="site-head{' over' if over else ''}"><div class="wrap head-in">
@@ -524,7 +534,7 @@ def footer_ur():
     return f'''<footer class="site-foot">{topo(3)}<div class="wrap"><div class="foot-grid">
 <div><a class="brand" href="/ur/">{gem()}<b class="ur-brand">کوہِ نور</b></a><p>پہاڑوں کا ہیرا: شمالی پاکستان کا مکمل اور دیانتدار رہنما۔ جگہیں، تاریخ، لائیو موسم، سفر کا خرچ اور آف لائن معلومات۔</p></div>
 <div><h4>علاقے</h4>{regs}</div><div><h4>مشہور جگہیں</h4>{top}</div>
-<div><h4>منصوبہ</h4><a href="/ur/interests/">دلچسپی کے مطابق سفر</a><a href="/ur/when-to-go/">کب جائیں</a><a href="/ur/essentials/">ضروری معلومات</a><a href="/ur/list-your-business/">اپنا کاروبار شامل کریں</a><a href="/">English</a></div>
+<div><h4>منصوبہ</h4><a href="/ur/interests/">دلچسپی کے مطابق سفر</a><a href="/ur/routes/">راستہ تلاش کریں</a><a href="/ur/trails/">ٹریلز</a><a href="/ur/wonders/">عجیب و غریب جگہیں</a><a href="/ur/when-to-go/">کب جائیں</a><a href="/ur/essentials/">ضروری معلومات</a><a href="/ur/list-your-business/">اپنا کاروبار شامل کریں</a><a href="/">English</a></div>
 </div><div class="foot-bottom"><span>© {date.today().year} کوہِ نور۔ خرچ اور سفر کا وقت اندازاً ہیں؛ سفر سے پہلے سڑک کی صورتحال معلوم کریں۔</span><span>موسم: Open-Meteo · تصاویر آزاد لائسنس کے تحت</span></div></div></footer>
 <div class="net" role="status">آپ آف لائن ہیں · محفوظ صفحات چلتے رہیں گے</div>'''
 
@@ -550,6 +560,12 @@ def build_urdu():
                 extra=f'''<div class="hero-search"><button data-open-search>{icon("search")}کہاں جانا چاہتے ہیں؟</button></div>
 <div class="chips">{"".join(f'<a class="chip" href="/ur/interests/{t["slug"]}/">{icon(t["icon"])}{e(th[t["slug"]][0])}</a>' for t in THEMES[:6])}</div>''', credit="خزاں میں وادیٔ ہنزہ")
     body += f'''<div class="strip"><div class="wrap"><div><b>{len(PLACES)}</b><span>مشہور اور چھپی منزلیں</span></div><div><b>{len(REGIONS)}</b><span>علاقے، مری سے خنجراب تک</span></div><div><b>لائیو</b><span>ہر جگہ کا موسم</span></div><div><b>آف لائن</b><span>سگنل کے بغیر بھی چلتا ہے</span></div></div></div>
+<section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">سڑکیں اور درے</span><h2>اس مہینے عموماً کیا کھلا ہے</h2></div><a class="more" href="/ur/essentials/">حفاظتی معلومات ←</a></div>{passes_html("ur")}</div></section>
+<section class="block tight"><div class="wrap"><div class="feat3">
+<a href="/ur/routes/" class="f3"><img src="/img/babusar-s.jpg" alt="" loading="lazy"><div><span class="kicker">راستہ تلاش کریں</span><h3>وہاں کیسے پہنچیں؟</h3><p>قدم بہ قدم: گاڑی، جیپ، پیدل یا پرواز، ہر حصے کے وقت اور خرچ کے ساتھ۔</p></div></a>
+<a href="/ur/trails/" class="f3"><img src="/img/fairy-meadows-s.jpg" alt="" loading="lazy"><div><span class="kicker">ٹریلز</span><h3>{len(EX.TRAILS)} پیدل راستے</h3><p>ہر راستے کی مشکل، فاصلہ، چڑھائی اور بلندی کا خاکہ۔</p></div></a>
+<a href="/ur/wonders/" class="f3"><img src="/img/chilas-s.jpg" alt="" loading="lazy"><div><span class="kicker">عجیب و غریب</span><h3>حیرت انگیز جگہیں</h3><p>لینڈ سلائیڈ سے بنی جھیلیں، قدیم چٹانی نقوش اور دنیا کی چھت پر پولو۔</p></div></a>
+</div><div class="been-progress"></div></div></section>
 <section class="block"><div class="wrap"><div class="sec-head"><div><span class="kicker">اپنا سفر چنیں</span><h2>اپنی پسند کے مطابق شمال دیکھیں</h2><p>جو پسند ہو اس سے شروع کریں۔ ہر صفحے پر موزوں جگہیں، موسم، سفر کا وقت اور خرچ موجود ہے۔</p></div><a class="more" href="/ur/interests/">تمام دلچسپیاں ←</a></div><div class="interests">{icards}</div></div></section>
 <section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">کہاں جائیں</span><h2>سات علاقے، ایک شمال</h2></div><a class="more" href="/ur/regions/">تمام منزلیں ←</a></div><div class="mosaic">{"".join(tiles)}</div></div></section>
 <section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">نقشہ</span><h2>ہر جگہ، ایک نقشہ</h2><p>سنہری نشان مشہور جگہیں ہیں اور سبز نشان چھپی جگہیں۔ کسی بھی نشان پر ٹیپ کریں۔</p></div><a class="more" href="/ur/map/">پورا نقشہ ←</a></div>{map_box(lang="ur")}</div></section>
@@ -590,7 +606,7 @@ def build_urdu():
         hidden_alert = '<div class="alert"><b>کم تصدیق شدہ جگہ۔</b> یہاں کی معلومات مشہور جگہوں سے کم ہیں۔ مقامی گائیڈ کے ساتھ جائیں اور قریبی قصبے میں راستے کا پوچھ لیں۔</div>' if p["kind"] == "hidden" else ""
         near = nearest(p, 4)
         body = hero(pic(p, True), ("چھپی جگہ · " if p["kind"] == "hidden" else "") + e(r["ur"]), e(p["ur"]), "", e(u["intro"]),
-                    crumbs=f'<a href="/ur/">ہوم</a> › <a href="/ur/regions/{p["region"]}/">{e(r["ur"])}</a>', credit=(ph or {}).get("credit", ""))
+                    crumbs=f'<a href="/ur/">ہوم</a> › <a href="/ur/regions/{p["region"]}/">{e(r["ur"])}</a>', credit=(ph or {}).get("credit", ""), extra=f'<button class="been big" data-been="{p["id"]}" type="button"></button>')
         body += f'''<nav class="subnav" aria-label="اس صفحے پر"><div class="wrap"><a href="#overview">تعارف</a><a href="#todo">کیا کریں</a><a href="#history">تاریخ</a><a href="#getting-there">کیسے پہنچیں</a><a href="#costs">خرچ</a><a href="#packing">کیا ساتھ لے جائیں</a><a href="#stay">رہائش اور کھانا</a><a href="#map">نقشہ</a></div></nav>
 <div class="wrap"><div class="glance">
 <div>{icon("mountain")}<span><small>بلندی</small><b>تقریباً {fmt(p["alt"])} میٹر</b></span></div>
@@ -605,12 +621,14 @@ def build_urdu():
 {place_alt(p, "ur")}
 <h2 id="todo">کیا کریں</h2><ol class="top">{"".join(f"<li>{e(t)}</li>" for t in u["todo"])}</ol>
 <h2 id="history">تاریخ</h2><p>{e(u["history"])}</p>
-<h2 id="getting-there">کیسے پہنچیں</h2><p>{e(u["reach"])}</p>
+<h2 id="getting-there">کیسے پہنچیں</h2><p>{e(u["reach"])}</p>{route_html(p, "ur")}
 <div class="table"><table><thead><tr><th>کہاں سے</th><th>فاصلہ</th></tr></thead><tbody>{dist}</tbody></table></div>
 <h2 id="costs">سفر کا خرچ</h2><div class="card-box" id="calc"><p class="note">خرچ کا کیلکولیٹر لوڈ ہو رہا ہے…</p></div>
 <h2 id="packing">کیا ساتھ لے جائیں</h2><div class="card-box" id="packs"></div>
 <h2 id="stay">رہائش اور کھانا</h2><p><b>رہائش:</b> {e(u["stay"])}</p><p><b>کھانا:</b> {e(u["food"])}</p>
 <h2>اہم مشورے</h2><ul>{"".join(f"<li>{e(t)}</li>" for t in u["tips"])}</ul>
+{"".join(['<h2>یہاں کے ٹریلز</h2><div class="trails one">' + "".join(trail_card(t, "ur") for t in EX.TRAILS if t["place"] == p["id"]) + '</div>']) if any(t["place"] == p["id"] for t in EX.TRAILS) else ""}
+<div class="share-box"><div><h3>حال ہی میں یہاں گئے؟</h3><p>سڑک کی تازہ صورتحال، کوئی تصحیح یا اپنی تصاویر بھیجیں۔ ہم ہر پیغام دیکھتے ہیں اور استعمال شدہ تصاویر پر آپ کا نام دیتے ہیں۔</p></div>{f'<a class="btn" href="mailto:{CONTACT["email"]}?subject=KohNoor%20update%3A%20{p["name"].replace(" ", "%20").replace("&", "and")}">اپڈیٹ بھیجیں</a>' if CONTACT.get("email") else ""}</div>
 <h2 id="map">نقشہ</h2><iframe class="map" loading="lazy" title="{e(p["ur"])} کا نقشہ" src="https://www.openstreetmap.org/export/embed.html?bbox={bbox}&amp;layer=mapnik&amp;marker={p["lat"]}%2C{p["lon"]}"></iframe>
 <p class="note">مقام اندازاً ہے۔ <a href="https://www.google.com/maps/search/?api=1&amp;query={p["lat"]},{p["lon"]}" rel="noopener">گوگل میپس میں کھولیں</a></p>
 </div>
@@ -650,7 +668,8 @@ def build_urdu():
     E = URS["essentials"]; G = ess_graphics("ur")
     body = hero('<img src="/img/kaghan.jpg" alt="">', "آف لائن بھی", "ضروری معلومات", "", "ہنگامی نمبر، بلندی کی بیماری، پہاڑی ڈرائیونگ اور مزید۔ ایک بار کھولنے کے بعد فون میں محفوظ۔", short=True)
     body += f'''<div class="wrap"><div class="layout"><div class="prose">
-<h2>ہنگامی نمبر</h2><div class="num-tiles">{G[0]}</div>
+<div class="dl-box"><div><h3>معلوماتی تصویر محفوظ کریں</h3><p>ہنگامی نمبر، بلندی کی بیماری اور موبائل نیٹ ورک ایک تصویر میں۔ جانے سے پہلے فون کی گیلری میں محفوظ کر لیں۔</p></div><a class="btn" href="/assets/kohnoor-cheatsheet-ur.png" download>ڈاؤن لوڈ (اردو)</a><a class="btn ghost-d" href="/assets/kohnoor-cheatsheet-en.png" download>English</a></div>
+<h2>ہنگامی نمبر</h2><div class="num-tiles">{G[0]}</div><h2>اس مہینے سڑکیں اور درے</h2>{passes_html("ur")}
 <h2>بلندی کی بیماری</h2>{G[1]}<ul>{"".join(f"<li>{e(t)}</li>" for t in E["altitude"])}</ul>
 <h2>پہاڑی ڈرائیونگ</h2><ul>{"".join(f"<li>{e(t)}</li>" for t in E["road"])}</ul>
 <h2>کون سا موبائل نیٹ ورک چلتا ہے</h2><div class="table"><table><thead><tr><th>علاقہ</th><th>عموماً چلتا ہے</th></tr></thead><tbody>{"".join(f"<tr><td>{e(a)}</td><td>{e(b)}</td></tr>" for a, b in E["network"])}</tbody></table></div>
@@ -739,7 +758,7 @@ def map_box(region=None, lang="en", tall=False, filters=False):
         lab = (lambda k: REGIONS[k]["ur"]) if lang == "ur" else (lambda k: REGIONS[k]["name"])
         chips = f'<div class="map-filters"><button class="chip on" data-filter="all">{"سب" if lang == "ur" else "All"}</button>' + "".join(f'<button class="chip" data-filter="{k}">{e(lab(k))}</button>' for k in REGION_ORDER) + f'<button class="chip" data-filter="hidden">{"چھپی جگہیں" if lang == "ur" else "Hidden places"}</button></div>'
     legend = f'<div class="map-legend"><span><i class="lg-f"></i>{"مشہور" if lang == "ur" else "Famous"}</span><span><i class="lg-h"></i>{"چھپی جگہ" if lang == "ur" else "Hidden"}</span></div>'
-    return f'{chips}<div class="kmap-wrap"><div class="kmap{" tall" if tall else ""}" data-region="{region or ""}" role="region" aria-label="{"نقشہ" if lang == "ur" else "Map of destinations"}"><div class="kmap-load">{"نقشہ لوڈ ہو رہا ہے…" if lang == "ur" else "Loading map…"}</div></div>{legend}</div>'
+    return f'{chips}<div class="kmap-wrap"><div class="kmap{" tall" if tall else ""}" data-region="{region or ""}" role="region" aria-label="{"نقشہ" if lang == "ur" else "Map of destinations"}"><div class="kmap-load">{offline_map_svg(region)}</div></div>{legend}</div>'
 
 def build_maps():
     for lang in ("en", "ur"):
@@ -808,6 +827,153 @@ def ess_graphics(lang="en"):
     ins = '<div class="install">' + "".join(f'<div class="inst">{phone(k)}<div><h4>{e(t)}</h4><ol>{"".join(f"<li>{e(s)}</li>" for s in st)}</ol></div></div>' for t, k, st in inst) + '</div>'
     return nums, alt, pk, ins
 
+# ---------------- v7: routes, trails, wonders, passes, been-there, cheat sheet, offline map ----------------
+import importlib.util as _ilu
+_sp = _ilu.spec_from_file_location("extra", os.path.join(SRC, "extra.py")); EX = _ilu.module_from_spec(_sp); _sp.loader.exec_module(EX)
+MODE = {"car": ("car", "By car", "گاڑی"), "jeep": ("car", "4x4 jeep", "فور بائی فور جیپ"), "hike": ("route", "On foot", "پیدل"), "cable": ("arrow", "Cable car", "کیبل کار"), "plane": ("plane", "Flight", "پرواز")}
+def hrs_rng(a, b, ur=False):
+    f = lambda v: (f"{v:g}" if v >= 1 else f"{round(v * 60)} {'منٹ' if ur else 'min'}")
+    if a < 1 and b < 1: return f(a) if a == b else f"{round(a*60)}–{round(b*60)} {'منٹ' if ur else 'min'}"
+    return (f"{a:g}" if a == b else f"{a:g}–{b:g}") + (" گھنٹے" if ur else " h")
+def parse_hrs(s):
+    m = re.match(r"^(\d+(?:\.\d+)?)(?:–(\d+(?:\.\d+)?))?", s)
+    return (float(m.group(1)), float(m.group(2) or m.group(1))) if m else (0, 0)
+def legs_for(p):
+    if p["id"] in EX.LEGS: return EX.LEGS[p["id"]]
+    a, b = parse_hrs(p["hrs"])
+    return [("car", p["name"], p["ur"], a, b, "", "")]
+def route_html(p, lang="en"):
+    U_ = lang == "ur"; legs = legs_for(p)
+    def leg_li(mode, to_en, to_ur, a, b, ne, nu, cost=""):
+        ic, le, lu = MODE[mode]
+        return f'<li class="leg m-{mode}"><span class="lg-ic">{icon(ic)}</span><div><b>{e(to_ur if U_ else to_en)}</b><small>{e(lu if U_ else le)} · {hrs_rng(a, b, U_)}{(" · " + e(nu if U_ else ne)) if (nu if U_ else ne) else ""}{cost}</small></div></li>'
+    def jeep_cost(): return f' · {"جیپ تقریباً" if U_ else "jeep about"} Rs {fmt(p["jeep"])}' if p.get("jeep") else ""
+    start = f'<li class="leg start"><span class="lg-ic">{icon("pin")}</span><div><b>{"اسلام آباد" if U_ else "Islamabad"}</b></div></li>'
+    lis = "".join(leg_li(*l, cost=(jeep_cost() if l[0] == "jeep" else "")) for l in legs)
+    tmin = sum(l[3] for l in legs); tmax = sum(l[4] for l in legs)
+    fuel = round(2 * p["km"] / COSTS["kmPerLitre"] * COSTS["petrol"] / 500) * 500
+    opts = [f'<div class="ropt best"><div class="ro-h"><span class="ro-t">{"گاڑی سے" if U_ else "Drive"}</span><span class="ro-tag">{"تجویز کردہ" if U_ else "Recommended"}</span><b>{hrs_rng(tmin, tmax, U_)}</b></div><ol class="legs">{start}{lis}</ol><p class="note">{("پیٹرول آنا جانا تقریباً" if U_ else "Return fuel for one car about")} Rs {fmt(fuel)}{(" · " + ("جیپ کا کرایہ الگ" if U_ else "jeep hire extra")) if p.get("jeep") else ""}</p></div>']
+    if p.get("fly") and p["id"] in EX.FLY_ROAD:
+        ap = EX.FLY_FROM[p["fly"]]; rd = EX.FLY_ROAD[p["id"]]
+        fl = f'<li class="leg m-plane"><span class="lg-ic">{icon("plane")}</span><div><b>{e(ap[1] if U_ else ap[0])} {"ایئرپورٹ" if U_ else "airport"}</b><small>{"پرواز" if U_ else "Flight"} · {"تقریباً 1 گھنٹہ" if U_ else "about 1 h"} · {"موسم پر منحصر" if U_ else "weather-dependent"}</small></div></li>'
+        rdl = leg_li("jeep" if p.get("jeep") or p["id"] in ("deosai", "sarfaranga") else "car", p["name"], p["ur"], rd, rd, "", "") if rd else ""
+        opts.append(f'<div class="ropt"><div class="ro-h"><span class="ro-t">{"پرواز + سڑک" if U_ else "Fly + road"}</span><b>{hrs_rng(1 + rd, 1 + rd, U_)}</b></div><ol class="legs">{start}{fl}{rdl}</ol><p class="note">{("اسلام آباد سے پروازیں موسم کی وجہ سے اکثر منسوخ ہوتی ہیں؛ ایک اضافی دن رکھیں۔" if U_ else e(COSTS["flights"].get(p["fly"], "")))}</p></div>')
+    d = COSTS["delta"][p["route"]]
+    other = (f'لاہور سے تقریباً {d["lhrH"]:g} گھنٹے زیادہ؛ پشاور سے {abs(d["pshH"]):g} گھنٹے {"کم" if d["pshH"] < 0 else "زیادہ"}۔' if U_ else
+             f'From Lahore add about {d["lhrH"]:g} h; from Peshawar {"subtract" if d["pshH"] < 0 else "add"} about {abs(d["pshH"]):g} h.')
+    return f'<div class="routes">{"".join(opts)}</div><p class="note">{other} {("کوچز بڑے شہروں (مینگورہ، ناران، گلگت، سکردو، چترال، مظفرآباد) تک چلتی ہیں۔" if U_ else "Coaches run to the main towns (Mingora, Naran, Gilgit, Skardu, Chitral, Muzaffarabad).")}</p>'
+
+def trail_profile(t):
+    W, H = 300, 80; a, b = t["start"], t["top"]; lo = min(a, b) - 150; hi = max(a, b) + 150
+    Y = lambda v: 8 + (hi - v) / (hi - lo) * (H - 22)
+    rnd = random.Random(sum(map(ord, t["id"])))
+    if t["type"] == "Out and back": xs = [0, .2, .35, .5, .65, .8, 1]; ys = [a, a + (b - a) * .3, a + (b - a) * .55, b, a + (b - a) * .55, a + (b - a) * .3, a]
+    else: xs = [0, .25, .5, .75, 1]; ys = [a, a + (b - a) * (.2 + rnd.random() * .15), a + (b - a) * .55, a + (b - a) * (.8 + rnd.random() * .1), b]
+    pts = " ".join(f"{10 + x * (W - 20):.0f},{Y(y):.0f}" for x, y in zip(xs, ys))
+    return f'<svg class="tprof" viewBox="0 0 {W} {H}" aria-hidden="true"><polygon points="10,{H - 12} {pts} {W - 10},{H - 12}" fill="rgba(46,107,87,.16)"/><polyline points="{pts}" fill="none" stroke="#2E6B57" stroke-width="2.5" stroke-linejoin="round"/><text x="10" y="{H - 1}" class="tp">{fmt(a)} m</text><text x="{W - 10}" y="{H - 1}" text-anchor="end" class="tp">{"↑ " + fmt(b) + " m"}</text></svg>'
+def trail_card(t, lang="en"):
+    U_ = lang == "ur"; dn, du, dc = EX.DIFF[t["diff"]]; p = BYID[t["place"]]; pre = "/ur" if U_ else ""
+    typ = {"One way": "یک طرفہ", "Out and back": "جانا اور واپسی", "Loop": "چکر"}[t["type"]] if U_ else t["type"]
+    return f'''<article class="trail" data-diff="{t["diff"]}" id="{t["id"]}"><a class="tr-pic" href="{pre}/places/{p["id"]}/"><img src="/img/{p["id"]}-s.jpg" alt="" loading="lazy"><span class="diff" style="background:{dc}">{e(du if U_ else dn)}</span></a>
+<div class="tr-body"><span class="region">{e(p["ur"] if U_ else p["name"])}</span><h3>{e(t["ur"] if U_ else t["name"])}</h3>
+<div class="tr-stats"><span><b>{t["km"]:g} {"کلومیٹر" if U_ else "km"}</b><small>{"فاصلہ" if U_ else "Length"}</small></span><span><b>+{fmt(t["gain"])} {"میٹر" if U_ else "m"}</b><small>{"چڑھائی" if U_ else "Elevation gain"}</small></span><span><b>{e(t["hrs"]).replace("days", "دن" if U_ else "days").replace(" up", " اوپر" if U_ else " up")}{"" if "day" in t["hrs"] else (" گھنٹے" if U_ else " h")}</b><small>{"وقت" if U_ else "Time"}</small></span><span><b>{e(typ)}</b><small>{"قسم" if U_ else "Route"}</small></span></div>
+{trail_profile(t)}<p>{e(t["dur"] if U_ else t["desc"])}</p><p class="note">{"بہترین موسم" if U_ else "Best season"}: {e(t["season"])} · {"اعداد و شمار اندازاً ہیں" if U_ else "figures are approximate"}</p></div></article>'''
+
+def stamp_rows(): pass
+
+def passes_html(lang="en"):
+    U_ = lang == "ur"; pre = "/ur" if U_ else ""; mon = UMON if U_ else MONTHS
+    cards = "".join(f'''<a class="pass" href="{pre}/places/{x["place"]}/" data-open="{x["open"]}"><div class="ps-h"><b>{e(x["ur"] if U_ else x["name"])}</b><span class="ps-badge"></span></div><small>{e(x["nur"] if U_ else x["note"])} · {fmt(x["alt"])} {"میٹر" if U_ else "m"}</small><div class="ps-months">{"".join(f'<i class="o{v}" title="{mon[i]}"></i>' for i, v in enumerate(x["open"]))}</div></a>''' for x in EX.PASSES)
+    note = ("یہ موسمی رہنمائی ہے، لائیو صورتحال نہیں۔ سفر سے پہلے موٹروے/ہائی وے پولیس 130 یا مقامی پولیس سے تصدیق کریں۔" if U_ else
+            "Seasonal guide, not live status. Before you travel, confirm with Motorway/Highway Police on 130 or local police.")
+    return f'<div class="passes">{cards}</div><p class="note">{note}</p>'
+
+def wonders_page(lang="en"):
+    U_ = lang == "ur"; pre = "/ur" if U_ else ""
+    cards = "".join(f'''<article class="wonder"><a class="wd-pic" href="{pre}/places/{w["place"]}/"><img src="/img/{w["place"]}.jpg" alt="" loading="lazy"></a><div class="wd-body"><span class="region">{e(BYID[w["place"]]["ur"] if U_ else BYID[w["place"]]["name"])} · {e(REGIONS[BYID[w["place"]]["region"]]["ur"] if U_ else REGIONS[BYID[w["place"]]["region"]]["name"])}</span><h3>{e(w["ur"] if U_ else w["title"])}</h3><p>{e(w["tur"] if U_ else w["text"])}</p><div class="wd-act"><a href="{pre}/places/{w["place"]}/">{"رہنما پڑھیں ←" if U_ else "Read the guide →"}</a><button class="been" data-been="{w["place"]}" type="button"></button></div></div></article>''' for w in EX.WONDERS)
+    body = hero('<img src="/img/passu-khunjerab.jpg" alt="">', "عجیب و غریب" if U_ else "Curious places", "شمال کے حیرت انگیز راز" if U_ else "The north's strange and wonderful", "",
+                ("لینڈ سلائیڈ سے بنی جھیلیں، دریا کنارے ہزاروں سال پرانے نقوش اور دنیا کی چھت پر پولو: وہ جگہیں جن کی کہانی سب سے الگ ہے۔" if U_ else "Lakes made by landslides, two-thousand-year-old graffiti on the Indus and polo on the roof of the world: places with a story like no other."), short=True)
+    body += f'<section class="block tight"><div class="wrap"><div class="been-progress"></div><div class="wonders">{cards}</div></div></section>'
+    page(pre + "/wonders/", "شمالی پاکستان کی عجیب و غریب جگہیں" if U_ else "Curious and unusual places in Northern Pakistan",
+         ("شمالی پاکستان کی انوکھی جگہیں اور ان کی کہانیاں۔" if U_ else "Unusual places in Northern Pakistan and their stories: Chilas rock carvings, Attabad Lake, Hussaini bridge, Sarfaranga cold desert, Deosai, Shandur polo and more."),
+         body, active=pre + "/wonders/", over=True, lang=lang)
+
+def build_v7():
+    for lang in ("en", "ur"):
+        U_ = lang == "ur"; pre = "/ur" if U_ else ""
+        # trails
+        chips = f'<div class="map-filters"><button class="chip on" data-tfilter="all">{"سب" if U_ else "All"}</button>' + "".join(f'<button class="chip" data-tfilter="{k}">{e(v[1] if U_ else v[0])}</button>' for k, v in EX.DIFF.items()) + '</div>'
+        body = hero('<img src="/img/fairy-meadows.jpg" alt="">', "ٹریلز" if U_ else "Trails", "شمال کے بہترین پیدل راستے" if U_ else "Hikes and treks of the north", "",
+                    ("آسان جنگلاتی سیر سے کئی دن کے ٹریک تک: ہر راستے کی مشکل، فاصلہ، چڑھائی، وقت اور بلندی کا خاکہ۔" if U_ else f"{len(EX.TRAILS)} trails, from flat forest walks to multi-day treks, with difficulty, length, elevation gain, time and an elevation profile."), short=True)
+        body += f'<section class="block tight"><div class="wrap">{chips}<div class="trails">{"".join(trail_card(t, lang) for t in EX.TRAILS)}</div><div class="alert" style="margin-top:24px">{("پہاڑوں میں موسم تیزی سے بدلتا ہے۔ صبح جلد نکلیں، کسی کو اپنا پروگرام بتائیں، اور کم معروف راستوں پر مقامی گائیڈ لیں۔" if U_ else "Mountain weather changes fast. Start early, tell someone your plan, and take a local guide on lesser-known routes.")}</div></div></section>'
+        page(pre + "/trails/", "شمالی پاکستان کے ٹریک اور ہائیک" if U_ else "Best hikes and treks in Northern Pakistan",
+             ("شمالی پاکستان کے ٹریک: مشکل، فاصلہ، چڑھائی اور وقت۔" if U_ else "Hikes and treks in Northern Pakistan with difficulty, length, elevation gain and time: Fairy Meadows, Jahaz Banda, Katora Lake, Miranjani, Pipeline Track and more."),
+             body, active=pre + "/trails/", over=True, lang=lang)
+        wonders_page(lang)
+        # routes finder
+        opts = "".join(f'<optgroup label="{e(REGIONS[k]["ur"] if U_ else REGIONS[k]["name"])}">' + "".join(f'<option value="{p["id"]}">{e(p["ur"] if U_ else p["name"])}</option>' for p in PLACES if p["region"] == k) + '</optgroup>' for k in REGION_ORDER)
+        blocks = "".join(f'<div class="rblock" data-r="{p["id"]}" hidden><h2>{e(p["ur"] if U_ else p["name"])}</h2>{route_html(p, lang)}<a class="btn" href="{pre}/places/{p["id"]}/">{"مکمل رہنما ←" if U_ else "Full guide →"}</a></div>' for p in PLACES)
+        body = hero('<img src="/img/babusar.jpg" alt="">', "راستہ تلاش کریں" if U_ else "Route finder", "وہاں کیسے پہنچیں" if U_ else "How do I get there?", "",
+                    ("منزل چنیں اور قدم بہ قدم راستہ دیکھیں: گاڑی، جیپ، پیدل یا پرواز، ہر حصے کے وقت اور خرچ کے ساتھ۔" if U_ else "Pick a destination and see the trip step by step: car, jeep, foot or flight, with time and cost for each leg."), short=True)
+        body += f'<section class="block tight"><div class="wrap"><div class="card-box rfind"><label for="rf">{"منزل" if U_ else "Destination"}<select id="rf">{opts}</select></label></div>{blocks}</div></section>'
+        page(pre + "/routes/", "شمالی پاکستان کا راستہ تلاش کریں" if U_ else "Route finder: how to get to places in Northern Pakistan",
+             ("اسلام آباد سے شمال کی ہر جگہ تک قدم بہ قدم راستہ۔" if U_ else "Step-by-step routes from Islamabad to 57 places in Northern Pakistan: car, 4x4 jeep, hiking and flights, with times and costs."),
+             body, active=pre + "/routes/", over=True, lang=lang)
+
+def cheat_sheets():
+    from PIL import Image, ImageDraw, ImageFont
+    F = os.path.join(SRC, "fonts")
+    def font(n, s): return ImageFont.truetype(os.path.join(F, n), s)
+    for lang in ("en", "ur"):
+        U_ = lang == "ur"; E = URS["essentials"] if U_ else ESS
+        W, H = 1080, 2400; im = Image.new("RGB", (W, H), "#0E2433"); d = ImageDraw.Draw(im)
+        if U_:
+            fb = lambda s: font("noto-nastaliq-urdu-arabic-700-normal.ttf", s); fr = fb; dirn = "rtl"
+        else:
+            fb = lambda s: font("bricolage-grotesque-latin-800-normal.ttf", s); fr = lambda s: font("source-sans-3-latin-600-normal.ttf", s); dirn = None
+        def txt(xy, s, f, fill="#fff", anchor=None):
+            if U_: s = s.replace("·", "،").replace(" / ", "، ").replace("/", "، ").replace("(", "").replace(")", "").replace("—", "،")
+            kw = {"direction": dirn, "features": ["-kern"]} if U_ else {}
+            d.text(xy, s, font=f, fill=fill, anchor=anchor, **kw)
+        R = W - 70; X = (R if U_ else 70); A = ("ra" if U_ else "la")
+        d.rectangle([0, 0, W, 330], fill="#16344A")
+        txt((X, 70), "کوہِ نور · آف لائن رہنما" if U_ else "KohNoor · Offline cheat sheet", fr(44), "#E09A3E", A)
+        txt((X, 150), "شمالی پاکستان کا سفر" if U_ else "Northern Pakistan travel", fb(78 if not U_ else 64), "#fff", A)
+        y = 390 + (30 if U_ else 0); txt((X, y), "ہنگامی نمبر" if U_ else "EMERGENCY NUMBERS", fb(44 if not U_ else 46), "#E09A3E", A); y += 100 if U_ else 90
+        for i, (a, b) in enumerate(E["numbers"]):
+            col = i % 2; row = i // 2; bx = 70 + col * 480; by = y + row * 170
+            d.rounded_rectangle([bx, by, bx + 460, by + 150], 22, fill="#B24A3B" if i == 0 else "#21465E")
+            d.text((bx + 28, by + 18), b, font=font("bricolage-grotesque-latin-800-normal.ttf", 64), fill="#fff")
+            txt((bx + 432, by + 100) if U_ else (bx + 30, by + 102), a[:34], fr(30 if not U_ else 26), "#DCE6EA", "ra" if U_ else "la")
+        y += ((len(E["numbers"]) + 1) // 2) * 170 + (80 if U_ else 40)
+        txt((X, y), "بلندی کی بیماری" if U_ else "ALTITUDE SICKNESS", fb(44 if not U_ else 46), "#E09A3E", A); y += 110 if U_ else 90
+        steps = ["سر درد، متلی، سانس پھولنا", "رکیں، آرام کریں، پانی پئیں", "بہتری نہ ہو تو نیچے آئیں"] if U_ else ["Headache, nausea, breathless", "Stop, rest, drink water", "Not better? Go down"]
+        cols = ["#B7860F", "#E09A3E", "#B24A3B"]
+        for i, s_ in enumerate(steps):
+            by = y + i * 120; d.rounded_rectangle([70, by, W - 70, by + 100], 20, fill="#16344A", outline=cols[i], width=4)
+            d.ellipse(([W - 150, by + 20, W - 90, by + 80] if U_ else [100, by + 20, 160, by + 80]), fill=cols[i])
+            d.text(((W - 120) if U_ else 130, by + 50), str(i + 1), font=font("bricolage-grotesque-latin-800-normal.ttf", 40), fill="#0E2433", anchor="mm")
+            txt(((W - 180) if U_ else 190, by + 52), s_, fr(40 if not U_ else 34), "#fff", "rm" if U_ else "lm")
+        y += 3 * 120 + (80 if U_ else 40)
+        txt((X, y), "کون سا نیٹ ورک" if U_ else "WHICH NETWORK WORKS", fb(44 if not U_ else 46), "#E09A3E", A); y += 110 if U_ else 90
+        for a, b in E["network"]:
+            d.line([70, y + 70, W - 70, y + 70], fill="#21465E", width=2)
+            txt((X, y), a, fr(36 if not U_ else 30), "#fff", A); txt(((70) if U_ else (W - 70), y + 4), b[:48], fr(28 if not U_ else 24), "#9FB4BF", "la" if U_ else "ra")
+            y += 92
+        d.rectangle([0, H - 110, W, H], fill="#E09A3E")
+        d.text((W // 2, H - 55), "kohnoor.pages.dev", font=font("bricolage-grotesque-latin-800-normal.ttf", 44), fill="#0E2433", anchor="mm")
+        im.save(os.path.join(OUT, "assets", f"kohnoor-cheatsheet-{lang}.png"), optimize=True)
+
+def offline_map_svg(region=None):
+    ps = [p for p in PLACES if not region or p["region"] == region]
+    lo0, lo1 = min(p["lon"] for p in ps) - .4, max(p["lon"] for p in ps) + .4; la0, la1 = min(p["lat"] for p in ps) - .3, max(p["lat"] for p in ps) + .3
+    W, H = 1000, 560
+    X = lambda lo: 30 + (lo - lo0) / (lo1 - lo0) * (W - 60); Y = lambda la: 30 + (la1 - la) / (la1 - la0) * (H - 60)
+    dots = "".join(f'<circle cx="{X(p["lon"]):.0f}" cy="{Y(p["lat"]):.0f}" r="{6 if p["kind"] == "famous" else 5}" fill="{"#E09A3E" if p["kind"] == "famous" else "#2E6B57"}" stroke="#fff" stroke-width="2"/>' for p in ps)
+    big = [p for p in ps if p["id"] in ("hunza", "skardu", "gilgit", "kalam", "naran", "chitral", "neelum", "murree", "fairy-meadows", "kumrat", "mingora", "muzaffarabad")] if not region else ps[:10]
+    labels = "".join(f'<text x="{X(p["lon"]) + 9:.0f}" y="{Y(p["lat"]) + 4:.0f}">{e(p["name"].split(" (")[0].split(" &")[0])}</text>' for p in big)
+    return f'<svg class="omap" viewBox="0 0 {W} {H}" aria-hidden="true">{topo(9)}{dots}{labels}</svg>'
+
 def build_misc():
     body = hero('<img src="/img/naltar.jpg" alt="">', "Lost in the mountains", "This page is off the map", lede="The page you were looking for does not exist. Try searching for a place instead.", extra=f'<div class="hero-search"><button data-open-search>{icon("search")}Search a valley, lake or town</button></div>', short=True)
     page("/404.html", "Page not found", "This page does not exist.", body, over=True)
@@ -843,7 +1009,7 @@ self.addEventListener('fetch',e=>{{
   e.respondWith(caches.match(e.request).then(hit=>{{const net=fetch(e.request).then(r=>{{const c=r.clone();caches.open(V).then(x=>x.put(e.request,c));return r;}}).catch(()=>hit); return hit||net;}}));
 }});
 """)
-    urls = ["/", "/map/", "/regions/", "/interests/", "/when-to-go/", "/gallery/", "/itineraries/", "/plan/", "/essentials/", "/about/"] + [f"/interests/{t['slug']}/" for t in THEMES] + ["/list-your-business/", "/ur/"] + sorted("/ur" + u for u in UR_PATHS) + [f"/regions/{k}/" for k in REGION_ORDER] + [f"/places/{p['id']}/" for p in PLACES] + [f"/itineraries/{x['id']}/" for x in ITINS]
+    urls = ["/", "/map/", "/trails/", "/wonders/", "/routes/", "/regions/", "/interests/", "/when-to-go/", "/gallery/", "/itineraries/", "/plan/", "/essentials/", "/about/"] + [f"/interests/{t['slug']}/" for t in THEMES] + ["/list-your-business/", "/ur/"] + sorted("/ur" + u for u in UR_PATHS) + [f"/regions/{k}/" for k in REGION_ORDER] + [f"/places/{p['id']}/" for p in PLACES] + [f"/itineraries/{x['id']}/" for x in ITINS]
     open(os.path.join(OUT, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{date.today()}</lastmod></url>\n" for u in urls) + "</urlset>\n")
     open(os.path.join(OUT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
     open(os.path.join(OUT, "_headers"), "w").write("/assets/fonts/*\n  Cache-Control: public, max-age=31536000, immutable\n/img/*\n  Cache-Control: public, max-age=2592000\n/assets/*\n  Cache-Control: public, max-age=86400\n/sw.js\n  Cache-Control: no-cache\n")
@@ -853,5 +1019,5 @@ if __name__ == "__main__":
     if os.path.exists(OUT): shutil.rmtree(OUT)
     os.makedirs(OUT)
     n = build_assets()
-    build_home(); build_regions(); build_places(); build_itins(); build_plan(); build_essentials(); build_about(); build_interests(); build_when(); build_gallery(); build_urdu(); build_maps(); build_business(); build_llms(); build_misc()
+    build_home(); build_regions(); build_places(); build_itins(); build_plan(); build_essentials(); build_about(); build_interests(); build_when(); build_gallery(); build_urdu(); build_maps(); build_v7(); build_business(); build_llms(); cheat_sheets(); build_misc()
     print("pages in sitemap:", n)
