@@ -2171,125 +2171,176 @@
   }
  },
  "PHOTOS": {
-  "marghazar": {
-   "src": "img/marghazar.jpg",
-   "thumb": "img/marghazar-s.jpg",
-   "credit": "Ram Takht peak, Marghazar"
+  "arang-kel": {
+   "credit": "Arang Kel meadow"
   },
-  "malam-jabba": {
-   "src": "img/malam-jabba.jpg",
-   "thumb": "img/malam-jabba-s.jpg",
-   "credit": ""
-  },
-  "madyan": {
-   "src": "img/madyan.jpg",
-   "thumb": "img/madyan-s.jpg",
-   "credit": ""
-  },
-  "kalam": {
-   "src": "img/kalam.jpg",
-   "thumb": "img/kalam-s.jpg",
-   "credit": ""
-  },
-  "mahodand": {
-   "src": "img/mahodand.jpg",
-   "thumb": "img/mahodand-s.jpg",
-   "credit": ""
-  },
-  "kandol-lake": {
-   "src": "img/kandol-lake.jpg",
-   "thumb": "img/kandol-lake-s.jpg",
-   "credit": ""
-  },
-  "daral-lake": {
-   "src": "img/daral-lake.jpg",
-   "thumb": "img/daral-lake-s.jpg",
-   "credit": ""
-  },
-  "kaghan": {
-   "src": "img/kaghan.jpg",
-   "thumb": "img/kaghan-s.jpg",
-   "credit": ""
-  },
-  "naran": {
-   "src": "img/naran.jpg",
-   "thumb": "img/naran-s.jpg",
-   "credit": "Lake Saif-ul-Malook, Naran"
-  },
-  "fairy-meadows": {
-   "src": "img/fairy-meadows.jpg",
-   "thumb": "img/fairy-meadows-s.jpg",
-   "credit": "Nanga Parbat seen from the Fairy Meadows side"
-  },
-  "hunza": {
-   "src": "img/hunza.jpg",
-   "thumb": "img/hunza-s.jpg",
-   "credit": "Hunza Valley from Altit Fort"
-  },
-  "skardu": {
-   "src": "img/skardu.jpg",
-   "thumb": "img/skardu-s.jpg",
-   "credit": "Shangrila (Lower Kachura), Skardu"
-  },
-  "gilgit": {
-   "src": "img/gilgit.jpg",
-   "thumb": "img/gilgit-s.jpg",
-   "credit": ""
-  },
-  "naltar": {
-   "src": "img/naltar.jpg",
-   "thumb": "img/naltar-s.jpg",
-   "credit": ""
+  "astore-rama": {
+   "credit": "Lake in the Astore valley"
   },
   "attabad": {
-   "src": "img/attabad.jpg",
-   "thumb": "img/attabad-s.jpg",
-   "credit": ""
+   "credit": "Attabad Lake"
   },
-  "passu-khunjerab": {
-   "src": "img/passu-khunjerab.jpg",
-   "thumb": "img/passu-khunjerab-s.jpg",
-   "credit": "Passu Cones"
+  "bahrain": {
+   "credit": "Bridge over the Swat River, Bahrain"
+  },
+  "chilas": {
+   "credit": "Peaks above the Chilas stretch of the KKH"
   },
   "chitral": {
-   "src": "img/chitral.jpg",
-   "thumb": "img/chitral-s.jpg",
-   "credit": ""
+   "credit": "Snow peaks in Chitral"
   },
-  "kumrat": {
-   "src": "img/kumrat.jpg",
-   "thumb": "img/kumrat-s.jpg",
+  "daral-lake": {
+   "credit": "Daral Lake"
+  },
+  "fairy-meadows": {
+   "credit": "Sunrise on Nanga Parbat"
+  },
+  "gabin-jabba": {
+   "credit": "Wooden bridge, Gabin Jabba"
+  },
+  "gilgit": {
+   "credit": "Poplars and a suspension bridge near Gilgit"
+  },
+  "hunza": {
+   "credit": "Hunza Valley in autumn"
+  },
+  "jahanabad-buddha": {
+   "credit": "Jahanabad rock-carved Buddha"
+  },
+  "kachura": {
+   "credit": "Kachura Lake in autumn"
+  },
+  "kaghan": {
+   "credit": "Lake in the Kaghan Valley"
+  },
+  "kalam": {
+   "credit": "Swat River at Kalam"
+  },
+  "kandol-lake": {
+   "credit": "Kandol Lake"
+  },
+  "katora-lake": {
    "credit": "Katora Lake, Kumrat"
   },
+  "kumrat": {
+   "credit": "Meadow in Kumrat Valley"
+  },
+  "madyan": {
+   "credit": "Riverside Madyan"
+  },
+  "mahodand": {
+   "credit": "Mahodand Lake"
+  },
+  "malam-jabba": {
+   "credit": "Malam Jabba hills"
+  },
+  "marghazar": {
+   "credit": "Ram Takht, Marghazar"
+  },
   "murree": {
-   "src": "img/murree.jpg",
-   "thumb": "img/murree-s.jpg",
-   "credit": ""
+   "credit": "Pine forest and chairlift, Murree"
+  },
+  "naltar": {
+   "credit": "Jeeps below the Naltar peaks"
+  },
+  "naran": {
+   "credit": "Lake Saif-ul-Malook"
   },
   "nathia-gali": {
-   "src": "img/nathia-gali.jpg",
-   "thumb": "img/nathia-gali-s.jpg",
-   "credit": ""
-  },
-  "muzaffarabad": {
-   "src": "img/muzaffarabad.jpg",
-   "thumb": "img/muzaffarabad-s.jpg",
-   "credit": "Muzaffarabad and the Neelum River"
+   "credit": "Hills of Nathia Gali"
   },
   "neelum": {
-   "src": "img/neelum.jpg",
-   "thumb": "img/neelum-s.jpg",
-   "credit": "Sharda village, Neelum"
+   "credit": "Neelum Valley"
   },
-  "arang-kel": {
-   "src": "img/arang-kel.jpg",
-   "thumb": "img/arang-kel-s.jpg",
-   "credit": ""
+  "passu-khunjerab": {
+   "credit": "Passu Cones"
+  },
+  "phander": {
+   "credit": "Phander Lake in autumn"
+  },
+  "sarfaranga": {
+   "credit": "Cold desert dunes near Skardu"
+  },
+  "sharda": {
+   "credit": "Village near Sharda, Neelum"
+  },
+  "skardu": {
+   "credit": "Lake near Skardu in autumn"
+  },
+  "ushu-matiltan": {
+   "credit": "Matiltan valley"
+  },
+  "utror-gabral": {
+   "credit": "Spin Khwar Lake, Utror"
+  },
+  "mingora": {
+   "credit": "Sunset over Mingora · Photo: Imranrashid26, CC BY-SA 3.0 via Wikimedia Commons"
+  },
+  "swat-museum": {
+   "credit": "Swat Museum entrance · Photo: Adilswati, CC BY-SA 4.0 via Wikimedia Commons"
+  },
+  "butkara": {
+   "credit": "Butkara I stupa remains · Photo: Zarghun11, CC BY-SA 3.0 via Wikimedia Commons"
+  },
+  "udegram": {
+   "credit": "Odigram (Raja Gira) castle ruins · Photo: Zainul Abideen, CC BY-SA 4.0 via Wikimedia Commons"
+  },
+  "shogran": {
+   "credit": "Shogran · Public domain via Wikimedia Commons"
+  },
+  "babusar": {
+   "credit": "View from Babusar Top · Photo: King Eliot, CC BY-SA 4.0 via Wikimedia Commons"
+  },
+  "deosai": {
+   "credit": "Bara Pani, Deosai Plains · Photo: Syedmuradali22, CC BY-SA 4.0 via Wikimedia Commons"
+  },
+  "khaplu": {
+   "credit": "Khaplu panorama · Photo: Balti sahib, CC BY-SA 4.0 via Wikimedia Commons"
+  },
+  "shigar": {
+   "credit": "Shigar valley · Photo: Zafaryaab, CC BY-SA 4.0 via Wikimedia Commons"
+  },
+  "kalash": {
+   "credit": "Kalasha valleys · Photo: Akhtar Hassan, CC BY-SA 4.0 via Wikimedia Commons"
+  },
+  "muzaffarabad": {
+   "credit": "Muzaffarabad · Photo: Fiaz3300, CC BY-SA 4.0 via Wikimedia Commons"
   },
   "rawalakot": {
-   "src": "img/rawalakot.jpg",
-   "thumb": "img/rawalakot-s.jpg",
-   "credit": "Banjosa Lake, Rawalakot"
+   "credit": "Banjosa Lake · Photo: Khurram Naseer, CC BY-SA 3.0 via Wikimedia Commons"
+  },
+  "ratti-gali": {
+   "credit": "Ratti Gali Lake · Photo: Shahzeb Baig, CC BY-SA 4.0 via Wikimedia Commons"
+  },
+  "jahaz-banda": {
+   "credit": "Jahaz Banda meadows · Photo: Shahbaz Aslam, CC BY-SA 4.0 via Wikimedia Commons"
+  },
+  "shandur": {
+   "credit": "Shandur Top and Shandur Lake · Photo: Mudassir Ahmed, CC BY-SA 4.0 via Wikimedia Commons"
+  },
+  "garam-chashma": {
+   "credit": "Zhiture, Garam Chashma · Photo: Syed Gohar Ali Shah, CC BY-SA 4.0 via Wikimedia Commons"
+  },
+  "manthoka": {
+   "credit": "Indus River at Tolti, Kharmang · Photo: Nadeem Zangi, CC BY-SA 3.0 via Wikimedia Commons"
+  },
+  "borith": {
+   "credit": "Borith Lake, Gojal · Photo: Muhammad Azeem, CC BY-SA 3.0 via Wikimedia Commons"
+  },
+  "khalti": {
+   "credit": "Khalti Lake · Photo: Sabahat isha, CC BY-SA 4.0 via Wikimedia Commons"
+  },
+  "dudipatsar": {
+   "credit": "Dudipatsar Lake · Photo: Hamzaniazii, CC BY-SA 3.0 via Wikimedia Commons"
+  },
+  "taobat": {
+   "credit": "Taobat · Photo: Muddusar suleman, CC BY-SA 4.0 via Wikimedia Commons"
+  },
+  "leepa": {
+   "credit": "Rice terraces, Leepa Valley · Photo: Obaid Hassan Qureshi, CC BY-SA 4.0 via Wikimedia Commons"
+  },
+  "miranjani": {
+   "credit": "Miranjani · Photo: Fiaz3300, CC BY-SA 4.0 via Wikimedia Commons"
   }
  }
 }

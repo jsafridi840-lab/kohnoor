@@ -11,19 +11,30 @@ REGIONS, PLACES, ESS, COSTS, PHOTOS = D["REGIONS"], D["PLACES"], D["ESSENTIALS"]
 BYID = {p["id"]: p for p in PLACES}
 e = lambda s: html.escape(str(s), quote=True)
 
-# extra photos (Pixabay, free licence)
-PHOTOS.update({
-  "deosai": {"credit": "Deosai Plains"}, "khaplu": {"credit": "Khaplu valley"}, "babusar": {"credit": "Babusar Pass road"},
-  "ratti-gali": {"credit": "Ratti Gali Lake"}, "shigar": {"credit": "Shigar River and the Karakoram"}, "phander": {"credit": "Phander Valley"},
-  "astore-rama": {"credit": "Rama Lake and meadows"},
-})
 for k, v in PHOTOS.items():
     v["src"] = f"/img/{k}.jpg"; v["thumb"] = f"/img/{k}-s.jpg"
+SIZES = json.load(open(os.path.join(SRC, "img_sizes.json")))
+def _srcset(m):
+    n, small = m.group(1), bool(m.group(2))
+    ws = SIZES.get(n)
+    if not ws: return m.group(0)
+    if small: ws = [w for w in ws if w <= 1100]
+    src = f"/img/{n}-{1100 if 1100 in ws else ws[-1]}.webp" if small else f"/img/{n}-{1920 if 1920 in ws else ws[-1]}.webp"
+    sizes = "(max-width: 700px) 92vw, (max-width: 1100px) 46vw, 400px" if small else "100vw"
+    return f'<img src="{src}" srcset="{", ".join(f"/img/{n}-{w}.webp {w}w" for w in ws)}" sizes="{sizes}"'
+def responsive(html_): return re.sub(r'<img src="/img/([a-z0-9-]+?)(-s)?\.jpg"', _srcset, html_)
 REGION_PHOTO = {"swat": "r-swat", "gb": "r-gb", "kaghan": "naran", "chitral": "chitral", "ajk": "arang-kel", "galiyat": "murree", "dir": "kumrat"}
 REGION_ORDER = ["gb", "swat", "kaghan", "ajk", "chitral", "dir", "galiyat"]
 
 # ---------------- icons ----------------
 I = {
+ "drop": '<path d="M12 3s6 6.4 6 11a6 6 0 0 1-12 0c0-4.6 6-11 6-11Z"/>',
+ "tree": '<path d="m12 3-6 8h3l-4 6h14l-4-6h3l-6-8Z"/><path d="M12 17v4"/>',
+ "landmark": '<path d="M3 21h18M5 21V10m14 11V10M9 21V10m6 11V10M3 10l9-6 9 6H3Z"/>',
+ "snow": '<path d="M12 2v20M4.9 6.5l14.2 11M4.9 17.5l14.2-11"/><path d="m9 4 3 2 3-2M9 20l3-2 3 2"/>',
+ "family": '<circle cx="8" cy="7" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.2-6 5-6s5 2.7 5 6M13.5 20c0-2.5 1.6-4.5 3.5-4.5s3.5 2 3.5 4.5"/>',
+ "image": '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="m3 16 5-5 4 4 3-3 6 6"/><circle cx="16" cy="9" r="1.6"/>',
+ "check": '<path d="m5 12 4.5 4.5L19 7"/>',
  "search": '<path d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Zm10 2-4.3-4.3"/>',
  "menu": '<path d="M4 7h16M4 12h16M4 17h16"/>',
  "mountain": '<path d="m3 20 6.5-11 4 6 2.5-3.5L21 20H3Z"/><path d="m8 11.6 1.5 1.4 1.5-1.2"/>',
@@ -88,9 +99,12 @@ fmt = lambda n: f"{n:,}"
 def first_sentence(t): return t.split(". ")[0].rstrip(".") + "."
 
 # ---------------- layout ----------------
-NAV = [("/regions/", "Destinations"), ("/itineraries/", "Itineraries"), ("/plan/", "Plan a trip"), ("/essentials/", "Essentials"), ("/about/", "About")]
+NAV = [("/regions/", "Destinations"), ("/interests/", "Interests"), ("/when-to-go/", "When to go"), ("/itineraries/", "Itineraries"), ("/plan/", "Plan a trip"), ("/essentials/", "Essentials")]
 def header(active, over):
-    links = "".join(f'<a href="{u}"{" aria-current=page" if active == u else ""}>{t}</a>' for u, t in NAV)
+    def mega():
+        cols = "".join(f'<div class="mm-col"><a class="mm-h" href="/regions/{k}/">{e(REGIONS[k]["name"])}</a>' + "".join(f'<a href="/places/{p["id"]}/">{e(p["name"])}</a>' for p in [x for x in PLACES if x["region"] == k and x["kind"] == "famous"][:5]) + '</div>' for k in REGION_ORDER)
+        return f'<div class="mega"><div class="mm-in">{cols}<a class="mm-feat" href="/interests/hidden-gems/"><img src="/img/katora-lake-s.jpg" alt="" loading="lazy"><span><small>Explore</small><b>Hidden gems of the north</b></span></a></div></div>'
+    links = "".join((f'<div class="dd"><a href="{u}"{" aria-current=page" if active == u else ""}>{t}</a>{mega()}</div>' if u == "/regions/" else f'<a href="{u}"{" aria-current=page" if active == u else ""}>{t}</a>') for u, t in NAV)
     return f'''<header class="site-head{' over' if over else ''}"><div class="wrap head-in">
 <a class="brand" href="/" aria-label="KohNoor home">{gem()}<b>KohNoor</b><span class="ur" lang="ur">کوہِ نور</span></a>
 <nav class="nav" aria-label="Main">{links}</nav>
@@ -106,7 +120,7 @@ def footer():
     return f'''<footer class="site-foot">{topo(3)}<div class="wrap"><div class="foot-grid">
 <div><a class="brand" href="/">{gem()}<b>KohNoor</b></a><p>The jewel of the mountains: the complete, honest guide to Northern Pakistan. Places, history, live weather, trip costs and offline essentials.</p><p class="ur" lang="ur" style="font-size:18px;color:#fff">کوہِ نور — شمالی پاکستان کا مکمل رہنما</p></div>
 <div><h4>Regions</h4>{regs}</div><div><h4>Top places</h4>{top}</div>
-<div><h4>Plan</h4><a href="/itineraries/">Itineraries</a><a href="/plan/">Trip cost planner</a><a href="/essentials/">Offline essentials</a><a href="/about/">About KohNoor</a></div>
+<div><h4>Plan</h4><a href="/interests/">Travel by interest</a><a href="/when-to-go/">When to go</a><a href="/gallery/">Photo gallery</a><a href="/itineraries/">Itineraries</a><a href="/plan/">Trip cost planner</a><a href="/essentials/">Offline essentials</a><a href="/about/">About KohNoor</a></div>
 </div><div class="foot-bottom"><span>© {date.today().year} KohNoor. Costs and travel times are estimates; check road status before you travel.</span><span>Weather: Open-Meteo · Photos used under free licences</span></div></div></footer>
 <div class="net" role="status">You are offline · saved pages still work</div>'''
 
@@ -126,10 +140,10 @@ def page(path, title, desc, body, active="", over=False, og=None, body_attr="", 
 <script src="/assets/data.js" defer></script><script src="/assets/app.js" defer></script></body></html>'''
     dest = os.path.join(OUT, path.strip("/"), "index.html") if path.endswith("/") else os.path.join(OUT, path.lstrip("/"))
     os.makedirs(os.path.dirname(dest), exist_ok=True)
-    open(dest, "w").write(doc)
+    open(dest, "w").write(responsive(doc))
 
-def card(p, dark=False):
-    hid = '<span class="badge hidden">Hidden</span>' if p["kind"] == "hidden" else ""
+def card(p, dark=False, near_km=None):
+    hid = ('<span class="badge hidden">Hidden</span>' if p["kind"] == "hidden" else "") + (f'<span class="badge">≈ {near_km:.0f} km away</span>' if near_km is not None else "")
     return f'''<a class="card" href="/places/{p["id"]}/" data-months="{p["months"]}"><div class="pic">{pic(p)}<div class="badges">{hid}</div></div>
 <div class="body"><span class="region">{e(REGIONS[p["region"]]["name"])}</span><h3>{e(p["name"])}</h3><p>{e(first_sentence(p["intro"]))}</p>
 <div class="meta"><span>{icon("mountain")}{fmt(p["alt"])} m</span><span>{icon("clock")}{e(p["hrs"])} h</span><span class="price" data-price="{p["id"]}"></span></div></div></a>'''
@@ -199,9 +213,10 @@ def build_home():
                 "Every valley. Every road. One guide.", "شمالی پاکستان کا مکمل رہنما",
                 "From the forts of Hunza to the lakes of Swat: places and their history, live weather, real trip costs from Islamabad, Peshawar and Lahore, and offline essentials for where the signal ends.",
                 extra=f'''<div class="hero-search"><button data-open-search>{icon("search")}Where do you want to go?</button></div>
-<div class="chips">{"".join(f'<a class="chip" href="/places/{i}/">{e(BYID[i]["name"].split(" (")[0].split(" &")[0])}</a>' for i in ["hunza","skardu","kalam","naran","neelum","chitral"])}</div>''', credit="Hunza Valley in autumn")
+<div class="chips">{"".join(f'<a class="chip" href="/interests/{t["slug"]}/">{icon(t["icon"])}{e(t["name"])}</a>' for t in THEMES[:6])}</div>''', credit="Hunza Valley in autumn")
     body += f'''<div class="strip"><div class="wrap"><div><b>{len(PLACES)}</b><span>destinations, famous and hidden</span></div><div><b>{len(REGIONS)}</b><span>regions, from Murree to Khunjerab</span></div><div><b>Live</b><span>weather for every place</span></div><div><b>Offline</b><span>works where the signal ends</span></div></div></div>
-<section class="block"><div class="wrap"><div class="sec-head"><div><span class="kicker">Where to go</span><h2>Seven regions, one north</h2><p>Each region page has its history, quick facts and every place we cover there.</p></div><a class="more" href="/regions/">All destinations →</a></div><div class="mosaic">{"".join(tiles)}</div></div></section>
+<section class="block"><div class="wrap"><div class="sec-head"><div><span class="kicker">Choose your trip</span><h2>Travel the north your way</h2><p>Start with what you love. Every interest page lists the places that fit, with season, travel time and cost.</p></div><a class="more" href="/interests/">All interests →</a></div><div class="interests">{"".join(theme_card(t) for t in THEMES)}</div></div></section>
+<section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">Where to go</span><h2>Seven regions, one north</h2><p>Each region page has its history, quick facts and every place we cover there.</p></div><a class="more" href="/regions/">All destinations →</a></div><div class="mosaic">{"".join(tiles)}</div></div></section>
 <section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">Top destinations</span><h2>The great names of the north</h2></div><a class="more" href="/regions/">See all {len(PLACES)} →</a></div><div class="grid">{"".join(card(BYID[i]) for i in feat)}</div></div></section>
 <section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">In season</span><h2>Best right now: <span data-now-month></span></h2><p>Places at their best this month, with a budget price per person for two nights from Islamabad.</p></div></div><div class="grid" id="best-now"></div></div></section>
 <section class="block"><div class="wrap"><div class="sec-head"><div><span class="kicker">Plan your trip</span><h2>Tools for the road</h2></div></div><div class="tools">
@@ -211,11 +226,19 @@ def build_home():
 </div></div></section>
 <section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">Four seasons</span><h2>When to go</h2></div></div><div class="seasons">{sea}</div></div></section>
 <section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">Itineraries</span><h2>Routes that work</h2></div><a class="more" href="/itineraries/">All itineraries →</a></div><div class="grid">{itin}</div></div></section>
-<section class="block dark">{topo(11)}<div class="wrap" style="position:relative"><div class="sec-head"><div><span class="kicker">Hidden places</span><h2>Beyond the famous names</h2><p>Quiet lakes and meadows with far fewer visitors. Information is thinner here, so travel with a local guide.</p></div></div><div class="grid">{"".join(card(p) for p in hidden)}</div></div></section>
+<section class="block dark">{topo(11)}<div class="wrap" style="position:relative"><div class="sec-head"><div><span class="kicker">Hidden places</span><h2>Beyond the famous names</h2><p>Quiet lakes and meadows with far fewer visitors. Information is thinner here, so travel with a local guide.</p></div></div><div class="grid">{"".join(card(p) for p in hidden[:8])}</div><a class="btn" style="margin-top:30px" href="/interests/hidden-gems/">See all {len(hidden)} hidden places →</a></div></section>
+<section class="block tight"><div class="wrap"><div class="why">
+<div>{icon("wallet")}<h3>Honest costs</h3><p>Real fuel, coach, hotel and jeep prices from Islamabad, Peshawar and Lahore.</p></div>
+<div>{icon("sun")}<h3>Live weather</h3><p>Current conditions and a 5-day forecast on every place page.</p></div>
+<div>{icon("wifi")}<h3>Works offline</h3><p>Pages you open are saved for valleys with no signal.</p></div>
+<div>{icon("check")}<h3>Free, no booking push</h3><p>A guide, not a tour shop: plan your own trip your own way.</p></div>
+</div></div></section>
+<section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">Questions</span><h2>Before you go</h2></div><a class="more" href="/when-to-go/">Best time calendar →</a></div>{faq_html(FAQ)}</div></section>
 <section class="block"><div class="wrap"><div class="cta">{topo(5)}<div style="position:relative"><span class="kicker">Works offline</span><h2>Keep KohNoor on your phone</h2><p>Install it like an app. Pages you open are saved, so the guide, your packing list and emergency numbers still work in the mountains.</p></div>
 <div class="steps" style="position:relative"><div><b>Android:</b> Chrome menu → Add to Home screen</div><div><b>iPhone:</b> Safari share → Add to Home Screen</div><div><b>Tip:</b> open your destinations once while you have signal</div></div></div></div></section>'''
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": "KohNoor", "url": SITE + "/", "description": "The complete travel guide to Northern Pakistan.",
           "potentialAction": {"@type": "SearchAction", "target": SITE + "/plan/?place={search_term_string}", "query-input": "required name=search_term_string"}}
+    ld = [ld, faq_ld(FAQ)]
     page("/", "KohNoor — The complete travel guide to Northern Pakistan",
          "Plan trips to Hunza, Skardu, Swat, Naran, Neelum, Chitral and more: places and history, live weather, trip costs from Islamabad, Peshawar and Lahore, itineraries and offline essentials.",
          body, over=True, jsonld=ld)
@@ -254,7 +277,8 @@ def build_places():
         rows = [("Islamabad", p["km"], p["hrs"] + " h"), ("Peshawar", max(30, p["km"] + d["psh"]), hrs(d["pshH"])), ("Lahore", max(30, p["km"] + d["lhr"]), hrs(d["lhrH"]))]
         dist = "".join(f'<tr><td>{a}</td><td class="num">≈ {fmt(b)} km</td><td class="num">{e(c)}</td></tr>' for a, b, c in rows)
         fly = f'<p class="note">✈ {e(COSTS["flights"][p["fly"]])}</p>' if p.get("fly") and p["fly"] in COSTS["flights"] else ""
-        more = [x for x in PLACES if x["region"] == p["region"] and x["id"] != p["id"]][:3]
+        near = nearest(p, 4)
+        tags = "".join(f'<a class="chip" href="/interests/{t["slug"]}/">{icon(t["icon"])}{e(t["name"])}</a>' for t in THEMES_OF.get(p["id"], []))
         bbox = f'{p["lon"]-0.08:.3f}%2C{p["lat"]-0.05:.3f}%2C{p["lon"]+0.08:.3f}%2C{p["lat"]+0.05:.3f}'
         hidden_alert = '<div class="alert"><b>Less verified place.</b> Information is thinner than for famous spots. Go with a local guide and ask in the nearest town about the route.</div>' if p["kind"] == "hidden" else ""
         body = hero(pic(p, True), ("Hidden place · " if p["kind"] == "hidden" else "") + e(r["name"]), e(p["name"]), e(p["ur"]), e(p["intro"]),
@@ -267,7 +291,7 @@ def build_places():
 <div>{icon("signal")}<span><small>Mobile signal</small><b>{e(p["network"])}</b></span></div>
 </div>
 <div class="layout"><div class="prose">
-<h2 id="overview">Overview</h2><p class="lead">{e(p["intro"])}</p>
+<h2 id="overview">Overview</h2><p class="lead">{e(p["intro"])}</p>{f'<div class="chips light tags">{tags}</div>' if tags else ''}
 <div id="closed-now" class="alert closed" hidden><b><span data-now-month></span>: usually closed or not advised.</b> Snow or weather normally blocks this place now. Best season: {e(p["season"])}.</div>{hidden_alert}
 <div class="card-box"><h3>When to go</h3><div class="months">{months}</div><div class="legend"><span><i class="m2"></i>Best</span><span><i class="m1"></i>Possible</span><span><i class="m0"></i>Closed or not advised</span></div></div>
 <h2 id="todo">Top things to do</h2><ol class="top">{"".join(f"<li>{e(t)}</li>" for t in p["todo"])}</ol>
@@ -285,7 +309,7 @@ def build_places():
 <div class="card-box"><h3>Quick facts</h3><dl class="kv"><dt>Best season</dt><dd>{e(p["season"])}</dd><dt>Vehicle</dt><dd>{e(p["vehicle"])}</dd><dt>Fuel & cash</dt><dd>{e(p["fuel"])}</dd><dt>Signal</dt><dd>{e(p["network"])}</dd></dl></div>
 <div class="card-box"><h3>Road status</h3><p style="margin:0;font-size:15.5px">Roads in the north change with weather. Ask local police or your hotel before you set out, especially after rain or snow.</p></div></div></aside>
 </div></div>
-<section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">Keep exploring</span><h2>More in {e(r["name"])}</h2></div><a class="more" href="/regions/{p["region"]}/">All of {e(r["name"])} →</a></div><div class="grid">{"".join(card(x) for x in more)}</div></div></section>'''
+<section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">Nearby</span><h2>Closest places to {e(p["name"])}</h2><p>Straight-line distance; road distance is longer in the mountains.</p></div><a class="more" href="/regions/{p["region"]}/">All of {e(r["name"])} →</a></div><div class="grid g4">{"".join(card(x, near_km=dk) for dk, x in near)}</div></div></section>'''
         ld = [{"@context": "https://schema.org", "@type": "TouristAttraction", "name": p["name"], "description": p["intro"], "url": f"{SITE}/places/{p['id']}/",
                "image": SITE + (ph["src"] if ph else "/assets/og-default.jpg"), "geo": {"@type": "GeoCoordinates", "latitude": p["lat"], "longitude": p["lon"], "elevation": p["alt"]},
                "containedInPlace": {"@type": "Place", "name": r["name"] + ", Pakistan"}},
@@ -348,6 +372,103 @@ def build_about():
 <aside><div class="sticky"><div class="card-box"><h3>KohNoor in numbers</h3><dl class="kv"><dt>Destinations</dt><dd>{len(PLACES)}</dd><dt>Regions</dt><dd>{len(REGIONS)}</dd><dt>Itineraries</dt><dd>{len(ITINS)}</dd><dt>With real photos</dt><dd>{sum(1 for p in PLACES if p["id"] in PHOTOS)}</dd></dl></div></div></aside></div></div>'''
     page("/about/", "About KohNoor", "KohNoor is a free, honest travel guide to Northern Pakistan: how the guide works, where the data comes from and what is coming next.", body, active="/about/", over=True)
 
+# ---------------- interests, calendar, gallery, FAQ ----------------
+THEMES = [
+ {"slug": "lakes", "name": "Lakes", "icon": "drop", "photo": "mahodand", "title": "Best lakes in Northern Pakistan",
+  "lede": "Turquoise glacier lakes, forest-ringed pools and high-altitude mirrors, from roadside Attabad to Katora at 3,500 m.",
+  "ids": ["naran", "attabad", "mahodand", "kachura", "phander", "kandol-lake", "daral-lake", "katora-lake", "borith", "khalti", "dudipatsar", "ratti-gali", "rawalakot", "astore-rama", "utror-gabral", "shandur"]},
+ {"slug": "meadows-and-valleys", "name": "Meadows & valleys", "icon": "tree", "photo": "kumrat", "title": "Green meadows and valleys of the north",
+  "lede": "Pine forests, flower meadows and wooden villages: the softer, greener side of the mountains.",
+  "ids": ["fairy-meadows", "kumrat", "jahaz-banda", "arang-kel", "shogran", "naltar", "kalam", "ushu-matiltan", "gabin-jabba", "neelum", "leepa", "taobat", "deosai", "marghazar"]},
+ {"slug": "treks-and-hikes", "name": "Treks & hikes", "icon": "route", "photo": "fairy-meadows", "title": "Treks and day hikes in Northern Pakistan",
+  "lede": "From the flat Pipeline Track in Galiyat to the walk up to Fairy Meadows under Nanga Parbat.",
+  "ids": ["fairy-meadows", "nathia-gali", "miranjani", "arang-kel", "jahaz-banda", "katora-lake", "kandol-lake", "daral-lake", "dudipatsar", "ratti-gali", "passu-khunjerab"]},
+ {"slug": "history-and-culture", "name": "History & culture", "icon": "landmark", "photo": "butkara", "title": "History and culture in Northern Pakistan",
+  "lede": "Gandhara stupas in Swat, the forts of Hunza and Baltistan, rock carvings on the Indus and the living Kalash culture.",
+  "ids": ["swat-museum", "butkara", "udegram", "jahanabad-buddha", "mingora", "marghazar", "hunza", "shigar", "khaplu", "skardu", "chitral", "kalash", "chilas", "sharda", "gilgit"]},
+ {"slug": "family-trips", "name": "Easy family trips", "icon": "family", "photo": "murree", "title": "Easy family trips in the northern hills",
+  "lede": "Good roads, plenty of hotels and short drives: places that work with children and grandparents.",
+  "ids": ["murree", "nathia-gali", "malam-jabba", "mingora", "madyan", "bahrain", "kalam", "kaghan", "naran", "shogran", "rawalakot", "muzaffarabad", "neelum", "attabad", "hunza", "skardu"]},
+ {"slug": "snow-and-winter", "name": "Snow & winter", "icon": "snow", "photo": "naltar", "title": "Snow and winter trips in Pakistan",
+  "lede": "Skiing at Malam Jabba and Naltar, snowy Galiyat weekends and frozen lakes in Ghizer.",
+  "ids": ["malam-jabba", "murree", "nathia-gali", "miranjani", "naltar", "kalam", "hunza", "skardu", "khalti"]},
+ {"slug": "jeep-adventures", "name": "Jeep adventures", "icon": "car", "photo": "deosai", "title": "Jeep adventures in the north",
+  "lede": "Rough tracks to high plains and hidden lakes, best done with a local driver.",
+  "ids": ["deosai", "mahodand", "kumrat", "shandur", "naltar", "fairy-meadows", "ratti-gali", "taobat", "leepa", "sarfaranga", "utror-gabral", "gabin-jabba", "astore-rama", "kandol-lake"]},
+ {"slug": "hidden-gems", "name": "Hidden gems", "icon": "pin", "photo": "katora-lake", "title": "Hidden places in Northern Pakistan",
+  "lede": "Quiet lakes, meadows and valleys with far fewer visitors. Information is thinner, so travel with a local guide.", "ids": None},
+]
+for t in THEMES:
+    if t["ids"] is None: t["ids"] = [p["id"] for p in PLACES if p["kind"] == "hidden"]
+    t["ids"] = [i for i in t["ids"] if i in BYID]
+THEMES_OF = {}
+for t in THEMES:
+    for i in t["ids"]: THEMES_OF.setdefault(i, []).append(t)
+
+FAQ = [
+ ("When is the best time to visit Northern Pakistan?", "May to October for most places. June to September is the only window for high passes and lakes such as Babusar Top, Deosai, Fairy Meadows and the jeep lakes above Kalam. Hunza and Skardu are lovely in April for blossom and in late October for autumn colours. Murree, Nathia Gali and Malam Jabba get snow from December to February."),
+ ("How much does a trip to the north cost?", "A budget road trip costs roughly Rs 15,000 to 25,000 per person for a long weekend in Swat, Naran or Neelum, and Rs 60,000 or more for a week in Hunza and Skardu. Use the trip cost planner for an estimate from Islamabad, Peshawar or Lahore for your group size and hotel level."),
+ ("Is it safe to travel to Gilgit-Baltistan and Swat?", "The main tourist routes see large numbers of domestic and foreign visitors every summer. The biggest real risks are road conditions, landslides after rain and altitude. Check road status before you set out, carry your CNIC or passport for checkposts, and follow local advice near the Line of Control."),
+ ("Do I need a 4x4 to visit the north?", "No for the main towns: an ordinary car reaches Mingora, Kalam, Naran, Gilgit, Hunza, Skardu, Chitral and Neelum. Local jeeps are needed for places like Fairy Meadows, Deosai, Mahodand, Kumrat and Ratti Gali, and you can hire them on the spot."),
+ ("Which mobile network works best in the mountains?", "SCOM and Zong usually have the widest coverage in Gilgit-Baltistan and Azad Kashmir; Jazz and Telenor work in most towns. Expect no signal in high valleys, so save pages offline before you go."),
+ ("Can I use KohNoor without internet?", "Yes. Install it from your browser menu and open your destinations once while you have signal. Pages you opened, your packing list and the emergency numbers then keep working offline."),
+]
+
+def faq_html(items):
+    return '<div class="faq">' + "".join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in items) + '</div>'
+def faq_ld(items):
+    return {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in items]}
+
+def theme_card(t):
+    return f'<a class="interest" href="/interests/{t["slug"]}/"><img src="/img/{t["photo"]}-s.jpg" alt="" loading="lazy"><span class="ico">{icon(t["icon"])}</span><div class="t"><h3>{e(t["name"])}</h3><small>{len(t["ids"])} places</small></div></a>'
+
+def build_interests():
+    body = hero('<img src="/img/fairy-meadows.jpg" alt="Nanga Parbat at sunrise">', "Interests", "Travel the north your way", "دلچسپی کے مطابق",
+                "Lakes, meadows, treks, history, family trips, snow and jeep tracks: pick what you love and see every place that fits.", short=True, credit="Sunrise on Nanga Parbat")
+    body += f'<section class="block"><div class="wrap"><div class="interests">{"".join(theme_card(t) for t in THEMES)}</div></div></section>'
+    page("/interests/", "Things to do in Northern Pakistan by interest", "Browse Northern Pakistan by interest: lakes, meadows, treks and hikes, history and culture, family trips, snow and winter, jeep adventures and hidden places.", body, active="/interests/", over=True)
+    for t in THEMES:
+        ps = [BYID[i] for i in t["ids"]]
+        others = "".join(f'<a class="chip" href="/interests/{o["slug"]}/">{e(o["name"])}</a>' for o in THEMES if o is not t)
+        body = hero(f'<img src="/img/{t["photo"]}.jpg" alt="">', "Interests", e(t["title"]), lede=e(t["lede"]), crumbs='<a href="/">Home</a> › <a href="/interests/">Interests</a>', short=True, credit=PHOTOS.get(t["photo"], {}).get("credit", ""))
+        body += f'''<section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">{len(ps)} places</span><h2>{e(t["name"])}</h2></div></div><div class="grid">{"".join(card(p) for p in ps)}</div>
+<div class="chips light" style="margin-top:34px"><span class="lbl">More interests:</span>{others}</div></div></section>'''
+        ld = {"@context": "https://schema.org", "@type": "ItemList", "name": t["title"], "itemListElement": [{"@type": "ListItem", "position": n + 1, "url": f"{SITE}/places/{p['id']}/", "name": p["name"]} for n, p in enumerate(ps)]}
+        page(f'/interests/{t["slug"]}/', t["title"], f'{t["title"]}: {t["lede"]} With best season, travel time, cost and live weather for each place.'[:300], body, active="/interests/", over=True, jsonld=ld)
+
+MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+def build_when():
+    rows = []
+    for k in REGION_ORDER:
+        rows.append(f'<tr class="rg"><th colspan="13">{e(REGIONS[k]["name"])}</th></tr>')
+        for p in [x for x in PLACES if x["region"] == k]:
+            rows.append(f'<tr><th><a href="/places/{p["id"]}/">{e(p["name"])}</a></th>' + "".join(f'<td class="m{v}" title="{MONTHS[i]}: {["closed or not advised","possible","best"][int(v)]}"></td>' for i, v in enumerate(p["months"])) + '</tr>')
+    seasons = [("Spring", "Mar–Apr", "Blossom in Hunza, Skardu and Swat. Upper valleys still under snow.", "hunza"),
+               ("Summer", "Jun–Sep", "Everything opens: Babusar, Deosai, Fairy Meadows and the jeep lakes. Busy on weekends.", "naran"),
+               ("Autumn", "Oct–Nov", "Golden poplars in Hunza, Ghizer and Skardu. Clear skies, cold nights.", "phander"),
+               ("Winter", "Dec–Feb", "Snow in Murree, Galiyat and Malam Jabba. Most high places closed.", "malam-jabba")]
+    sea = "".join(f'<a class="season" href="/places/{ph}/"><img src="/img/{ph}-s.jpg" alt="" loading="lazy"><div class="t"><small>{b}</small><h3>{a}</h3><p>{c}</p></div></a>' for a, b, c, ph in seasons)
+    body = hero('<img src="/img/phander.jpg" alt="Phander Lake in autumn">', "Best time to visit", "When to go, month by month", "کب جائیں",
+                "Every destination on one calendar: green is the best time, amber is possible, grey means snow or weather usually closes it.", short=True, credit="Phander Lake in autumn")
+    body += f'''<section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">Four seasons</span><h2>The year in the mountains</h2></div></div><div class="seasons">{sea}</div></div></section>
+<section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">Calendar</span><h2>All {len(PLACES)} places by month</h2><p>This month is highlighted. Tap a place for weather, costs and how to get there.</p></div></div>
+<div class="legend big"><span><i class="m2"></i>Best</span><span><i class="m1"></i>Possible</span><span><i class="m0"></i>Closed or not advised</span></div>
+<div class="cal-wrap"><table class="cal"><thead><tr><th>Place</th>{"".join(f"<th data-m='{i}'>{m}</th>" for i, m in enumerate(MONTHS))}</tr></thead><tbody>{"".join(rows)}</tbody></table></div></div></section>'''
+    page("/when-to-go/", "Best time to visit Northern Pakistan, month by month", "Month-by-month calendar for 57 places in Northern Pakistan: when Hunza, Skardu, Swat, Naran, Neelum, Fairy Meadows and Deosai are open and at their best.", body, active="/when-to-go/", over=True)
+
+def build_gallery():
+    items = "".join(f'<a class="g-item" href="/places/{p["id"]}/"><img src="/img/{p["id"]}-s.jpg" alt="{e(p["name"])}" loading="lazy"><span><b>{e(p["name"])}</b><small>{e(PHOTOS[p["id"]]["credit"])}</small></span></a>' for p in PLACES if p["id"] in PHOTOS)
+    body = hero('<img src="/img/passu-khunjerab.jpg" alt="Passu Cones">', "Gallery", "The north in pictures", "تصویریں", "A photo of every destination in the guide. Tap any picture to open its travel guide.", short=True, credit="Passu Cones")
+    body += f'<section class="block tight"><div class="wrap"><div class="gallery">{items}</div><p class="note" style="margin-top:24px">Photos are used under free licences. Wikimedia Commons photos are credited to their authors under the licence shown (CC BY-SA or public domain).</p></div></section>'
+    page("/gallery/", "Photo gallery of Northern Pakistan", "Photos of every destination in Northern Pakistan: Hunza, Skardu, Swat, Naran, Neelum, Chitral, Fairy Meadows, Deosai and hidden lakes and meadows.", body, over=True)
+
+def nearest(p, n=4):
+    from math import radians, sin, cos, asin, sqrt
+    def dist(a, b):
+        la1, lo1, la2, lo2 = map(radians, (a["lat"], a["lon"], b["lat"], b["lon"]))
+        return 6371 * 2 * asin(sqrt(sin((la2 - la1) / 2) ** 2 + cos(la1) * cos(la2) * sin((lo2 - lo1) / 2) ** 2))
+    return sorted([(dist(p, x), x) for x in PLACES if x["id"] != p["id"]], key=lambda t: t[0])[:n]
+
 def build_misc():
     body = hero('<img src="/img/naltar.jpg" alt="">', "Lost in the mountains", "This page is off the map", lede="The page you were looking for does not exist. Try searching for a place instead.", extra=f'<div class="hero-search"><button data-open-search>{icon("search")}Search a valley, lake or town</button></div>', short=True)
     page("/404.html", "Page not found", "This page does not exist.", body, over=True)
@@ -374,7 +495,7 @@ def build_assets():
     core = ["/", "/essentials/", "/plan/", "/offline/", "/assets/style.css", "/assets/app.js", "/assets/data.js", "/assets/icon.svg",
             "/assets/fonts/bricolage-grotesque-latin-800-normal.woff2", "/assets/fonts/source-sans-3-latin-400-normal.woff2", "/img/kaghan.jpg"]
     open(os.path.join(OUT, "sw.js"), "w").write(f"""// KohNoor service worker
-const V='kohnoor-v3', CORE={json.dumps(core)};
+const V='kohnoor-v4', CORE={json.dumps(core)};
 self.addEventListener('install',e=>e.waitUntil(caches.open(V).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==V).map(x=>caches.delete(x)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{{
@@ -383,7 +504,7 @@ self.addEventListener('fetch',e=>{{
   e.respondWith(caches.match(e.request).then(hit=>{{const net=fetch(e.request).then(r=>{{const c=r.clone();caches.open(V).then(x=>x.put(e.request,c));return r;}}).catch(()=>hit); return hit||net;}}));
 }});
 """)
-    urls = ["/", "/regions/", "/itineraries/", "/plan/", "/essentials/", "/about/"] + [f"/regions/{k}/" for k in REGION_ORDER] + [f"/places/{p['id']}/" for p in PLACES] + [f"/itineraries/{x['id']}/" for x in ITINS]
+    urls = ["/", "/regions/", "/interests/", "/when-to-go/", "/gallery/", "/itineraries/", "/plan/", "/essentials/", "/about/"] + [f"/interests/{t['slug']}/" for t in THEMES] + [f"/regions/{k}/" for k in REGION_ORDER] + [f"/places/{p['id']}/" for p in PLACES] + [f"/itineraries/{x['id']}/" for x in ITINS]
     open(os.path.join(OUT, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{date.today()}</lastmod></url>\n" for u in urls) + "</urlset>\n")
     open(os.path.join(OUT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
     open(os.path.join(OUT, "_headers"), "w").write("/assets/fonts/*\n  Cache-Control: public, max-age=31536000, immutable\n/img/*\n  Cache-Control: public, max-age=2592000\n/assets/*\n  Cache-Control: public, max-age=86400\n/sw.js\n  Cache-Control: no-cache\n")
@@ -393,5 +514,5 @@ if __name__ == "__main__":
     if os.path.exists(OUT): shutil.rmtree(OUT)
     os.makedirs(OUT)
     n = build_assets()
-    build_home(); build_regions(); build_places(); build_itins(); build_plan(); build_essentials(); build_about(); build_misc()
+    build_home(); build_regions(); build_places(); build_itins(); build_plan(); build_essentials(); build_about(); build_interests(); build_when(); build_gallery(); build_misc()
     print("pages in sitemap:", n)

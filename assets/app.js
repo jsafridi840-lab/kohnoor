@@ -158,3 +158,7 @@ window.addEventListener("online",ns); window.addEventListener("offline",ns); ns(
 var os=$("#offline-state"); if(os) os.textContent = ("serviceWorker" in navigator && navigator.serviceWorker.controller) ? "✓ KohNoor is saved for offline use on this device." : "Open a few pages while online and they will be saved for offline use.";
 if("serviceWorker" in navigator){ window.addEventListener("load", function(){ navigator.serviceWorker.register("/sw.js").catch(function(){}); }); }
 })();
+/* v3: highlight this month in the calendar */
+(function(){var m=new Date().getMonth();var t=document.querySelector('.cal');if(!t)return;
+var h=t.querySelector('thead th[data-m="'+m+'"]');if(h)h.classList.add('now');
+t.querySelectorAll('tbody tr').forEach(function(r){var c=r.querySelectorAll('td');if(c[m])c[m].classList.add('now');});})();
