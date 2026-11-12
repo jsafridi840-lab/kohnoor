@@ -1,0 +1,1819 @@
+{
+ "REGIONS": {
+  "swat": {
+   "name": "Swat Valley",
+   "ur": "وادیٔ سوات",
+   "lede": "Green river valley in Khyber Pakhtunkhwa, about 4–5 hours from Islamabad, once called the Switzerland of the East. It runs from the plains at Mingora up to glacier lakes above Kalam.",
+   "about": [
+    "Swat is a long valley cut by the Swat River, which begins where the Ushu and Utror streams meet at Kalam and flows south past Bahrain, Madyan and Mingora. The lower valley is warm farmland and orchards; the upper valley, called Swat Kohistan, is pine forest, alpine meadows and lakes fed by snow.",
+    "It is the easiest of the northern regions to reach, which makes it the best first trip for families. Mingora has hospitals, banks and every mobile network, and good roads run as far as Kalam."
+   ],
+   "history": [
+    "Ancient texts call this land Uddiyana, the garden. From roughly the 3rd century BC it was one of the great centres of Gandhara Buddhism, and the valley is still scattered with stupas, monasteries and rock-carved Buddhas. Chinese pilgrims such as Faxian and Xuanzang travelled here and wrote about its hundreds of monasteries.",
+    "In 327 BC Alexander the Great fought his way through Swat, besieging the towns the Greeks called Ora and Bazira, today linked with Udegram and Barikot. In the 11th century the armies of Mahmud of Ghazni brought Islam to the valley; the mosque they built at Udegram is among the oldest in northern Pakistan.",
+    "From the 16th century the Yusufzai Pashtuns settled the valley. In 1917 the princely State of Swat was founded, and under its rulers, the Walis, it gained schools, hospitals and roads. Swat merged fully into Pakistan in 1969.",
+    "The valley went through hard years of militancy and a military operation in 2009, and severe floods in 2010 and 2022. Tourism has since returned, and Swat is again one of the most visited places in the country."
+   ],
+   "facts": {
+    "Province": "Khyber Pakhtunkhwa",
+    "Main city": "Mingora",
+    "Altitude range": "≈ 980 m – 4,000 m+",
+    "From Islamabad": "≈ 250 km to Mingora",
+    "Best season": "Apr–Oct (snow trips Dec–Feb)",
+    "Languages": "Pashto, Torwali, Gawri"
+   }
+  },
+  "kaghan": {
+   "name": "Kaghan & Naran",
+   "ur": "کاغان و ناران",
+   "lede": "The Kunhar River valley in Mansehra district: lakes of folklore, high meadows and the road over Babusar Pass to Gilgit-Baltistan.",
+   "about": [
+    "The Kaghan Valley climbs about 155 km along the Kunhar River from Balakot to Babusar Pass. Kaghan and Naran are its two best-known towns. The upper valley is snowbound in winter; most of it is a summer destination."
+   ],
+   "history": [
+    "The valley sits on an old route between the plains and the high north. Balakot at its mouth is remembered for the 1831 battle of Syed Ahmad Barelvi and Shah Ismail Shaheed, and the region was badly hit by the 2005 earthquake, after which much of it was rebuilt."
+   ],
+   "facts": {
+    "Province": "Khyber Pakhtunkhwa",
+    "Gateway": "Balakot",
+    "Best season": "May–Oct",
+    "Languages": "Hindko, Gojri, Pashto"
+   }
+  },
+  "gb": {
+   "name": "Gilgit-Baltistan",
+   "ur": "گلگت بلتستان",
+   "lede": "Where the Karakoram, Himalaya and Hindu Kush meet: K2, Nanga Parbat, Hunza, Skardu and the Karakoram Highway to China.",
+   "about": [
+    "Gilgit-Baltistan holds five of the world's fourteen peaks above 8,000 m and some of the longest glaciers outside the poles. Distances are long and roads mountainous, so plan extra days for weather and landslides."
+   ],
+   "history": [
+    "Its valleys were once small kingdoms ruled by Mirs and Rajas — Hunza, Nagar, Skardu, Shigar and others — linked by branches of the ancient Silk Road. The Karakoram Highway, completed in 1978 by Pakistan and China, opened the region to the world."
+   ],
+   "facts": {
+    "Capital": "Gilgit",
+    "Best season": "Apr–Oct",
+    "Mobile network": "SCOM strongest, Jazz/Zong in towns",
+    "Languages": "Shina, Balti, Burushaski, Wakhi"
+   }
+  },
+  "chitral": {
+   "name": "Chitral",
+   "ur": "چترال",
+   "lede": "Remote valley under Tirich Mir, home of the Kalash people and the Shandur polo festival, now reachable all year through the Lowari Tunnel.",
+   "about": [
+    "Chitral lies in the far north-west of Khyber Pakhtunkhwa, ringed by the Hindu Kush. Tirich Mir, the highest peak of the range, rises above Chitral town."
+   ],
+   "history": [
+    "For centuries Chitral was a princely state ruled by the Mehtars of the Katur dynasty, until it merged with Pakistan in 1969. The Kalash valleys keep one of the oldest living cultures of the region, with their own language, festivals and faith."
+   ],
+   "facts": {
+    "Province": "Khyber Pakhtunkhwa",
+    "Main town": "Chitral",
+    "Best season": "May–Oct",
+    "Languages": "Khowar, Kalasha"
+   }
+  },
+  "ajk": {
+   "name": "Azad Kashmir",
+   "ur": "آزاد کشمیر",
+   "lede": "Forested hills of Poonch and the long Neelum Valley along the Line of Control: green, quiet and close to Islamabad.",
+   "about": [
+    "Azad Jammu & Kashmir runs from the low hills near Mirpur to the high Neelum Valley. Rawalakot and Banjosa are a short drive from Islamabad; Neelum takes a full day."
+   ],
+   "history": [
+    "The region has been part of the Kashmir story for centuries, from the ancient Sharda learning centre in Neelum to the princely state of Jammu & Kashmir. Azad Kashmir took its present form in 1947."
+   ],
+   "facts": {
+    "Capital": "Muzaffarabad",
+    "Best season": "Apr–Oct",
+    "Mobile network": "SCOM, Zong, Jazz in towns",
+    "Languages": "Pahari, Kashmiri, Gojri"
+   }
+  },
+  "galiyat": {
+   "name": "Murree & Galiyat",
+   "ur": "مری و گلیات",
+   "lede": "Pine-covered hill stations on the ridge between Islamabad and Abbottabad, the closest mountain escape from the capital.",
+   "about": [
+    "The Galiyat are a chain of hill towns, each ending in gali (pass): Nathia Gali, Dunga Gali, Changla Gali, Khaira Gali and more, with Murree at the southern end. Snow falls most winters."
+   ],
+   "history": [
+    "The British built these stations in the 19th century as summer retreats from the heat of the plains. Their churches, cottages and Mall Roads still shape the towns."
+   ],
+   "facts": {
+    "Province": "Punjab / Khyber Pakhtunkhwa",
+    "From Islamabad": "≈ 1.5–2.5 hours",
+    "Best season": "All year",
+    "Languages": "Pahari, Urdu"
+   }
+  },
+  "dir": {
+   "name": "Dir & Kumrat",
+   "ur": "دیر و کمراٹ",
+   "lede": "Forested valleys of Upper Dir along the Panjkora River, led by Kumrat, one of the north's favourite camping valleys.",
+   "about": [
+    "Upper Dir lies west of Swat. The road from Chakdara climbs through Dir town towards the Lowari Tunnel and Chitral, with the Kumrat turn-off at Thall."
+   ],
+   "history": [
+    "Dir was a princely state ruled by its Nawabs until 1969. The Kohistani villages of the upper valleys are known for their carved wooden mosques."
+   ],
+   "facts": {
+    "Province": "Khyber Pakhtunkhwa",
+    "Best season": "Jun–Sep",
+    "Languages": "Pashto, Kohistani"
+   }
+  }
+ },
+ "PLACES": [
+  {
+   "id": "mingora",
+   "route": "swat",
+   "months": "222221122222",
+   "jeep": 0,
+   "fly": null,
+   "region": "swat",
+   "kind": "famous",
+   "name": "Mingora & Saidu Sharif",
+   "ur": "مینگورہ و سیدو شریف",
+   "alt": 980,
+   "km": 250,
+   "hrs": "4–5",
+   "lat": 34.772,
+   "lon": 72.36,
+   "season": "All year",
+   "vehicle": "Any car",
+   "network": "All networks",
+   "fuel": "Plenty of fuel and ATMs",
+   "intro": "The twin cities at the heart of Swat: Mingora the busy market town, Saidu Sharif the old seat of the Wali of Swat. Every trip into the valley starts here.",
+   "history": "Saidu Sharif grew around the shrine of the 19th-century saint Akhund of Swat, Abdul Ghafoor. His grandson Miangul Abdul Wadud founded the State of Swat and made Saidu its capital, building the government offices, hospital and school that still stand.",
+   "todo": [
+    "Swat Museum and the Butkara stupa (both a few minutes away)",
+    "Mingora bazaar for Swati shawls, honey and dried fruit",
+    "Fizagat Park on the riverbank in the evening",
+    "Saidu Sharif's old state buildings and the Wali's mosque"
+   ],
+   "reach": "From Islamabad take the M-1 motorway and turn onto the Swat Expressway at Kernal Sher Khan interchange. Daewoo and other coaches run from Islamabad and Rawalpindi.",
+   "stay": "From budget hotels in the bazaar to mid-range and upscale hotels along the river and in Saidu Sharif.",
+   "food": "Chapli kabab, river trout, Swati rice and local honey.",
+   "tips": [
+    "Last city with full banking: withdraw cash for the upper valley here.",
+    "Traffic in Mingora is heavy at midday; leave early for Kalam."
+   ]
+  },
+  {
+   "id": "swat-museum",
+   "route": "swat",
+   "months": "222222222222",
+   "jeep": 0,
+   "fly": null,
+   "region": "swat",
+   "kind": "famous",
+   "name": "Swat Museum",
+   "ur": "سوات میوزیم",
+   "alt": 980,
+   "km": 250,
+   "hrs": "4–5",
+   "lat": 34.746,
+   "lon": 72.356,
+   "season": "All year",
+   "vehicle": "Any car",
+   "network": "All networks",
+   "fuel": "In Saidu Sharif",
+   "intro": "A small, excellent museum on the Mingora–Saidu road holding Gandhara sculpture from the valley's Buddhist sites: Buddhas, scenes from the Buddha's life, jewellery and coins.",
+   "history": "Much of its collection came from excavations by the Italian Archaeological Mission, which has worked in Swat since 1955. The building was damaged in the 2005 earthquake and during the conflict years, and was rebuilt and reopened with Japanese and Italian help.",
+   "todo": [
+    "Gandhara stone reliefs telling the Buddha's life story",
+    "Finds from Butkara and Udegram",
+    "Ethnographic hall with Swati woodwork and embroidery"
+   ],
+   "reach": "On the main road between Mingora and Saidu Sharif.",
+   "stay": "Stay in Mingora.",
+   "food": "Cafés in Saidu Sharif.",
+   "tips": [
+    "Check the opening days before you go; government museums usually close one day a week.",
+    "Combine with Butkara stupa in one morning."
+   ]
+  },
+  {
+   "id": "butkara",
+   "route": "swat",
+   "months": "222211112222",
+   "jeep": 0,
+   "fly": null,
+   "region": "swat",
+   "kind": "famous",
+   "name": "Butkara Stupa",
+   "ur": "بٹکڑہ اسٹوپا",
+   "alt": 980,
+   "km": 252,
+   "hrs": "4–5",
+   "lat": 34.76,
+   "lon": 72.372,
+   "season": "All year",
+   "vehicle": "Any car",
+   "network": "All networks",
+   "fuel": "In Mingora",
+   "intro": "The ruins of one of the most important Buddhist sanctuaries of Gandhara, right inside Mingora: a great central stupa ringed by more than two hundred smaller stupas and shrines.",
+   "history": "The first stupa here is believed to date to the time of the Mauryan emperor Ashoka in the 3rd century BC. It was enlarged again and again over a thousand years. Italian archaeologists excavated it from 1956, and many of its carvings are now in the Swat Museum.",
+   "todo": [
+    "Walk the circuit around the main stupa",
+    "See how each rebuild encased the older stupa inside"
+   ],
+   "reach": "Short drive or rickshaw from Mingora's Gulkada area.",
+   "stay": "Stay in Mingora.",
+   "food": "Mingora bazaar.",
+   "tips": [
+    "Go in the morning; there is little shade at midday in summer."
+   ]
+  },
+  {
+   "id": "udegram",
+   "route": "swat",
+   "months": "222211112222",
+   "jeep": 0,
+   "fly": null,
+   "region": "swat",
+   "kind": "famous",
+   "name": "Udegram",
+   "ur": "اوڈیگرام",
+   "alt": 1000,
+   "km": 240,
+   "hrs": "4",
+   "lat": 34.756,
+   "lon": 72.297,
+   "season": "Oct–Apr best (cooler)",
+   "vehicle": "Any car to the village",
+   "network": "All networks",
+   "fuel": "In Mingora",
+   "intro": "A village south of Mingora with two layers of history on one hillside: the ruins of the fortress of Raja Gira and the Ghaznavid mosque below it.",
+   "history": "Udegram is linked with Ora, one of the towns Alexander the Great besieged in 327 BC. On the hill stand the remains of the castle of Raja Gira, the last Hindu ruler of the area. The mosque at its foot, built by the Ghaznavids around 1048, was found by Italian archaeologists in 1985 and is among the oldest mosques in northern Pakistan.",
+   "todo": [
+    "Ghaznavid mosque (easy walk)",
+    "Climb to Raja Gira's castle for valley views (steep, about 45 minutes)",
+    "Shrine of Pir Khushal Baba nearby"
+   ],
+   "reach": "About 7 km from Mingora on the road towards Barikot.",
+   "stay": "Stay in Mingora.",
+   "food": "Bring water for the climb.",
+   "tips": [
+    "Wear proper shoes for the castle climb.",
+    "Avoid summer afternoons; the hillside gets very hot."
+   ]
+  },
+  {
+   "id": "jahanabad-buddha",
+   "route": "swat",
+   "months": "222222222222",
+   "jeep": 0,
+   "fly": null,
+   "region": "swat",
+   "kind": "famous",
+   "name": "Jahanabad Buddha",
+   "ur": "جہان آباد بدھا",
+   "alt": 1100,
+   "km": 262,
+   "hrs": "4.5",
+   "lat": 34.835,
+   "lon": 72.302,
+   "season": "All year",
+   "vehicle": "Car to the village, then a short walk",
+   "network": "Most networks",
+   "fuel": "In Mingora",
+   "intro": "A giant seated Buddha carved into a granite cliff above the village of Jahanabad (Shakhorai), one of the largest rock carvings of its kind in South Asia.",
+   "history": "The figure is thought to date to around the 7th century. In 2007 militants drilled and blasted its face. Italian conservators led by the Italian Archaeological Mission restored it in 2016, using careful 3D work rather than inventing a new face.",
+   "todo": [
+    "Short walk up through fields to the carving",
+    "Combine with Malam Jabba on the same road"
+   ],
+   "reach": "North of Manglawar, on the way towards Malam Jabba.",
+   "stay": "Mingora or Malam Jabba.",
+   "food": "Small shops in Manglawar.",
+   "tips": [
+    "Respect the site: do not climb on the carving."
+   ]
+  },
+  {
+   "id": "marghazar",
+   "route": "swat",
+   "months": "112222222211",
+   "jeep": 0,
+   "fly": null,
+   "region": "swat",
+   "kind": "famous",
+   "name": "Marghazar & White Palace",
+   "ur": "مرغزار اور سفید محل",
+   "alt": 1300,
+   "km": 258,
+   "hrs": "4.5",
+   "lat": 34.712,
+   "lon": 72.33,
+   "season": "Mar–Nov",
+   "vehicle": "Any car",
+   "network": "Most networks",
+   "fuel": "In Saidu Sharif",
+   "intro": "A cool side valley 13 km from Saidu Sharif with the white marble summer palace of the first Wali of Swat, now a hotel, at the foot of Elum mountain.",
+   "history": "Miangul Abdul Wadud built the White Palace as his summer retreat in the 1940s, with marble brought from Rajasthan. Queen Elizabeth II visited Swat in 1961, and local accounts say she stayed here. Mount Elum above it is sacred in local Hindu and Buddhist tradition.",
+   "todo": [
+    "Tea on the White Palace lawns",
+    "Stream-side walks and picnic spots",
+    "Hike towards Elum (full day, take a guide)"
+   ],
+   "reach": "Road from Saidu Sharif past the Wali's old residence.",
+   "stay": "White Palace hotel or day trip from Mingora.",
+   "food": "Hotel restaurant and dhabas by the stream.",
+   "tips": [
+    "Weekends get busy with local families; go on a weekday."
+   ]
+  },
+  {
+   "id": "malam-jabba",
+   "route": "swat",
+   "months": "221122222212",
+   "jeep": 0,
+   "fly": null,
+   "region": "swat",
+   "kind": "famous",
+   "name": "Malam Jabba",
+   "ur": "مالم جبہ",
+   "alt": 2700,
+   "km": 290,
+   "hrs": "5–6",
+   "lat": 34.799,
+   "lon": 72.572,
+   "season": "Snow: Dec–Feb · Green: May–Sep",
+   "vehicle": "Car in summer; 4x4 or chains after snowfall",
+   "network": "Jazz, Zong, Telenor",
+   "fuel": "Fill up in Mingora",
+   "intro": "Pakistan's best-known ski resort, on a ridge about 45 km from Mingora, with ski slopes, a chairlift, zipline and pine forest views in summer.",
+   "history": "The resort was developed in the 1980s. It was burned down by militants in 2008 and rebuilt and reopened by a private operator in the 2010s. An old Buddhist stupa and monastery stand on the road below the resort.",
+   "todo": [
+    "Skiing and snow play in winter",
+    "Chairlift and zipline",
+    "Forest walks in summer"
+   ],
+   "reach": "Mingora → Manglawar → Malam Jabba road (steep, many bends).",
+   "stay": "Resort hotel at the top, or guesthouses lower down.",
+   "food": "Resort restaurant; carry snacks.",
+   "tips": [
+    "After heavy snow the road may need chains or 4x4; ask in Manglawar.",
+    "Temperatures drop well below freezing in winter nights."
+   ]
+  },
+  {
+   "id": "madyan",
+   "route": "swat",
+   "months": "112222222211",
+   "jeep": 0,
+   "fly": null,
+   "region": "swat",
+   "kind": "famous",
+   "name": "Madyan",
+   "ur": "مدین",
+   "alt": 1320,
+   "km": 300,
+   "hrs": "5.5",
+   "lat": 35.139,
+   "lon": 72.534,
+   "season": "Mar–Nov",
+   "vehicle": "Any car",
+   "network": "All networks",
+   "fuel": "Fuel and some ATMs",
+   "intro": "A riverside town where Swat starts to turn into the mountains: cool air, trout and a quieter base than Mingora.",
+   "history": "Madyan was long a stop on the route up the valley and is known for its traditional Swati woodwork and handmade shawls.",
+   "todo": [
+    "Trout lunch by the Swat River",
+    "Shawl and handicraft shops",
+    "Short drive up to Bishigram valley"
+   ],
+   "reach": "On the main road, about 1 hour after Mingora.",
+   "stay": "Riverside hotels and guesthouses.",
+   "food": "Fresh river trout.",
+   "tips": [
+    "Good night stop if you reach Swat late."
+   ]
+  },
+  {
+   "id": "bahrain",
+   "route": "swat",
+   "months": "112222222211",
+   "jeep": 0,
+   "fly": null,
+   "region": "swat",
+   "kind": "famous",
+   "name": "Bahrain",
+   "ur": "بحرین",
+   "alt": 1400,
+   "km": 310,
+   "hrs": "6",
+   "lat": 35.209,
+   "lon": 72.546,
+   "season": "Mar–Nov",
+   "vehicle": "Any car",
+   "network": "All networks",
+   "fuel": "Fuel available; limited ATMs",
+   "intro": "A lively town where the Daral stream meets the Swat River, with hotels on the water and the trail to Daral Lake.",
+   "history": "Its name, meaning two rivers, comes from the meeting of the Daral and the Swat. It is the main town of the Torwali people, who speak their own Dardic language, Torwali.",
+   "todo": [
+    "River-view hotels and bazaar",
+    "Trek to Daral Lake (see Hidden places)"
+   ],
+   "reach": "Main Kalam road, about 1.5 hours after Mingora.",
+   "stay": "Many hotels along the river.",
+   "food": "Trout, tikka and bazaar food.",
+   "tips": [
+    "Last good ATM stop before Kalam; carry enough cash."
+   ]
+  },
+  {
+   "id": "kalam",
+   "route": "swat",
+   "months": "111122222211",
+   "jeep": 0,
+   "fly": null,
+   "region": "swat",
+   "kind": "famous",
+   "name": "Kalam",
+   "ur": "کالام",
+   "alt": 2000,
+   "km": 350,
+   "hrs": "7–8",
+   "lat": 35.489,
+   "lon": 72.58,
+   "season": "May–Oct · snow Dec–Feb",
+   "vehicle": "Car to Kalam; jeep beyond",
+   "network": "Jazz, Zong, Telenor in town",
+   "fuel": "Fuel available; ATMs very limited",
+   "intro": "The capital of upper Swat, where the Ushu and Utror rivers join to form the Swat River. Pine forests, snow peaks and the base for Mahodand, Ushu and Utror.",
+   "history": "Kalam is home to the Gawri (Kalami) people, who speak a Dardic language of their own. Before tourism it was a remote valley of wooden villages and terraced fields; the old carved-wood mosques of upper Swat are among its treasures.",
+   "todo": [
+    "Ushu Forest and Matiltan (with view of Falak Sar)",
+    "Day trip by jeep to Mahodand Lake",
+    "Utror and Gabral valleys",
+    "Kalam bazaar in the evening"
+   ],
+   "reach": "Mingora → Madyan → Bahrain → Kalam. The road has improved but some stretches still get damaged by floods and landslides.",
+   "stay": "Large choice of hotels; book ahead in June–August and on Eid.",
+   "food": "Trout, dum pukht, tea houses on the river.",
+   "tips": [
+    "Bring cash from Mingora; card payment is rare.",
+    "Hire jeeps from the stand in Kalam bazaar for Mahodand and Ushu; agree the price first.",
+    "Nights are cold even in July: bring a warm layer."
+   ]
+  },
+  {
+   "id": "ushu-matiltan",
+   "route": "swat",
+   "months": "000122222210",
+   "jeep": 6000,
+   "fly": null,
+   "region": "swat",
+   "kind": "famous",
+   "name": "Ushu Forest & Matiltan",
+   "ur": "اوشو جنگل و مٹلتان",
+   "alt": 2300,
+   "km": 360,
+   "hrs": "8",
+   "lat": 35.535,
+   "lon": 72.605,
+   "season": "May–Oct",
+   "vehicle": "Jeep recommended",
+   "network": "Patchy",
+   "fuel": "Fill up in Kalam",
+   "intro": "Tall deodar forest just above Kalam leading to Matiltan, where the white wall of Falak Sar (≈ 5,900 m) fills the end of the valley.",
+   "history": "The forest is part of the old woodland that once covered much of upper Swat; local communities have long managed grazing and wood cutting here.",
+   "todo": [
+    "Forest walks and picnics",
+    "Matiltan for views of Falak Sar",
+    "Continue to Mahodand Lake"
+   ],
+   "reach": "Road from Kalam towards Mahodand, 20–40 minutes by jeep.",
+   "stay": "Camps and a few hotels; most stay in Kalam.",
+   "food": "Tea stalls; carry water.",
+   "tips": [
+    "Do not leave litter in the forest; there is no collection."
+   ]
+  },
+  {
+   "id": "mahodand",
+   "route": "swat",
+   "months": "000002222100",
+   "jeep": 15000,
+   "fly": null,
+   "region": "swat",
+   "kind": "famous",
+   "name": "Mahodand Lake",
+   "ur": "مہوڈنڈ جھیل",
+   "alt": 2865,
+   "km": 390,
+   "hrs": "9–10",
+   "lat": 35.75,
+   "lon": 72.65,
+   "season": "Jun–Sep",
+   "vehicle": "4x4 jeep only",
+   "network": "No signal",
+   "fuel": "Fill up in Kalam",
+   "intro": "A wide lake about 35–40 km above Kalam surrounded by meadows and snow peaks. Its name means lake of fish, and it is famous for trout.",
+   "history": "Gujjar herders bring their animals to the meadows around the lake every summer, as they have for generations.",
+   "todo": [
+    "Boating and trout fishing",
+    "Walk upstream along the meadows",
+    "Camping (take a guide)"
+   ],
+   "reach": "By jeep from Kalam via Ushu and Matiltan; rough track with river crossings, 2–3 hours.",
+   "stay": "Seasonal camps; most return to Kalam.",
+   "food": "Seasonal stalls; carry food and water.",
+   "tips": [
+    "No phone signal: tell someone your plan before leaving Kalam.",
+    "Snow can close the track until late May or June."
+   ]
+  },
+  {
+   "id": "utror-gabral",
+   "route": "swat",
+   "months": "000122222210",
+   "jeep": 8000,
+   "fly": null,
+   "region": "swat",
+   "kind": "famous",
+   "name": "Utror & Gabral",
+   "ur": "اتروڑ و گبرال",
+   "alt": 2300,
+   "km": 365,
+   "hrs": "8–9",
+   "lat": 35.42,
+   "lon": 72.47,
+   "season": "May–Oct",
+   "vehicle": "Jeep recommended beyond Utror",
+   "network": "Limited",
+   "fuel": "Fill up in Kalam",
+   "intro": "The western branch of upper Swat: quieter than Kalam, with wooden villages, the Utror river and green meadows leading on to Gabral.",
+   "history": "Utror's old wooden mosque with carved pillars is one of the finest surviving examples of Swat Kohistan woodwork.",
+   "todo": [
+    "Old wooden mosque of Utror",
+    "Gabral meadows",
+    "Base for Kandol and Spin Khwar lakes"
+   ],
+   "reach": "Road west from Kalam, about 1 hour to Utror.",
+   "stay": "Guesthouses and camps.",
+   "food": "Simple local food.",
+   "tips": [
+    "Ask locals about road damage after rain."
+   ]
+  },
+  {
+   "id": "kandol-lake",
+   "route": "swat",
+   "months": "000002222000",
+   "jeep": 12000,
+   "fly": null,
+   "region": "swat",
+   "kind": "hidden",
+   "name": "Kandol & Spin Khwar Lakes",
+   "ur": "کنڈول و سپین خوڑ جھیل",
+   "alt": 2900,
+   "km": 375,
+   "hrs": "9–10",
+   "lat": 35.39,
+   "lon": 72.43,
+   "season": "Jun–Sep",
+   "vehicle": "Jeep to the trailhead, then hike",
+   "network": "No signal",
+   "fuel": "Fill up in Kalam",
+   "intro": "Two quiet alpine lakes above Utror. Kandol is a deep blue lake below pine ridges; Spin Khwar, meaning white stream, sits higher among meadows. Far fewer visitors than Mahodand.",
+   "history": "Used for centuries as summer pastures by herding families from Utror and the surrounding valleys.",
+   "todo": [
+    "Hike from the jeep point to Kandol (about 1–2 hours)",
+    "Continue to Spin Khwar with a local guide"
+   ],
+   "reach": "Jeep from Kalam via Utror to the trailhead, then hike.",
+   "stay": "Camping only, with a guide.",
+   "food": "Carry all food and water.",
+   "tips": [
+    "Less verified: hire a local guide in Utror.",
+    "Weather changes fast; start early and be down by afternoon."
+   ]
+  },
+  {
+   "id": "daral-lake",
+   "route": "swat",
+   "months": "000000222000",
+   "jeep": 0,
+   "fly": null,
+   "region": "swat",
+   "kind": "hidden",
+   "name": "Daral Lake",
+   "ur": "درال جھیل",
+   "alt": 3400,
+   "km": 315,
+   "hrs": "6 + trek",
+   "lat": 35.3,
+   "lon": 72.59,
+   "season": "Jul–Sep",
+   "vehicle": "Car to Bahrain, then trek",
+   "network": "No signal on the trek",
+   "fuel": "Bahrain",
+   "intro": "A remote high lake above Bahrain, reached by a multi-day trek up the Daral stream through forest and herders' huts. Only for fit hikers.",
+   "history": "The Daral valley is the homeland of Torwali herding families, who move up to its pastures each summer.",
+   "todo": [
+    "Two to three day trek with camping"
+   ],
+   "reach": "Trek starts from Bahrain up the Daral stream.",
+   "stay": "Camping only.",
+   "food": "Carry all supplies.",
+   "tips": [
+    "Less verified: go only with an experienced local guide.",
+    "Not suitable for children or first-time hikers."
+   ]
+  },
+  {
+   "id": "gabin-jabba",
+   "route": "swat",
+   "months": "000012222210",
+   "jeep": 8000,
+   "fly": null,
+   "region": "swat",
+   "kind": "hidden",
+   "name": "Gabin Jabba",
+   "ur": "گبین جبہ",
+   "alt": 2500,
+   "km": 280,
+   "hrs": "5–6",
+   "lat": 34.95,
+   "lon": 72.3,
+   "season": "May–Oct",
+   "vehicle": "Jeep recommended for the last stretch",
+   "network": "Limited",
+   "fuel": "Matta",
+   "intro": "A wide, quiet meadow in the hills above Matta, west of the main valley. Open grassland, pine edges and camping under clear skies.",
+   "history": "A traditional summer pasture of the Matta hills, opened to visitors only in recent years.",
+   "todo": [
+    "Camping and stargazing",
+    "Short meadow walks"
+   ],
+   "reach": "Mingora → Matta → jeep track to the meadow.",
+   "stay": "Camps run by local operators.",
+   "food": "Camp meals.",
+   "tips": [
+    "Less verified: book through a known camp operator.",
+    "Nights are cold; bring warm clothes."
+   ]
+  },
+  {
+   "id": "kaghan",
+   "route": "kkh",
+   "months": "111222222211",
+   "jeep": 0,
+   "fly": null,
+   "region": "kaghan",
+   "kind": "famous",
+   "name": "Kaghan",
+   "ur": "کاغان",
+   "alt": 2000,
+   "km": 245,
+   "hrs": "5–6",
+   "lat": 34.779,
+   "lon": 73.523,
+   "season": "Apr–Oct",
+   "vehicle": "Any car",
+   "network": "Jazz, Zong, Telenor",
+   "fuel": "Fuel available",
+   "intro": "The town that gives the whole valley its name, set along the Kunhar River below Naran. A calmer stop than Naran with riverside hotels.",
+   "history": "Kaghan was long the main settlement of the valley, on the summer route from the plains to the high pastures.",
+   "todo": [
+    "Riverside hotels and walks",
+    "Shogran and Siri Paye are a detour from Kiwai on the way"
+   ],
+   "reach": "Islamabad → Hazara Motorway → Mansehra → Balakot → Kaghan.",
+   "stay": "Hotels on the river.",
+   "food": "Trout and roadside dhabas.",
+   "tips": [
+    "Beyond Naran the road is closed by snow in winter."
+   ]
+  },
+  {
+   "id": "naran",
+   "route": "kkh",
+   "months": "000012222100",
+   "jeep": 5000,
+   "fly": null,
+   "region": "kaghan",
+   "kind": "famous",
+   "name": "Naran & Lake Saif-ul-Malook",
+   "ur": "ناران و جھیل سیف الملوک",
+   "alt": 2400,
+   "km": 270,
+   "hrs": "6–7",
+   "lat": 34.909,
+   "lon": 73.651,
+   "season": "May–Oct",
+   "vehicle": "Car to Naran; jeep to the lake",
+   "network": "Jazz, Zong, Telenor in town",
+   "fuel": "Fuel available; limited ATMs",
+   "intro": "The busiest summer resort of the north, and the base for Lake Saif-ul-Malook, Lulusar Lake and Babusar Pass.",
+   "history": "Lake Saif-ul-Malook (≈ 3,200 m) is named after the folk tale of Prince Saif-ul-Malook and the fairy princess Badri Jamala, told in the famous poem by Mian Muhammad Bakhsh. Locals say fairies still come to the lake on full-moon nights.",
+   "todo": [
+    "Jeep to Lake Saif-ul-Malook",
+    "Lulusar Lake, source of the Kunhar",
+    "Babusar Top (≈ 4,170 m) in summer",
+    "Naran bazaar"
+   ],
+   "reach": "Kaghan → Naran on the main valley road.",
+   "stay": "Hundreds of hotels; very busy June–August.",
+   "food": "Trout, BBQ, pakoras in the bazaar.",
+   "tips": [
+    "Naran is mostly shut from about November to April.",
+    "Agree jeep prices for the lake before setting out."
+   ]
+  },
+  {
+   "id": "chilas",
+   "route": "kkh",
+   "months": "112221112221",
+   "jeep": 0,
+   "fly": null,
+   "region": "gb",
+   "kind": "famous",
+   "name": "Chilas",
+   "ur": "چلاس",
+   "alt": 1265,
+   "km": 400,
+   "hrs": "9–10 (via Babusar, summer)",
+   "lat": 35.421,
+   "lon": 74.095,
+   "season": "Mar–May, Sep–Nov (summer is very hot)",
+   "vehicle": "Any car on the KKH",
+   "network": "SCOM, Jazz, Zong",
+   "fuel": "Fuel and ATMs",
+   "intro": "A hot, rocky town on the Indus and the Karakoram Highway, where the Babusar road comes down. Main stop between Kaghan and Gilgit.",
+   "history": "The rocks along the Indus around Chilas carry tens of thousands of ancient carvings and inscriptions, left by travellers, traders and Buddhist pilgrims over two thousand years. They are among the largest rock-art collections in the world.",
+   "todo": [
+    "Rock carvings along the KKH",
+    "Views of Nanga Parbat on the way to Raikot Bridge"
+   ],
+   "reach": "Summer: Naran → Babusar Top → Chilas. All year: KKH via Besham and Dasu.",
+   "stay": "Hotels in Chilas town.",
+   "food": "Local hotels on the KKH.",
+   "tips": [
+    "In summer temperatures can pass 40°C; travel early.",
+    "Babusar Pass is usually open only from about June to October."
+   ]
+  },
+  {
+   "id": "fairy-meadows",
+   "route": "kkh",
+   "months": "000012222100",
+   "jeep": 9000,
+   "fly": null,
+   "region": "gb",
+   "kind": "famous",
+   "name": "Fairy Meadows",
+   "ur": "فیری میڈوز",
+   "alt": 3300,
+   "km": 470,
+   "hrs": "11–12 + trek",
+   "lat": 35.386,
+   "lon": 74.58,
+   "season": "May–Oct",
+   "vehicle": "Jeep from Raikot Bridge, then 2–3 hour hike",
+   "network": "Weak or none",
+   "fuel": "Chilas",
+   "intro": "A meadow in pine forest facing the north face of Nanga Parbat (8,126 m), the ninth-highest mountain on earth.",
+   "history": "The German climber Hermann Buhl made the first ascent of Nanga Parbat in 1953. The meadow got its name from German climbers who called it a fairy-tale meadow.",
+   "todo": [
+    "Sunrise on Nanga Parbat",
+    "Hike to Beyal Camp and the Nanga Parbat viewpoint"
+   ],
+   "reach": "KKH to Raikot Bridge → jeep on a narrow cliff track to Tato/Jhel → hike.",
+   "stay": "Wooden huts and camps run by locals.",
+   "food": "Simple camp meals.",
+   "tips": [
+    "The jeep track is narrow and frightening for some; only use the official jeep stand.",
+    "Carry warm clothes; nights are near freezing."
+   ]
+  },
+  {
+   "id": "hunza",
+   "route": "kkh",
+   "months": "111222222211",
+   "jeep": 0,
+   "fly": "Gilgit",
+   "region": "gb",
+   "kind": "famous",
+   "name": "Hunza (Karimabad)",
+   "ur": "ہنزہ (کریم آباد)",
+   "alt": 2400,
+   "km": 600,
+   "hrs": "13–15",
+   "lat": 36.317,
+   "lon": 74.667,
+   "season": "Apr (blossom) – Oct (autumn colours)",
+   "vehicle": "Any car on the KKH",
+   "network": "SCOM, Jazz, Zong",
+   "fuel": "Fuel and ATMs in Aliabad/Karimabad",
+   "intro": "Terraced valley under Rakaposhi and Ultar peaks, with old forts, apricot orchards, Attabad Lake and the road to Khunjerab Pass.",
+   "history": "Hunza was a kingdom ruled by its Mirs for centuries until 1974. Altit Fort is around 900 years old and Baltit Fort around 700; both were restored by the Aga Khan Trust for Culture. Attabad Lake was formed in 2010 when a huge landslide blocked the Hunza River.",
+   "todo": [
+    "Baltit and Altit forts",
+    "Eagle's Nest viewpoint",
+    "Attabad Lake and Passu Cones",
+    "Khunjerab Pass (≈ 4,690 m) on the China border"
+   ],
+   "reach": "Islamabad → KKH (or via Babusar in summer) → Gilgit → Hunza. Flights to Gilgit then road.",
+   "stay": "Wide choice in Karimabad and Aliabad.",
+   "food": "Chapshuro, diram fitti, apricot dishes, walnut cake.",
+   "tips": [
+    "Khunjerab Pass usually closes for winter around December.",
+    "Gilgit flights are often cancelled for weather; keep a spare day."
+   ]
+  },
+  {
+   "id": "skardu",
+   "route": "kkh",
+   "months": "111222222211",
+   "jeep": 0,
+   "fly": "Skardu",
+   "region": "gb",
+   "kind": "famous",
+   "name": "Skardu",
+   "ur": "سکردو",
+   "alt": 2230,
+   "km": 640,
+   "hrs": "18–20 by road",
+   "lat": 35.297,
+   "lon": 75.633,
+   "season": "Apr–Oct",
+   "vehicle": "Car to Skardu; jeep for Deosai and Shigar side valleys",
+   "network": "SCOM, Jazz, Zong",
+   "fuel": "Fuel and ATMs",
+   "intro": "Capital of Baltistan on the Indus: cold desert, blue lakes and the gateway to K2 and the Baltoro glacier.",
+   "history": "Baltistan was once called Little Tibet. Kharpocho Fort above Skardu was built by the great Maqpon ruler Ali Sher Khan Anchan in the 16th century. Nearby Shigar Fort, about 400 years old, has been restored and is now a heritage hotel.",
+   "todo": [
+    "Upper Kachura and Shangrila lakes",
+    "Shigar Fort and valley",
+    "Cold desert at Katpana",
+    "Deosai Plains (Jul–Sep)",
+    "Kharpocho Fort"
+   ],
+   "reach": "Fly Islamabad–Skardu (weather permitting), or road via KKH and the Skardu road along the Indus.",
+   "stay": "From guesthouses to resorts at Shangrila and Shigar.",
+   "food": "Balti dishes: mamtu, gyal, apricot soup.",
+   "tips": [
+    "Deosai is snowbound outside summer.",
+    "Flights are cheap to cancel for weather; keep a buffer day."
+   ]
+  },
+  {
+   "id": "chitral",
+   "route": "swat",
+   "months": "111122222211",
+   "jeep": 0,
+   "fly": "Chitral",
+   "region": "chitral",
+   "kind": "famous",
+   "name": "Chitral & Kalash Valleys",
+   "ur": "چترال و وادیٔ کیلاش",
+   "alt": 1500,
+   "km": 365,
+   "hrs": "8–10",
+   "lat": 35.852,
+   "lon": 71.786,
+   "season": "May–Oct (Kalash festivals: Chilam Joshi in May)",
+   "vehicle": "Car to Chitral; jeep useful for Kalash",
+   "network": "Jazz, Zong, Telenor in town",
+   "fuel": "Fuel and ATMs in Chitral town",
+   "intro": "A remote town under Tirich Mir (7,708 m), the highest peak of the Hindu Kush, and the gateway to the Kalash valleys of Bumburet, Rumbur and Birir.",
+   "history": "Chitral was ruled by the Mehtars until 1969. Chitral Fort and the Shahi Mosque (1924) stand on the riverbank. The Kalash people keep their own faith, language and festivals, unlike any other culture in Pakistan.",
+   "todo": [
+    "Shahi Mosque and Chitral Fort",
+    "Kalash valleys (Bumburet is easiest)",
+    "Garam Chashma hot springs",
+    "Shandur Pass polo festival (usually July)"
+   ],
+   "reach": "Islamabad → Swat Expressway → Dir → Lowari Tunnel → Chitral. Also flights.",
+   "stay": "Hotels in Chitral; guesthouses in Bumburet.",
+   "food": "Chitrali bread, walnuts, local cheese.",
+   "tips": [
+    "Ask permission before photographing Kalash people, especially women.",
+    "Foreign visitors may need to register with police."
+   ]
+  },
+  {
+   "id": "rawalakot",
+   "route": "isb",
+   "months": "222222222222",
+   "jeep": 0,
+   "fly": null,
+   "region": "ajk",
+   "kind": "famous",
+   "name": "Rawalakot & Banjosa",
+   "ur": "راولاکوٹ و بنجوسہ",
+   "alt": 1615,
+   "km": 120,
+   "hrs": "3–4",
+   "lat": 33.858,
+   "lon": 73.76,
+   "season": "All year (snow Dec–Feb)",
+   "vehicle": "Any car",
+   "network": "SCOM, Zong, Jazz",
+   "fuel": "Fuel and ATMs",
+   "intro": "Main town of Poonch district in green pine hills, with Banjosa Lake and Toli Pir close by. The easiest mountain trip from Islamabad.",
+   "history": "Poonch has a proud military tradition and was a centre of the 1947 movement that formed Azad Kashmir. Sardar Muhammad Ibrahim Khan, first president of Azad Kashmir, came from this area.",
+   "todo": [
+    "Banjosa Lake (about 20 km)",
+    "Toli Pir meadow and viewpoint",
+    "Rawalakot bazaar"
+   ],
+   "reach": "Islamabad → Kohala or Azad Pattan → Rawalakot.",
+   "stay": "Hotels in Rawalakot and at Banjosa.",
+   "food": "Local Pahari dishes and kebabs.",
+   "tips": [
+    "Good choice for a two-day family trip."
+   ]
+  },
+  {
+   "id": "neelum",
+   "route": "isb",
+   "months": "111122222211",
+   "jeep": 0,
+   "fly": null,
+   "region": "ajk",
+   "kind": "famous",
+   "name": "Neelum Valley",
+   "ur": "وادیٔ نیلم",
+   "alt": 2000,
+   "km": 270,
+   "hrs": "7–9 to Sharda",
+   "lat": 34.79,
+   "lon": 74.18,
+   "season": "Apr–Oct",
+   "vehicle": "Car to Sharda/Kel; jeep beyond",
+   "network": "SCOM, Zong; patchy",
+   "fuel": "Last reliable ATMs around Athmuqam",
+   "intro": "A 200 km valley along the Neelum River from Muzaffarabad: Keran, Sharda, Kel, Arang Kel and Taobat, with Ratti Gali Lake high above Dowarian.",
+   "history": "Sharda holds the ruins of Sharda Peeth, once a famous centre of learning that gave its name to the old Sharda script. Parts of the valley road run beside the Line of Control.",
+   "todo": [
+    "Keran riverside",
+    "Sharda ruins",
+    "Arang Kel village (cable car and hike from Kel)",
+    "Ratti Gali Lake by jeep from Dowarian (summer)"
+   ],
+   "reach": "Islamabad → Muzaffarabad → Neelum road.",
+   "stay": "Hotels and guesthouses in Keran, Sharda and Kel.",
+   "food": "Trout and local food.",
+   "tips": [
+    "Respect restrictions near the Line of Control and carry your CNIC.",
+    "Do not photograph security posts."
+   ]
+  },
+  {
+   "id": "murree",
+   "route": "isb",
+   "months": "222222222222",
+   "jeep": 0,
+   "fly": null,
+   "region": "galiyat",
+   "kind": "famous",
+   "name": "Murree",
+   "ur": "مری",
+   "alt": 2290,
+   "km": 60,
+   "hrs": "1.5–2",
+   "lat": 33.907,
+   "lon": 73.392,
+   "season": "All year · snow Dec–Feb",
+   "vehicle": "Any car (chains in heavy snow)",
+   "network": "All networks",
+   "fuel": "Plenty of fuel and ATMs",
+   "intro": "Pakistan's best-known hill station, an hour and a half from Islamabad, with Mall Road, pine ridges and winter snow.",
+   "history": "The British founded Murree in 1851 as a sanatorium and summer headquarters for the Punjab government. Its churches, Mall Road and old hotels date from that time.",
+   "todo": [
+    "Mall Road walk and Kashmir Point",
+    "Patriata (New Murree) chairlift and cable car",
+    "Pindi Point views",
+    "Snowfall in winter"
+   ],
+   "reach": "Islamabad → Murree Expressway, about 1.5 hours without traffic.",
+   "stay": "Hundreds of hotels from budget to upscale; book ahead on weekends.",
+   "food": "Mall Road cafés, corn on the cob, tea and pakoras.",
+   "tips": [
+    "In heavy snowfall, follow police advisories; in January 2022 people died stuck in their cars in a snowstorm.",
+    "Weekends and public holidays bring huge traffic jams; go on weekdays."
+   ]
+  },
+  {
+   "id": "nathia-gali",
+   "route": "isb",
+   "months": "222222222222",
+   "jeep": 0,
+   "fly": null,
+   "region": "galiyat",
+   "kind": "famous",
+   "name": "Nathia Gali & Ayubia",
+   "ur": "نتھیا گلی و ایوبیہ",
+   "alt": 2500,
+   "km": 85,
+   "hrs": "2.5",
+   "lat": 34.073,
+   "lon": 73.381,
+   "season": "All year · snow Dec–Feb",
+   "vehicle": "Any car (chains in heavy snow)",
+   "network": "All networks",
+   "fuel": "Fuel in Murree/Abbottabad",
+   "intro": "The quieter, greener hill stations of the Galiyat ridge between Murree and Abbottabad: oak and pine forest, Mukshpuri and Miranjani peaks and the Pipeline walking track.",
+   "history": "Nathia Gali was the summer headquarters of the British governor of the North-West Frontier Province. The old Governor House and St Matthew's Church still stand. Ayubia was named after President Ayub Khan.",
+   "todo": [
+    "Pipeline Track from Dunga Gali to Ayubia (about 4 km, flat)",
+    "Mukshpuri or Miranjani hike",
+    "Ayubia chairlift",
+    "Bird watching in the forest"
+   ],
+   "reach": "Islamabad → Murree → Galiyat road, or from Abbottabad.",
+   "stay": "Hotels and cottages in Nathia Gali, Dunga Gali and Bhurban.",
+   "food": "Hotel restaurants and roadside tea stalls.",
+   "tips": [
+    "Leopards live in these forests; do not walk trails alone after dark."
+   ]
+  },
+  {
+   "id": "kumrat",
+   "route": "swat",
+   "months": "000012222100",
+   "jeep": 12000,
+   "fly": null,
+   "region": "dir",
+   "kind": "famous",
+   "name": "Kumrat Valley",
+   "ur": "وادیٔ کمراٹ",
+   "alt": 2300,
+   "km": 400,
+   "hrs": "9–10",
+   "lat": 35.53,
+   "lon": 72.22,
+   "season": "Jun–Sep",
+   "vehicle": "Car to Thall; jeep into the valley",
+   "network": "Weak or none beyond Thall",
+   "fuel": "Fill up in Dir",
+   "intro": "A deep valley of giant deodar trees, meadows and the Panjkora River in Upper Dir. It became famous after 2016 and is now one of the most loved camping spots in the north.",
+   "history": "The valley is home to Kohistani communities whose carved wooden mosques, such as the old mosque at Thall, are among the finest in the region.",
+   "todo": [
+    "Kumrat forest and riverside camping",
+    "Jahaz Banda meadow (hike or jeep + hike)",
+    "Kala Chashma springs",
+    "Thall's old wooden mosque"
+   ],
+   "reach": "Islamabad → Swat Expressway → Chakdara → Dir → Thall → jeep to Kumrat.",
+   "stay": "Camps and simple huts; a few hotels in Thall.",
+   "food": "Camp meals and trout.",
+   "tips": [
+    "Bring cash from Dir; there are no ATMs in the valley.",
+    "Rivers are fast and cold: do not swim."
+   ]
+  },
+  {
+   "id": "shogran",
+   "route": "kkh",
+   "months": "111122222211",
+   "jeep": 4000,
+   "fly": null,
+   "region": "kaghan",
+   "kind": "famous",
+   "name": "Shogran & Siri Paye",
+   "ur": "شوگران و سری پائے",
+   "alt": 2360,
+   "km": 210,
+   "hrs": "5",
+   "lat": 34.64,
+   "lon": 73.46,
+   "season": "Apr–Oct · snow Dec–Feb",
+   "vehicle": "Car to Kiwai; jeep up to Shogran and Siri Paye",
+   "network": "Jazz, Zong",
+   "fuel": "Balakot/Kiwai",
+   "intro": "A forested plateau above Kiwai with views of Malika Parbat, and the open meadows of Siri Paye a short jeep ride higher. A gentler alternative to Naran.",
+   "history": "Shogran was a summer grazing ground before hotels arrived in the 1990s. Siri and Paye are two meadows, named after the small lake (siri) and the grazing ground (paye).",
+   "todo": [
+    "Jeep to Siri Paye meadows",
+    "Short walks in the pine forest",
+    "Views of Malika Parbat and Makra peak"
+   ],
+   "reach": "Balakot → Kiwai → steep road to Shogran.",
+   "stay": "Hotels and cottages in Shogran.",
+   "food": "Hotel restaurants.",
+   "tips": [
+    "The Kiwai–Shogran road is steep; low-power cars struggle."
+   ]
+  },
+  {
+   "id": "babusar",
+   "route": "kkh",
+   "months": "000002222100",
+   "jeep": 0,
+   "fly": null,
+   "region": "kaghan",
+   "kind": "famous",
+   "name": "Babusar Top & Lulusar",
+   "ur": "بابوسر ٹاپ و لولوسر",
+   "alt": 4170,
+   "km": 340,
+   "hrs": "8",
+   "lat": 35.15,
+   "lon": 74.05,
+   "season": "Jun–Sep (pass usually open Jun–Oct)",
+   "vehicle": "Car in summer if driven carefully",
+   "network": "Weak",
+   "fuel": "Fill up in Naran",
+   "intro": "The highest point of the Kaghan Valley road, a windswept pass between Kaghan and Chilas, with Lulusar Lake on the way up. On clear days Nanga Parbat shows on the horizon.",
+   "history": "Babusar has been a route between the Kaghan Valley and the Indus for centuries. The paved road made it a summer shortcut from Islamabad to Gilgit-Baltistan.",
+   "todo": [
+    "Lulusar Lake, source of the Kunhar River",
+    "Photo stop at the top",
+    "Continue down to Chilas"
+   ],
+   "reach": "Naran → Batakundi → Lulusar → Babusar Top.",
+   "stay": "Stay in Naran or Chilas.",
+   "food": "Tea stalls at the top in summer.",
+   "tips": [
+    "Altitude above 4,000 m: do not run or stay long if you feel dizzy.",
+    "Snow can close the pass any day outside summer."
+   ]
+  },
+  {
+   "id": "gilgit",
+   "route": "kkh",
+   "months": "111222222211",
+   "jeep": 0,
+   "fly": "Gilgit",
+   "region": "gb",
+   "kind": "famous",
+   "name": "Gilgit City",
+   "ur": "گلگت",
+   "alt": 1500,
+   "km": 500,
+   "hrs": "11–14",
+   "lat": 35.92,
+   "lon": 74.31,
+   "season": "Mar–Nov",
+   "vehicle": "Any car",
+   "network": "SCOM, Jazz, Zong",
+   "fuel": "Fuel and ATMs",
+   "intro": "The capital and crossroads of Gilgit-Baltistan, on the Gilgit River, where roads branch to Hunza, Naltar, Ghizer and Skardu.",
+   "history": "Gilgit was an old Silk Road stop and later the base of the British Gilgit Agency. On 1 November 1947 local forces rose against Dogra rule, and the region joined Pakistan; 1 November is still celebrated as Independence Day of Gilgit-Baltistan.",
+   "todo": [
+    "Kargah Buddha rock carving (about 7th century)",
+    "Gilgit bazaar for gems and dried fruit",
+    "Polo ground matches"
+   ],
+   "reach": "Summer: via Babusar. All year: Karakoram Highway. Flights from Islamabad.",
+   "stay": "Wide choice of hotels.",
+   "food": "Chapshuro, local trout, dried apricots.",
+   "tips": [
+    "Good place to rest one night before going higher."
+   ]
+  },
+  {
+   "id": "naltar",
+   "route": "kkh",
+   "months": "211122222212",
+   "jeep": 8000,
+   "fly": "Gilgit",
+   "region": "gb",
+   "kind": "famous",
+   "name": "Naltar Valley",
+   "ur": "وادیٔ نلتر",
+   "alt": 2900,
+   "km": 540,
+   "hrs": "13–15",
+   "lat": 36.16,
+   "lon": 74.18,
+   "season": "Jun–Sep · skiing Dec–Feb",
+   "vehicle": "Jeep from Nomal",
+   "network": "Limited",
+   "fuel": "Gilgit",
+   "intro": "A pine valley north of Gilgit with colourful lakes: Satrangi (seven-colour) Lake, Blue Lake and Pari Lake. In winter it hosts skiing.",
+   "history": "The Pakistan Air Force has run a ski resort here for decades, and Naltar has hosted national and international ski events.",
+   "todo": [
+    "Satrangi, Blue and Pari lakes",
+    "Forest walks",
+    "Skiing in winter"
+   ],
+   "reach": "Gilgit → Nomal → jeep track to Naltar Bala.",
+   "stay": "Guesthouses and camps.",
+   "food": "Simple local food.",
+   "tips": [
+    "The jeep track is rough; take an experienced local driver."
+   ]
+  },
+  {
+   "id": "attabad",
+   "route": "kkh",
+   "months": "111222222211",
+   "jeep": 0,
+   "fly": "Gilgit",
+   "region": "gb",
+   "kind": "famous",
+   "name": "Attabad Lake",
+   "ur": "عطا آباد جھیل",
+   "alt": 2550,
+   "km": 620,
+   "hrs": "14–16",
+   "lat": 36.33,
+   "lon": 74.87,
+   "season": "All year (frozen edges in winter)",
+   "vehicle": "Any car on the KKH",
+   "network": "SCOM, Jazz, Zong",
+   "fuel": "Aliabad / Karimabad",
+   "intro": "A turquoise lake along the Karakoram Highway between Hunza and Gojal, with boating, jet skis and lakeside resorts.",
+   "history": "In January 2010 a huge landslide at Attabad village blocked the Hunza River, killing 20 people and drowning villages and part of the highway. The lake that formed is now one of Pakistan's most photographed sights. Tunnels built with Chinese help reopened the road in 2015.",
+   "todo": [
+    "Boat ride on the lake",
+    "Drive through the Attabad tunnels",
+    "Lakeside cafés and resorts"
+   ],
+   "reach": "Karimabad → KKH north, about 30 minutes.",
+   "stay": "Lakeside resorts or stay in Hunza.",
+   "food": "Lakeside cafés.",
+   "tips": [
+    "Wear life jackets on every boat ride."
+   ]
+  },
+  {
+   "id": "passu-khunjerab",
+   "route": "kkh",
+   "months": "000122222210",
+   "jeep": 0,
+   "fly": "Gilgit",
+   "region": "gb",
+   "kind": "famous",
+   "name": "Passu & Khunjerab Pass",
+   "ur": "پسو و خنجراب",
+   "alt": 2500,
+   "km": 660,
+   "hrs": "16–18",
+   "lat": 36.46,
+   "lon": 74.88,
+   "season": "May–Oct (Khunjerab usually closes for winter)",
+   "vehicle": "Any car on the KKH",
+   "network": "SCOM; none near the pass",
+   "fuel": "Sost is the last fuel stop",
+   "intro": "Upper Hunza (Gojal): the sharp Passu Cones, Hussaini suspension bridge, Passu glacier, and Khunjerab Pass at about 4,690 m on the China border, one of the highest paved border crossings in the world.",
+   "history": "The Wakhi people of Gojal came here from the Wakhan corridor. Khunjerab means blood valley, an echo of the raids on old caravans. The Karakoram Highway crossing opened to travellers in the 1980s.",
+   "todo": [
+    "Passu Cones viewpoint",
+    "Hussaini suspension bridge",
+    "Borith Lake",
+    "Khunjerab Pass and national park (snow leopard, ibex, marmots)"
+   ],
+   "reach": "Hunza → KKH north through Attabad tunnels → Passu → Sost → Khunjerab.",
+   "stay": "Guesthouses in Passu, Gulmit and Sost.",
+   "food": "Wakhi bread and soups.",
+   "tips": [
+    "Khunjerab is above 4,600 m: stay less than an hour and go back down.",
+    "Carry your CNIC for checkposts."
+   ]
+  },
+  {
+   "id": "deosai",
+   "route": "kkh",
+   "months": "000001222000",
+   "jeep": 20000,
+   "fly": "Skardu",
+   "region": "gb",
+   "kind": "famous",
+   "name": "Deosai Plains",
+   "ur": "دیوسائی",
+   "alt": 4100,
+   "km": 670,
+   "hrs": "Skardu + 3",
+   "lat": 35.03,
+   "lon": 75.43,
+   "season": "Jul–Sep (snowbound the rest of the year)",
+   "vehicle": "4x4 jeep",
+   "network": "No signal",
+   "fuel": "Skardu",
+   "intro": "One of the highest plateaus in the world, a national park of wildflowers and streams, home of the Himalayan brown bear. Sheosar Lake lies at its western edge.",
+   "history": "Deosai means land of giants in local legend. It became a national park in 1993 to protect its brown bears, whose numbers have grown since.",
+   "todo": [
+    "Sheosar Lake",
+    "Bara Pani river camp",
+    "Watching brown bears and marmots from a distance"
+   ],
+   "reach": "Skardu → Sadpara Lake → Deosai by jeep. Can continue to Astore.",
+   "stay": "Licensed camps only.",
+   "food": "Carry food and water.",
+   "tips": [
+    "Very cold even in summer nights; take a sleeping bag.",
+    "Never approach or feed bears."
+   ]
+  },
+  {
+   "id": "shigar",
+   "route": "kkh",
+   "months": "111222222211",
+   "jeep": 0,
+   "fly": "Skardu",
+   "region": "gb",
+   "kind": "famous",
+   "name": "Shigar Valley",
+   "ur": "وادیٔ شگر",
+   "alt": 2300,
+   "km": 670,
+   "hrs": "Skardu + 1",
+   "lat": 35.42,
+   "lon": 75.74,
+   "season": "Apr–Oct",
+   "vehicle": "Any car",
+   "network": "SCOM, Zong",
+   "fuel": "Skardu",
+   "intro": "Green valley north of Skardu on the road to K2, with the restored Shigar Fort, the Sarfaranga cold desert and old wooden mosques.",
+   "history": "Shigar Fort (Fong Khar) was the palace of the Amacha rulers and is around 400 years old. The Aga Khan Trust for Culture restored it and it now operates as a heritage hotel and museum.",
+   "todo": [
+    "Shigar Fort and museum",
+    "Sarfaranga cold desert",
+    "Amburik mosque, one of the oldest in Baltistan"
+   ],
+   "reach": "Skardu → Shigar road, about 1 hour.",
+   "stay": "Shigar Fort hotel or guesthouses.",
+   "food": "Balti dishes.",
+   "tips": [
+    "Base for the long trek to K2 base camp (needs permits and a licensed operator)."
+   ]
+  },
+  {
+   "id": "khaplu",
+   "route": "kkh",
+   "months": "111222222211",
+   "jeep": 0,
+   "fly": "Skardu",
+   "region": "gb",
+   "kind": "famous",
+   "name": "Khaplu",
+   "ur": "خپلو",
+   "alt": 2600,
+   "km": 740,
+   "hrs": "Skardu + 3",
+   "lat": 35.16,
+   "lon": 76.33,
+   "season": "Apr–Oct",
+   "vehicle": "Any car",
+   "network": "SCOM, Zong",
+   "fuel": "Skardu / Khaplu",
+   "intro": "Quiet town in the Ghanche valley east of Skardu, with the beautiful Khaplu Palace and Chaqchan Mosque, and views towards Masherbrum.",
+   "history": "Khaplu Palace was built in the 19th century by the Yabgo rajas of Khaplu and restored by the Aga Khan Trust. Chaqchan Mosque is believed to date to the 14th century, linked with the preacher Mir Syed Ali Hamdani.",
+   "todo": [
+    "Khaplu Palace",
+    "Chaqchan Mosque",
+    "Drive on towards Machulo and Hushe"
+   ],
+   "reach": "Skardu → along the Shyok River, about 3 hours.",
+   "stay": "Khaplu Palace hotel or guesthouses.",
+   "food": "Balti food, apricots.",
+   "tips": [
+    "Good choice for travellers who want Baltistan without crowds."
+   ]
+  },
+  {
+   "id": "astore-rama",
+   "route": "kkh",
+   "months": "000012222100",
+   "jeep": 5000,
+   "fly": null,
+   "region": "gb",
+   "kind": "famous",
+   "name": "Astore & Rama Meadows",
+   "ur": "استور و راما",
+   "alt": 3300,
+   "km": 470,
+   "hrs": "11–13",
+   "lat": 35.34,
+   "lon": 74.81,
+   "season": "Jun–Sep",
+   "vehicle": "Car to Astore; jeep to Rama",
+   "network": "SCOM in Astore",
+   "fuel": "Astore",
+   "intro": "Valley on the east side of Nanga Parbat. Above Astore town, Rama meadows and Rama Lake sit under the Nanga Parbat massif.",
+   "history": "Astore lay on the old route from Kashmir to Gilgit via the Burzil Pass. Its villages still keep traditions of the Shina-speaking people.",
+   "todo": [
+    "Rama meadows and forest",
+    "Rama Lake (hike)",
+    "Rupal valley and Nanga Parbat south face"
+   ],
+   "reach": "KKH → Jaglot → Astore → jeep to Rama.",
+   "stay": "Guesthouses and camps.",
+   "food": "Simple local food.",
+   "tips": [
+    "Combine with Deosai: the road crosses from Astore to Skardu in summer."
+   ]
+  },
+  {
+   "id": "phander",
+   "route": "kkh",
+   "months": "000122222210",
+   "jeep": 0,
+   "fly": "Gilgit",
+   "region": "gb",
+   "kind": "famous",
+   "name": "Phander & Ghizer",
+   "ur": "پھنڈر و غذر",
+   "alt": 2900,
+   "km": 680,
+   "hrs": "Gilgit + 5–6",
+   "lat": 36.16,
+   "lon": 72.93,
+   "season": "May–Oct (autumn colours Oct)",
+   "vehicle": "Car if driven carefully; jeep better",
+   "network": "SCOM",
+   "fuel": "Gilgit / Gahkuch",
+   "intro": "The western valleys of Gilgit-Baltistan: Phander Lake, trout streams and willow trees that turn gold in October, on the road towards Shandur.",
+   "history": "Ghizer lies on the old route between Gilgit and Chitral over the Shandur Pass, where the famous polo match between Gilgit and Chitral is played each summer.",
+   "todo": [
+    "Phander Lake",
+    "Khalti Lake trout",
+    "Drive on to Shandur Pass in summer"
+   ],
+   "reach": "Gilgit → Gahkuch → Gupis → Phander.",
+   "stay": "Guesthouses and small hotels.",
+   "food": "Trout.",
+   "tips": [
+    "October autumn colours are spectacular but nights are freezing."
+   ]
+  },
+  {
+   "id": "kalash",
+   "route": "swat",
+   "months": "111122222211",
+   "jeep": 0,
+   "fly": "Chitral",
+   "region": "chitral",
+   "kind": "famous",
+   "name": "Kalash Valleys",
+   "ur": "وادیٔ کیلاش",
+   "alt": 2000,
+   "km": 405,
+   "hrs": "9–11",
+   "lat": 35.7,
+   "lon": 71.72,
+   "season": "May–Oct · festivals: Chilam Joshi (May), Uchal (Aug), Chaumos (Dec)",
+   "vehicle": "Car to Bumburet if driven carefully; jeep for Rumbur and Birir",
+   "network": "Limited",
+   "fuel": "Chitral town",
+   "intro": "Three valleys near Chitral, Bumburet, Rumbur and Birir, home to the Kalash people, with their own faith, colourful dress, wooden houses and spring, summer and winter festivals.",
+   "history": "The Kalash are one of the smallest communities of Pakistan, with a language (Kalasha) and religion unlike their neighbours'. Their festivals mark the seasons, and their culture is a protected heritage.",
+   "todo": [
+    "Kalash museum (Kalasha Dur) in Bumburet",
+    "Village walks with a local guide",
+    "Festivals if your dates match"
+   ],
+   "reach": "Chitral → Ayun → Bumburet road (narrow).",
+   "stay": "Guesthouses run by Kalash families.",
+   "food": "Local walnut bread, cheese, grape juice.",
+   "tips": [
+    "Always ask before photographing anyone.",
+    "Do not enter graveyards or sacred places."
+   ]
+  },
+  {
+   "id": "muzaffarabad",
+   "route": "isb",
+   "months": "222222222222",
+   "jeep": 0,
+   "fly": null,
+   "region": "ajk",
+   "kind": "famous",
+   "name": "Muzaffarabad & Pir Chinasi",
+   "ur": "مظفرآباد و پیر چناسی",
+   "alt": 740,
+   "km": 140,
+   "hrs": "3–4",
+   "lat": 34.37,
+   "lon": 73.47,
+   "season": "All year",
+   "vehicle": "Any car",
+   "network": "All networks",
+   "fuel": "Fuel and ATMs",
+   "intro": "Capital of Azad Kashmir where the Neelum and Jhelum rivers meet. Pir Chinasi, about 30 km away at around 2,900 m, gives wide views over the valley.",
+   "history": "Founded by Sultan Muzaffar Khan in the 17th century, whose Red Fort still stands by the river. The city was largely destroyed in the October 2005 earthquake and rebuilt.",
+   "todo": [
+    "Red Fort",
+    "Domel, where the Neelum meets the Jhelum",
+    "Pir Chinasi shrine and viewpoint"
+   ],
+   "reach": "Islamabad → Murree → Kohala → Muzaffarabad.",
+   "stay": "Hotels in the city.",
+   "food": "Kashmiri food.",
+   "tips": [
+    "Gateway to Neelum Valley: fill up and withdraw cash here."
+   ]
+  },
+  {
+   "id": "arang-kel",
+   "route": "isb",
+   "months": "000122222210",
+   "jeep": 0,
+   "fly": null,
+   "region": "ajk",
+   "kind": "famous",
+   "name": "Arang Kel",
+   "ur": "اڑنگ کیل",
+   "alt": 2400,
+   "km": 300,
+   "hrs": "9–10",
+   "lat": 34.81,
+   "lon": 74.36,
+   "season": "May–Oct",
+   "vehicle": "Car to Kel, then cable car or a steep hike",
+   "network": "SCOM, weak",
+   "fuel": "Athmuqam",
+   "intro": "A storybook village of wooden houses on a high meadow above Kel in upper Neelum, reached by a small cable car across the river and a steep walk.",
+   "history": "Arang Kel stayed almost unknown until the 2000s; its isolation kept its wooden village and fields intact.",
+   "todo": [
+    "Cable car from Kel",
+    "Meadow walk to the village",
+    "Sunset over Neelum"
+   ],
+   "reach": "Muzaffarabad → Neelum road → Kel → cable car.",
+   "stay": "Guesthouses in Arang Kel and Kel.",
+   "food": "Simple local food.",
+   "tips": [
+    "The hike is steep: good shoes and water."
+   ]
+  },
+  {
+   "id": "ratti-gali",
+   "route": "isb",
+   "months": "000001222000",
+   "jeep": 15000,
+   "fly": null,
+   "region": "ajk",
+   "kind": "famous",
+   "name": "Ratti Gali Lake",
+   "ur": "رتی گلی جھیل",
+   "alt": 3700,
+   "km": 240,
+   "hrs": "7 + jeep",
+   "lat": 34.84,
+   "lon": 74.05,
+   "season": "Jul–Sep",
+   "vehicle": "4x4 jeep from Dowarian, then a short hike",
+   "network": "No signal",
+   "fuel": "Athmuqam",
+   "intro": "A glacial lake surrounded by flower meadows and snow peaks above Dowarian in Neelum. One of the most beautiful lakes in Kashmir.",
+   "history": "The meadows around the lake are old summer pastures of Gujjar and Bakarwal herders.",
+   "todo": [
+    "Jeep to base camp, hike to the lake",
+    "Camping in the meadows"
+   ],
+   "reach": "Neelum road → Dowarian → jeep track (2–3 hours) → hike.",
+   "stay": "Camps at base camp.",
+   "food": "Camp meals.",
+   "tips": [
+    "Snow often blocks the jeep track until July.",
+    "Start early: weather turns in the afternoon."
+   ]
+  }
+ ],
+ "ESSENTIALS": {
+  "numbers": [
+   [
+    "Rescue (KP, Punjab, GB, AJK)",
+    "1122"
+   ],
+   [
+    "Police",
+    "15"
+   ],
+   [
+    "Edhi ambulance",
+    "115"
+   ],
+   [
+    "Motorway / Highway Police",
+    "130"
+   ],
+   [
+    "Fire brigade",
+    "16"
+   ]
+  ],
+  "altitude": [
+   "Above about 2,500 m some people get altitude sickness: headache, nausea, breathlessness, poor sleep.",
+   "Climb slowly. Do not go from Islamabad to Babusar, Khunjerab or Deosai in one day if you can avoid it.",
+   "Drink plenty of water and avoid heavy exercise on the first day high up.",
+   "If symptoms get worse, go down. Going lower is the best treatment. Seek medical help for confusion or severe breathlessness."
+  ],
+  "packing": [
+   "CNIC (and passport for foreigners) plus photocopies",
+   "Cash: ATMs thin out after the main towns",
+   "Warm jacket, even in July",
+   "Power bank and car charger",
+   "Basic medicines and a first-aid kit",
+   "Sunscreen, sunglasses, cap",
+   "Water bottle and snacks for long drives",
+   "Rubbish bag: carry your litter back"
+  ],
+  "road": [
+   "Start early. Mountain roads are safest in daylight.",
+   "After heavy rain, landslides are common. Ask locals and police before crossing.",
+   "Check engine, brakes and tyres before you go; workshops are far apart.",
+   "On narrow roads, the vehicle going uphill usually has right of way.",
+   "In snow, carry chains or use a 4x4."
+  ],
+  "network": [
+   [
+    "Swat (to Kalam)",
+    "Jazz, Zong, Telenor, Ufone"
+   ],
+   [
+    "Kaghan & Naran",
+    "Jazz, Zong, Telenor"
+   ],
+   [
+    "Gilgit-Baltistan",
+    "SCOM best; Jazz and Zong in towns"
+   ],
+   [
+    "Chitral town",
+    "Jazz, Zong, Telenor"
+   ],
+   [
+    "Azad Kashmir",
+    "SCOM, Zong, Jazz"
+   ]
+  ]
+ },
+ "COSTS": {
+  "updated": "12 Nov 2026",
+  "petrol": 346,
+  "kmPerLitre": 12,
+  "tollPerKm": 1.5,
+  "coachPerKm": 5.5,
+  "hotel": {
+   "budget": 4000,
+   "mid": 10000,
+   "luxury": 25000
+  },
+  "food": {
+   "budget": 1800,
+   "mid": 3500,
+   "luxury": 6000
+  },
+  "peopleRoom": 3,
+  "origins": {
+   "isb": {
+    "name": "Islamabad"
+   },
+   "psh": {
+    "name": "Peshawar"
+   },
+   "lhr": {
+    "name": "Lahore"
+   }
+  },
+  "delta": {
+   "swat": {
+    "psh": -90,
+    "lhr": 350,
+    "pshH": -1.5,
+    "lhrH": 4.5
+   },
+   "kkh": {
+    "psh": 80,
+    "lhr": 375,
+    "pshH": 1.5,
+    "lhrH": 4.5
+   },
+   "isb": {
+    "psh": 180,
+    "lhr": 375,
+    "pshH": 2.5,
+    "lhrH": 4.5
+   }
+  },
+  "flights": {
+   "Skardu": "Islamabad–Skardu: PIA, Airblue and AirSial fly direct (about 1 hour). One-way fares seen from about Rs 10,500 to Rs 47,600 depending on date.",
+   "Gilgit": "Islamabad–Gilgit: PIA flies (about 1 hour). Often cancelled for weather; fares vary by date.",
+   "Chitral": "Islamabad–Chitral: PIA flights run some days of the week; often weather-dependent."
+  }
+ },
+ "PHOTOS": {
+  "marghazar": {
+   "src": "img/marghazar.jpg",
+   "thumb": "img/marghazar-s.jpg",
+   "credit": "Ram Takht peak, Marghazar"
+  },
+  "malam-jabba": {
+   "src": "img/malam-jabba.jpg",
+   "thumb": "img/malam-jabba-s.jpg",
+   "credit": ""
+  },
+  "madyan": {
+   "src": "img/madyan.jpg",
+   "thumb": "img/madyan-s.jpg",
+   "credit": ""
+  },
+  "kalam": {
+   "src": "img/kalam.jpg",
+   "thumb": "img/kalam-s.jpg",
+   "credit": ""
+  },
+  "mahodand": {
+   "src": "img/mahodand.jpg",
+   "thumb": "img/mahodand-s.jpg",
+   "credit": ""
+  },
+  "kandol-lake": {
+   "src": "img/kandol-lake.jpg",
+   "thumb": "img/kandol-lake-s.jpg",
+   "credit": ""
+  },
+  "daral-lake": {
+   "src": "img/daral-lake.jpg",
+   "thumb": "img/daral-lake-s.jpg",
+   "credit": ""
+  },
+  "kaghan": {
+   "src": "img/kaghan.jpg",
+   "thumb": "img/kaghan-s.jpg",
+   "credit": ""
+  },
+  "naran": {
+   "src": "img/naran.jpg",
+   "thumb": "img/naran-s.jpg",
+   "credit": "Lake Saif-ul-Malook, Naran"
+  },
+  "fairy-meadows": {
+   "src": "img/fairy-meadows.jpg",
+   "thumb": "img/fairy-meadows-s.jpg",
+   "credit": "Nanga Parbat seen from the Fairy Meadows side"
+  },
+  "hunza": {
+   "src": "img/hunza.jpg",
+   "thumb": "img/hunza-s.jpg",
+   "credit": "Hunza Valley from Altit Fort"
+  },
+  "skardu": {
+   "src": "img/skardu.jpg",
+   "thumb": "img/skardu-s.jpg",
+   "credit": "Shangrila (Lower Kachura), Skardu"
+  },
+  "gilgit": {
+   "src": "img/gilgit.jpg",
+   "thumb": "img/gilgit-s.jpg",
+   "credit": ""
+  },
+  "naltar": {
+   "src": "img/naltar.jpg",
+   "thumb": "img/naltar-s.jpg",
+   "credit": ""
+  },
+  "attabad": {
+   "src": "img/attabad.jpg",
+   "thumb": "img/attabad-s.jpg",
+   "credit": ""
+  },
+  "passu-khunjerab": {
+   "src": "img/passu-khunjerab.jpg",
+   "thumb": "img/passu-khunjerab-s.jpg",
+   "credit": "Passu Cones"
+  },
+  "chitral": {
+   "src": "img/chitral.jpg",
+   "thumb": "img/chitral-s.jpg",
+   "credit": ""
+  },
+  "kumrat": {
+   "src": "img/kumrat.jpg",
+   "thumb": "img/kumrat-s.jpg",
+   "credit": "Katora Lake, Kumrat"
+  },
+  "murree": {
+   "src": "img/murree.jpg",
+   "thumb": "img/murree-s.jpg",
+   "credit": ""
+  },
+  "nathia-gali": {
+   "src": "img/nathia-gali.jpg",
+   "thumb": "img/nathia-gali-s.jpg",
+   "credit": ""
+  },
+  "muzaffarabad": {
+   "src": "img/muzaffarabad.jpg",
+   "thumb": "img/muzaffarabad-s.jpg",
+   "credit": "Muzaffarabad and the Neelum River"
+  },
+  "neelum": {
+   "src": "img/neelum.jpg",
+   "thumb": "img/neelum-s.jpg",
+   "credit": "Sharda village, Neelum"
+  },
+  "arang-kel": {
+   "src": "img/arang-kel.jpg",
+   "thumb": "img/arang-kel-s.jpg",
+   "credit": ""
+  },
+  "rawalakot": {
+   "src": "img/rawalakot.jpg",
+   "thumb": "img/rawalakot-s.jpg",
+   "credit": "Banjosa Lake, Rawalakot"
+  }
+ }
+}
