@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KohNoor</title>
+<meta name="description" content="KohNoor: the complete travel guide to Northern Pakistan. Swat, Kaghan-Naran, Gilgit-Baltistan, Chitral, Kumrat, Murree and Azad Kashmir: places, history, live weather, trip costs from Islamabad, Peshawar and Lahore, packing lists and offline essentials.">
+<meta name="theme-color" content="#173f4d">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:wght@400;600;700&family=Noto+Nastaliq+Urdu:wght@600&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a European-style destination guide. Big scenic hero per place (illustration now, real photos later), "at a glance" strip, month-by-month season bar, then plan-your-trip tools: cost from three cities and a month-aware packing list. */
+:root{
+  --ink:#14212a;
+  --muted:#58676f;
+  --paper:#f4f6f6;
+  --card:#ffffff;
+  --line:#dbe2e4;
+  --slate:#173f4d;
+  --accent:#c9771a;
+  --good:#2f7a55;
+  --ok:#c9951a;
+  --closed:#b44a3c;
+  --hidden:#7a4fa3;
+  --chip:#e8eef0;
+  --font-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --font-urdu:"Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#e6ecee; --muted:#9db0b7; --paper:#0e191e; --card:#15242b; --line:#2a3c44;
+    --slate:#86bccd; --accent:#eba04a; --good:#6cc296; --ok:#e3bd55; --closed:#e78a7c; --hidden:#c6a3e8; --chip:#1d3139;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#e6ecee; --muted:#9db0b7; --paper:#0e191e; --card:#15242b; --line:#2a3c44;
+  --slate:#86bccd; --accent:#eba04a; --good:#6cc296; --ok:#e3bd55; --closed:#e78a7c; --hidden:#c6a3e8; --chip:#1d3139;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.6}
+a{color:var(--slate)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+h1,h2,h3{font-family:var(--font-display);line-height:1.12;text-wrap:balance;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+.sr{position:absolute;left:-9999px}
+
+/* top bar */
+.topbar{background:#173f4d;color:#eef4f5;position:sticky;top:0;z-index:10}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.brand b{font-family:var(--font-display);font-size:21px;letter-spacing:-.01em}
+.brand .ur{font-family:var(--font-urdu);font-size:14px;opacity:.85;line-height:2}
+.net{font-size:13px;padding:3px 10px;border-radius:99px;background:rgba(255,255,255,.14);white-space:nowrap}
+.net.off{background:#c9771a;color:#1b1206}
+nav.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
+nav.tabs a{flex:0 0 auto;color:#e6eff1;text-decoration:none;font-weight:600;font-size:14px;padding:6px 11px;border-radius:8px;background:rgba(255,255,255,.08)}
+nav.tabs a[aria-current="page"]{background:#eef4f5;color:#173f4d}
+
+/* scenic hero */
+.scene{position:relative;color:#fff;overflow:hidden;background:#173f4d}
+.scene .art{position:absolute;inset:0;width:100%;height:100%}
+.scene .art img{width:100%;height:100%;object-fit:cover;display:block}
+.scene .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,20,26,.05) 30%,rgba(8,20,26,.72) 100%)}
+.scene .in{position:relative;padding-top:120px;padding-bottom:30px}
+.scene .art svg{width:100%;height:100%;display:block}
+.scene .kicker{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.9}
+.scene h1{font-size:clamp(34px,6vw,64px);font-weight:800;letter-spacing:-.02em;margin-top:6px;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.scene .ur{font-family:var(--font-urdu);font-size:22px;line-height:2.2;opacity:.95}
+.scene p.lede{font-size:19px;max-width:62ch;margin:8px 0 0;text-shadow:0 1px 10px rgba(0,0,0,.4)}
+.scene.home .in{padding-top:90px;padding-bottom:80px}
+.credit{position:absolute;right:10px;bottom:6px;font-size:11px;opacity:.8}
+.scene.home .credit{bottom:auto;top:8px}
+
+main{padding:0 0 60px}
+.searchbox{display:flex;gap:10px;margin:-28px 0 18px;position:relative;z-index:2}
+.searchbox input{flex:1;font:inherit;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);box-shadow:0 8px 24px rgba(10,35,45,.16)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 8px}
+.chip{font:inherit;font-size:14px;font-weight:600;padding:6px 12px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--slate);border-color:var(--slate);color:var(--paper)}
+.sec{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:34px 0 14px;flex-wrap:wrap}
+.sec h2{font-size:26px;letter-spacing:-.01em}
+.sec span{color:var(--muted);font-size:14px}
+
+/* photo cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .15s, box-shadow .15s}
+.pcard:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(10,35,45,.14)}
+@media (prefers-reduced-motion: reduce){.pcard{transition:none}.pcard:hover{transform:none}}
+.pcard .pic{position:relative;aspect-ratio:16/10;background:#173f4d}
+.pcard .pic svg,.pcard .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.pcard .pic .badges{position:absolute;left:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap}
+.pcard .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pcard h3{font-size:20px}
+.pcard .ur{font-family:var(--font-urdu);color:var(--muted);font-size:14px;line-height:2}
+.pcard p{margin:0;color:var(--muted);font-size:15px}
+.meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+.fact{font-size:13px;background:var(--chip);border-radius:6px;padding:2px 8px;font-variant-numeric:tabular-nums}
+.price{font-size:14px;font-weight:700;color:var(--ink)}
+.price small{font-weight:400;color:var(--muted)}
+.tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:3px 8px;border-radius:5px;color:#fff;background:rgba(10,25,32,.65);backdrop-filter:blur(2px)}
+.tag.hidden{background:#7a4fa3}
+.tag.now2{background:#2f7a55}.tag.now1{background:#a8790f}.tag.now0{background:#a3412f}
+
+/* detail */
+.glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:22px 0 0}
+.glance div{background:var(--card);padding:12px 14px}
+.glance small{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.glance b{font-family:var(--font-display);font-size:19px;font-variant-numeric:tabular-nums}
+.months{display:grid;grid-template-columns:repeat(12,1fr);gap:3px;margin-top:8px}
+.months span{font-size:11px;text-align:center;padding:6px 0;border-radius:5px;color:#fff;font-weight:700}
+.m2{background:var(--good)}.m1{background:var(--ok)}.m0{background:var(--closed);opacity:.75}
+.months span.now{outline:2px solid var(--ink);outline-offset:1px}
+.legend{display:flex;gap:14px;font-size:13px;color:var(--muted);margin-top:6px;flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:middle}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:28px;margin-top:26px}
+@media (max-width:880px){.layout{grid-template-columns:1fr}}
+.prose h2{font-size:24px;margin:30px 0 10px;letter-spacing:-.01em}
+.prose h2:first-child{margin-top:0}
+.prose p{margin:0 0 12px;max-width:68ch}
+.prose ul{margin:0 0 12px;padding-left:20px;max-width:68ch}
+.prose li{margin:5px 0}
+ol.top{list-style:none;padding:0;margin:0;display:grid;gap:10px;counter-reset:t}
+ol.top li{counter-increment:t;display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+ol.top li::before{content:counter(t);font-family:var(--font-display);font-weight:800;font-size:20px;color:var(--accent);min-width:22px;line-height:1.3}
+aside .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+aside h3,.tool h3{font-size:14px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:10px}
+dl.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin:0;font-size:15px}
+dl.kv dt{color:var(--muted)}
+dl.kv dd{margin:0;font-weight:600}
+.wx-now{display:flex;align-items:baseline;gap:10px}
+.wx-now b{font-family:var(--font-display);font-size:40px;font-variant-numeric:tabular-nums}
+.wx-days{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px;font-size:13px;text-align:center}
+.wx-days div{background:var(--chip);border-radius:8px;padding:6px 2px;font-variant-numeric:tabular-nums}
+.note{font-size:13px;color:var(--muted);margin:8px 0 0}
+.warn{border-left:4px solid var(--accent);background:var(--card);padding:10px 14px;border-radius:0 10px 10px 0;margin:14px 0;font-size:15px;max-width:68ch}
+.warn.closed{border-color:var(--closed)}
+
+/* tools */
+.tool{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:0 0 14px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:14px}
+.controls label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted);font-weight:600}
+.controls select,.controls input{font:inherit;font-size:15px;padding:8px 10px;border-radius:9px;border:1px solid var(--line);background:var(--paper);color:var(--ink)}
+.total{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-top:2px solid var(--ink);padding-top:10px;margin-top:6px}
+.total b{font-family:var(--font-display);font-size:30px;font-variant-numeric:tabular-nums}
+.table{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.num{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap;text-align:right}
+.packs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.packs div{background:var(--paper);border-radius:12px;padding:12px 14px}
+.packs h4{margin:0 0 6px;font-size:15px;font-family:var(--font-display)}
+.packs ul{margin:0;padding-left:18px;font-size:15px}
+.crumb{font-size:14px;color:#dbe8eb;margin-bottom:8px}
+.crumb a{color:#dbe8eb}
+footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-size:14px}
+.empty{color:var(--muted);padding:20px 0}
+.rowlist{display:grid;gap:10px}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="#home" aria-label="KohNoor home">
+        <svg width="30" height="30" viewBox="0 0 512 512" aria-hidden="true"><rect width="512" height="512" rx="112" fill="#e9eef0"/><path d="M60 392 L196 178 L262 282 L318 206 L452 392 Z" fill="#173f4d"/><circle cx="372" cy="138" r="42" fill="#d98e2b"/></svg>
+        <span><b>KohNoor</b> <span class="ur">کوہِ نور</span></span>
+      </a>
+      <span class="net" id="net">Online</span>
+    </div>
+    <nav class="tabs" aria-label="Regions" id="tabs"></nav>
+  </div>
+</div>
+
+<div id="app"></div>
+
+<footer class="wrap">
+  <p><b>KohNoor</b> — the jewel of the mountains: the complete guide to Northern Pakistan. Altitudes, distances, travel times and costs are estimates; prices change with season, fuel rates and demand. Roads in the north change with weather, so check the latest status before you set out. Places marked <b>Hidden</b> have less verified information: travel with a local guide.</p>
+  <p>Content and cost defaults updated <span id="upd"></span>. Weather from Open-Meteo.</p>
+</footer>
+
+<script src="data.js"></script>
+<script>
+/* ============ HELPERS ============ */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = n => Number(n).toLocaleString("en-US");
+const rs = n => "Rs " + fmt(Math.round(n/500)*500);
+const rsK = n => n >= 1000 ? "Rs " + (Math.round(n/500)*500/1000).toLocaleString("en-US",{maximumFractionDigits:1}) + "k" : "Rs " + n;
+const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const MONTH_FULL = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const NOW_M = new Date().getMonth();
+function store(k, v){ try{ if(v===undefined) return JSON.parse(localStorage.getItem(k)); localStorage.setItem(k, JSON.stringify(v)); }catch(e){ return null; } }
+const PHOTOS = (typeof window.PHOTOS === "object" && window.PHOTOS) || {};   // { placeId: { src, credit } } — real photos go here
+
+/* Region colour worlds for the scenic illustrations */
+const PALETTE = {
+  swat:    ["#9fd0c9","#4f9a7d","#2f6f57","#1b4a3a","#e8f2ef"],
+  kaghan:  ["#a9d6e5","#5d9fb3","#2e6e83","#1a4757","#eef7fa"],
+  gb:      ["#c7d6ef","#8098c4","#4b5f8f","#26345a","#f4f7fd"],
+  chitral: ["#f1d3a6","#c4925a","#8a5c34","#4f3420","#fbf1e2"],
+  ajk:     ["#bfe0b5","#6aa86a","#3b7446","#1f452a","#f0f8ec"],
+  galiyat: ["#b8d9c4","#5f9a76","#346b4c","#1a3f2c","#eef6f0"],
+  dir:     ["#b5d8be","#5a9470","#2f6348","#183827","#edf6ef"]
+};
+function hash(s){ let h=2166136261; for(const c of s){ h^=c.charCodeAt(0); h=Math.imul(h,16777619); } return h>>>0; }
+function rand(seed){ return () => (seed = (seed*1664525 + 1013904223)>>>0) / 4294967296; }
+function ridge(r, y, amp, n, w){ let d=`M0 ${y}`; for(let i=1;i<=n;i++){ const x=w*i/n; d+=` L${x.toFixed(1)} ${(y - amp*(0.35+r()*0.65)*(i%2?1:0.45)).toFixed(1)}`; } return d+` L${w} 400 L0 400 Z`; }
+/* Scenic SVG for a place (stand-in until a real photo is added) */
+function art(id, region, snow){
+  const p = PALETTE[region] || PALETTE.swat, r = rand(hash(id)), W=800;
+  const sunX = 120 + r()*560, sunY = 70 + r()*50;
+  const far = ridge(r, 230, 150, 9, W), mid = ridge(r, 290, 110, 11, W), near = ridge(r, 350, 70, 14, W);
+  return `<svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs><linearGradient id="s${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${p[0]}"/><stop offset="1" stop-color="${p[4]}"/></linearGradient></defs>
+    <rect width="800" height="400" fill="url(#s${id})"/>
+    <circle cx="${sunX}" cy="${sunY}" r="34" fill="#f4c27a" opacity=".9"/>
+    <path d="${far}" fill="${snow ? "#e6eef3" : p[1]}" opacity=".95"/>
+    <path d="${mid}" fill="${p[2]}"/>
+    <path d="${near}" fill="${p[3]}"/>
+  </svg>`;
+}
+function pic(p, big){ const ph = PHOTOS[p.id]; return ph ? `<img src="${esc(big ? ph.src : (ph.thumb || ph.src))}" alt="${esc(p.name)}"${big ? "" : ' loading="lazy"'}>` : art(p.id, p.region, p.alt >= 2300); }
+const RPH = (typeof window.REGION_PHOTOS === "object" && window.REGION_PHOTOS) || {};
+const rimg = (k, fallback) => RPH[k] ? `<img src="${esc(RPH[k])}" alt="">` : fallback;
+
+/* ============ COST ENGINE ============ */
+function routeKm(p, o){ const d = COSTS.delta[p.route] || COSTS.delta.isb; return Math.max(30, p.km + (o==="psh" ? d.psh : o==="lhr" ? d.lhr : 0)); }
+function routeHrs(p, o){
+  if(o==="isb") return p.hrs + " h";
+  const d = COSTS.delta[p.route] || COSTS.delta.isb, add = o==="psh" ? d.pshH : d.lhrH;
+  const m = String(p.hrs).match(/^(\d+(?:\.\d+)?)(?:–(\d+(?:\.\d+)?))?(.*)$/);
+  if(!m) return `${p.hrs} h (from Islamabad) ${add>0?"+":"−"}${Math.abs(add)} h`;
+  const a = Math.max(1, +m[1]+add), b = m[2] ? Math.max(1, +m[2]+add) : null;
+  return `${a}${b ? "–"+b : ""}${m[3]} h`;
+}
+function tripCost(p, o, people, nights, mode, level){
+  const km = routeKm(p, o), C = COSTS;
+  let transport;
+  if(mode === "car"){ const cars = Math.ceil(people/5); transport = cars * (2*km/C.kmPerLitre*C.petrol + 2*km*C.tollPerKm); }
+  else { transport = Math.round(km*C.coachPerKm/50)*50 * 2 * people; }
+  const rooms = Math.ceil(people / C.peopleRoom);
+  const hotel = rooms * nights * C.hotel[level];
+  const food = people * (nights + 1) * C.food[level];
+  const jeep = p.jeep ? p.jeep * Math.ceil(people/6) : 0;
+  const total = transport + hotel + food + jeep;
+  return { km, transport, hotel, food, jeep, rooms, total, per: total/people };
+}
+const budgetFrom = p => tripCost(p, "isb", 2, 2, "coach", "budget").per;
+
+/* ============ PACKING (month + altitude aware) ============ */
+function packing(p, m){
+  const winter = [10,11,0,1].includes(m), shoulder = [2,3,9].includes(m), summer = [4,5,6,7].includes(m), monsoon = [6,7].includes(m);
+  const groups = [];
+  groups.push(["Always", ["CNIC (passport for foreigners) + photocopies","Cash: ATMs thin out after main towns","Power bank and car charger","First-aid kit and your regular medicines","Sunscreen, sunglasses, cap","Water bottle and snacks","Rubbish bag — carry your litter back"]]);
+  const cold = [];
+  if(p.alt >= 1800 || winter) cold.push("Warm jacket and a sweater","Warm cap");
+  if((p.alt >= 2500 && (winter||shoulder)) || p.alt >= 3500 || (winter && p.alt >= 1800)) cold.push("Heavy down jacket","Gloves and woollen socks","Thermal inner wear","Lip balm and moisturiser");
+  if(cold.length) groups.push(["For the cold", cold]);
+  if(winter && p.alt >= 1800) groups.push(["Snow & ice", ["Shoes with good grip or snow boots","Snow chains for the car","Blanket and extra food in the car","Check road closures before leaving"]]);
+  if(summer && p.alt < 1600) groups.push(["For the heat", ["Light cotton clothes","ORS sachets","Wide hat or umbrella for sun"]]);
+  if(monsoon) groups.push(["Monsoon (Jul–Aug)", ["Raincoat or umbrella","Waterproof bag for phone and papers","Extra day in your plan for landslides"]]);
+  const v = (p.vehicle + " " + p.reach).toLowerCase();
+  if(/jeep|hike|trek|walk/.test(v)) groups.push(["Jeep & hiking", ["Comfortable walking shoes","Small daypack","Motion-sickness tablets for jeep tracks","Cash for jeep hire (agree price first)"]]);
+  if(/no signal|weak|none|patchy|limited/i.test(p.network)) groups.push(["No signal zone", ["Download offline maps before you go","Tell someone your route and return time","Torch / headlamp","Write emergency numbers on paper"]]);
+  if(/camp/i.test(p.stay)) groups.push(["Camping", ["Warm sleeping bag","Torch and spare batteries","Mat or extra blanket"]]);
+  if(p.alt >= 3000) groups.push(["High altitude", ["Climb slowly and drink plenty of water","Ask a doctor before the trip about altitude-sickness medicine","Go down if headache or breathlessness gets worse"]]);
+  return groups;
+}
+
+/* ============ NAV ============ */
+const TABS = [["home","All places"], ...Object.entries(REGIONS).map(([k,r]) => ["region-"+k, r.name]), ["essentials","Offline essentials"]];
+$("#tabs").innerHTML = TABS.map(([h,l]) => `<a href="#${h}" data-tab="${h}">${esc(l)}</a>`).join("");
+$("#upd").textContent = COSTS.updated;
+
+function nowTag(p){ const s = p.months[NOW_M]; return `<span class="tag now${s}">${s==="2" ? "Great now" : s==="1" ? "Possible now" : "Closed now"}</span>`; }
+function card(p){
+  return `<a class="pcard" href="#p-${p.id}">
+    <div class="pic">${pic(p)}<div class="badges">${p.kind==="hidden" ? `<span class="tag hidden">Hidden</span>` : ""}${nowTag(p)}</div></div>
+    <div class="body">
+      <h3>${esc(p.name)}</h3><span class="ur" lang="ur">${esc(p.ur)}</span>
+      <p>${esc(p.intro.split(". ")[0])}.</p>
+      <div class="meta"><span class="fact">⛰ ${fmt(p.alt)} m</span><span class="fact">${esc(p.hrs)} h from Islamabad</span></div>
+      <div class="price">From ${rsK(budgetFrom(p))} <small>per person · 2 nights, coach, budget</small></div>
+    </div></a>`;
+}
+
+/* ============ VIEWS ============ */
+let filter = { q:"", region:"all" };
+function scene(opts){
+  return `<section class="scene ${opts.cls||""}"><div class="art">${opts.art}</div><div class="shade"></div>
+    <div class="wrap in">${opts.crumb ? `<div class="crumb">${opts.crumb}</div>` : ""}<div class="kicker">${opts.kicker}</div><h1>${opts.title}</h1>${opts.ur ? `<div class="ur" lang="ur">${opts.ur}</div>` : ""}${opts.lede ? `<p class="lede">${opts.lede}</p>` : ""}</div>
+    ${opts.credit ? `<span class="credit">${opts.credit}</span>` : ""}</section>`;
+}
+
+function viewHome(){
+  const chips = [["all","All regions"], ...Object.entries(REGIONS).map(([k,r]) => [k, r.name])];
+  $("#app").innerHTML = scene({cls:"home", art: rimg("home", art("home-hero","gb",true)), credit: RPH.home ? "Hunza Valley in autumn" : "", kicker:"KohNoor · Northern Pakistan travel guide",
+      title:"Every valley of the north,<br>in one guide.", lede:"Places and their history, live weather, trip costs from Islamabad, Peshawar and Lahore, what to pack each month, and offline essentials for where the signal ends."}) +
+    `<main class="wrap">
+      <div class="searchbox"><label for="q" class="sr">Search places</label><input id="q" type="search" placeholder="Search a valley, lake or town — e.g. Kalam, Hunza, lake" value="${esc(filter.q)}"></div>
+      <div class="chips" role="group" aria-label="Filter by region">${chips.map(([k,l]) => `<button class="chip" data-r="${k}" aria-pressed="${filter.region===k}">${esc(l)}</button>`).join("")}</div>
+      <div id="lists"></div>
+    </main>`;
+  $("#q").addEventListener("input", e => { filter.q = e.target.value; renderLists(); });
+  document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => { filter.region = b.dataset.r; document.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c===b)); renderLists(); }));
+  renderLists();
+}
+function renderLists(){
+  const q = filter.q.trim().toLowerCase();
+  const list = PLACES.filter(p => (filter.region==="all" || p.region===filter.region) &&
+    (!q || (p.name+" "+p.intro+" "+REGIONS[p.region].name+" "+p.todo.join(" ")).toLowerCase().includes(q)));
+  const byPhoto = (a,b) => (PHOTOS[b.id]?1:0) - (PHOTOS[a.id]?1:0);
+  const fam = list.filter(p => p.kind==="famous").sort(byPhoto), hid = list.filter(p => p.kind==="hidden").sort(byPhoto);
+  const best = fam.filter(p => p.months[NOW_M]==="2");
+  $("#lists").innerHTML = !list.length ? `<p class="empty">No place matches “${esc(filter.q)}”. Try another name.</p>` : `
+    ${!q && filter.region==="all" && best.length ? `<div class="sec"><h2>Best right now: ${MONTH_FULL[NOW_M]}</h2><span>${best.length} places in season</span></div><div class="grid">${best.slice(0,6).map(card).join("")}</div>` : ""}
+    ${fam.length ? `<div class="sec"><h2>Famous destinations</h2><span>${fam.length} places</span></div><div class="grid">${fam.map(card).join("")}</div>` : ""}
+    ${hid.length ? `<div class="sec"><h2>Hidden places</h2><span>${hid.length} places · less visited, travel with a guide</span></div><div class="grid">${hid.map(card).join("")}</div>` : ""}`;
+}
+
+function viewRegion(key){
+  const r = REGIONS[key]; if(!r) return viewHome();
+  const ps = PLACES.filter(p => p.region===key);
+  const heroP = ps[0];
+  $("#app").innerHTML = scene({art: rimg(key, art("region-"+key, key, true)),  crumb:`<a href="#home">All places</a> › ${esc(r.name)}`, kicker:"Region", title:esc(r.name), ur:esc(r.ur), lede:esc(r.lede)}) +
+    `<main class="wrap"><div class="layout">
+      <div class="prose">
+        <h2>About the region</h2>${r.about.map(t => `<p>${esc(t)}</p>`).join("")}
+        <h2>A short history</h2>${r.history.map(t => `<p>${esc(t)}</p>`).join("")}
+      </div>
+      <aside><div class="box"><h3>Quick facts</h3><dl class="kv">${Object.entries(r.facts).map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl></div></aside>
+    </div>
+    <div class="sec"><h2>Places in ${esc(r.name)}</h2><span>${ps.length} so far · more being added</span></div>
+    <div class="grid">${ps.filter(p=>p.kind==="famous").concat(ps.filter(p=>p.kind==="hidden")).map(card).join("")}</div></main>`;
+}
+
+const calc = { o:"isb", people:4, nights:3, mode:"car", level:"mid" };
+function viewPlace(id){
+  const p = PLACES.find(x => x.id===id); if(!p) return viewHome();
+  const r = REGIONS[p.region], ph = PHOTOS[p.id];
+  const s = p.months[NOW_M];
+  $("#app").innerHTML = scene({art: pic(p, true), crumb:`<a href="#home">All places</a> › <a href="#region-${p.region}">${esc(r.name)}</a>`, kicker: (p.kind==="hidden" ? "Hidden place · " : "") + esc(r.name), title:esc(p.name), ur:esc(p.ur), lede:esc(p.intro), credit: ph && ph.credit ? esc(ph.credit) : ""}) +
+  `<main class="wrap">
+    <div class="glance">
+      <div><small>Altitude</small><b>≈ ${fmt(p.alt)} m</b></div>
+      <div><small>From Islamabad</small><b>${esc(p.hrs)} h</b></div>
+      <div><small>Budget trip</small><b>${rsK(budgetFrom(p))}</b> <small style="display:inline;text-transform:none;letter-spacing:0">/person</small></div>
+      <div><small>Mobile signal</small><b style="font-size:15px">${esc(p.network)}</b></div>
+    </div>
+    <div class="tool" style="margin-top:14px"><h3>When to go</h3>
+      <div class="months">${[...p.months].map((v,i) => `<span class="m${v}${i===NOW_M?" now":""}" title="${MONTH_FULL[i]}">${MON[i]}</span>`).join("")}</div>
+      <div class="legend"><span><i class="m2"></i>Best</span><span><i class="m1"></i>Possible</span><span><i class="m0"></i>Closed or not advised</span><span>Outlined: this month</span></div>
+    </div>
+    ${s==="0" ? `<div class="warn closed"><b>${MONTH_FULL[NOW_M]}: usually closed or not advised.</b> Snow or weather normally blocks this place now. Best season: ${esc(p.season)}.</div>` : ""}
+    ${p.kind==="hidden" ? `<div class="warn"><b>Less verified place.</b> Information is thinner than for famous spots. Go with a local guide and ask in the nearest town about the route.</div>` : ""}
+    <div class="layout">
+      <div class="prose">
+        <h2>Top things to do</h2><ol class="top">${p.todo.map(t => `<li>${esc(t)}</li>`).join("")}</ol>
+        <h2>History</h2><p>${esc(p.history)}</p>
+        <h2>Getting there</h2><p>${esc(p.reach)}</p>
+        <div class="table"><table><thead><tr><th>From</th><th style="text-align:right">Distance</th><th style="text-align:right">Drive time</th></tr></thead><tbody>
+          ${Object.entries(COSTS.origins).map(([k,o]) => `<tr><td>${o.name}</td><td class="num">≈ ${fmt(routeKm(p,k))} km</td><td class="num">${esc(routeHrs(p,k))}</td></tr>`).join("")}
+        </tbody></table></div>
+        ${p.fly && COSTS.flights[p.fly] ? `<p class="note">✈ ${esc(COSTS.flights[p.fly])}</p>` : ""}
+        <h2>Trip cost</h2>
+        <div class="tool" id="calc"></div>
+        <h2>What to pack</h2>
+        <div class="tool">
+          <div class="controls" style="max-width:260px"><label for="pm">Travelling in<select id="pm">${MONTH_FULL.map((m,i) => `<option value="${i}"${i===NOW_M?" selected":""}>${m}</option>`).join("")}</select></label></div>
+          <div id="packs" class="packs"></div>
+        </div>
+        <h2>Where to stay</h2><p>${esc(p.stay)}</p>
+        <h2>Food</h2><p>${esc(p.food)}</p>
+        <h2>Good to know</h2><ul>${p.tips.map(t => `<li>${esc(t)}</li>`).join("")}</ul>
+      </div>
+      <aside>
+        <div class="box" id="wx"><h3>Weather now</h3><p class="note">Loading live weather…</p></div>
+        <div class="box"><h3>Quick facts</h3><dl class="kv">
+          <dt>Best season</dt><dd>${esc(p.season)}</dd>
+          <dt>Vehicle</dt><dd>${esc(p.vehicle)}</dd>
+          <dt>Fuel &amp; cash</dt><dd>${esc(p.fuel)}</dd>
+          <dt>Mobile signal</dt><dd>${esc(p.network)}</dd>
+        </dl></div>
+        <div class="box"><h3>Road status</h3><p style="margin:0;font-size:15px">Live road reports from travellers are coming soon. Until then, ask local police or your hotel before you set out, especially after rain or snow.</p></div>
+      </aside>
+    </div>
+  </main>`;
+  renderCalc(p);
+  const drawPacks = () => { const m = +$("#pm").value; $("#packs").innerHTML = packing(p, m).map(([h,items]) => `<div><h4>${esc(h)}</h4><ul>${items.map(i=>`<li>${esc(i)}</li>`).join("")}</ul></div>`).join("") + (p.months[m]==="0" ? `<div style="background:transparent;padding:0"><p class="note"><b>Note:</b> in ${MONTH_FULL[m]} this place is usually closed or not advised.</p></div>` : ""); };
+  $("#pm").addEventListener("change", drawPacks); drawPacks();
+  loadWeather(p);
+}
+
+function renderCalc(p){
+  const box = $("#calc"), c = calc;
+  const opt = (v, cur, label) => `<option value="${v}"${String(v)===String(cur)?" selected":""}>${label}</option>`;
+  box.innerHTML = `<h3>Estimate your trip</h3>
+    <div class="controls">
+      <label for="c-o">Starting from<select id="c-o">${Object.entries(COSTS.origins).map(([k,o]) => opt(k, c.o, o.name)).join("")}</select></label>
+      <label for="c-p">People<input id="c-p" type="number" min="1" max="30" value="${c.people}"></label>
+      <label for="c-n">Nights<input id="c-n" type="number" min="1" max="21" value="${c.nights}"></label>
+      <label for="c-m">Travel by<select id="c-m">${opt("car",c.mode,"Own car")}${opt("coach",c.mode,"Coach / bus")}</select></label>
+      <label for="c-l">Comfort<select id="c-l">${opt("budget",c.level,"Budget")}${opt("mid",c.level,"Mid-range")}${opt("luxury",c.level,"Luxury")}</select></label>
+    </div>
+    <div id="c-out"></div>`;
+  const out = () => {
+    c.o = $("#c-o").value; c.people = Math.max(1, +$("#c-p").value || 1); c.nights = Math.max(1, +$("#c-n").value || 1); c.mode = $("#c-m").value; c.level = $("#c-l").value;
+    const t = tripCost(p, c.o, c.people, c.nights, c.mode, c.level);
+    const rows = [
+      [c.mode==="car" ? `Fuel + tolls, return (${fmt(t.km*2)} km, petrol Rs ${COSTS.petrol}/L)` : `Coach tickets, return × ${c.people}`, t.transport],
+      [`Hotel: ${t.rooms} room${t.rooms>1?"s":""} × ${c.nights} night${c.nights>1?"s":""}`, t.hotel],
+      [`Food: ${c.people} × ${c.nights+1} days`, t.food]
+    ];
+    if(t.jeep) rows.push(["Local jeep hire (estimate)", t.jeep]);
+    $("#c-out").innerHTML = `<div class="table"><table><tbody>${rows.map(([a,b]) => `<tr><td>${esc(a)}</td><td class="num">${rs(b)}</td></tr>`).join("")}</tbody></table></div>
+      <div class="total"><span>Estimated total · <b style="font-size:inherit;font-family:inherit">${rs(t.per)}</b> per person</span><b>${rs(t.total)}</b></div>
+      <p class="note">Estimates using ${COSTS.updated} rates. Hotels cost 30–50% more in June–August and on Eid holidays. Entry tickets, boating and shopping are extra.${p.fly ? " Flying is also possible: see Getting there." : ""}</p>`;
+  };
+  box.querySelectorAll("select,input").forEach(el => el.addEventListener("input", out));
+  out();
+}
+
+function viewEssentials(){
+  const e = ESSENTIALS;
+  $("#app").innerHTML = scene({art: rimg("essentials", art("essentials","kaghan",true)), credit: RPH.essentials ? "Kaghan Valley road" : "", crumb:`<a href="#home">All places</a>`, kicker:"Works offline", title:"Offline essentials", ur:"ضروری معلومات", lede:"Saved on your phone once you open the guide, so it works without signal."}) +
+    `<main class="wrap"><div class="layout"><div class="prose">
+      <h2>Emergency numbers</h2>
+      <div class="table"><table><thead><tr><th>Service</th><th style="text-align:right">Number</th></tr></thead><tbody>${e.numbers.map(([a,b]) => `<tr><td>${esc(a)}</td><td class="num">${esc(b)}</td></tr>`).join("")}</tbody></table></div>
+      <h2>Altitude sickness</h2><ul>${e.altitude.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>
+      <h2>Mountain driving</h2><ul>${e.road.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>
+      <h2>Packing list</h2><ul>${e.packing.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>
+      <h2>Which mobile network works</h2>
+      <div class="table"><table><thead><tr><th>Area</th><th>Usually works</th></tr></thead><tbody>${e.network.map(([a,b]) => `<tr><td>${esc(a)}</td><td>${esc(b)}</td></tr>`).join("")}</tbody></table></div>
+    </div>
+    <aside><div class="box"><h3>Save for offline</h3><p style="margin:0 0 10px;font-size:15px">On Android, open the browser menu and choose <b>Add to Home screen</b> or <b>Install app</b>. The whole guide is then saved on your phone.</p><p class="note" id="offline-state"></p></div></aside></div></main>`;
+  $("#offline-state").textContent = ("serviceWorker" in navigator && navigator.serviceWorker.controller) ? "✓ This guide is saved for offline use on this device." : "Offline saving starts after the guide is opened on the live website.";
+}
+
+/* ============ WEATHER ============ */
+const WX = {0:"Clear",1:"Mostly clear",2:"Partly cloudy",3:"Cloudy",45:"Fog",48:"Fog",51:"Light drizzle",53:"Drizzle",55:"Drizzle",61:"Light rain",63:"Rain",65:"Heavy rain",66:"Freezing rain",67:"Freezing rain",71:"Light snow",73:"Snow",75:"Heavy snow",77:"Snow grains",80:"Showers",81:"Showers",82:"Heavy showers",85:"Snow showers",86:"Heavy snow showers",95:"Thunderstorm",96:"Thunderstorm, hail",99:"Thunderstorm, hail"};
+async function loadWeather(p){
+  const box = $("#wx"); const key = "wx-"+p.id;
+  const draw = (d, stale) => {
+    const c = d.current, dd = d.daily;
+    box.innerHTML = `<h3>Weather now</h3>
+      <div class="wx-now"><b>${Math.round(c.temperature_2m)}°C</b><span>${esc(WX[c.weather_code] || "")}</span></div>
+      <div class="wx-days">${dd.time.slice(0,4).map((t,i)=>`<div><b>${new Date(t).toLocaleDateString("en-GB",{weekday:"short"})}</b><br>${Math.round(dd.temperature_2m_max[i])}° / ${Math.round(dd.temperature_2m_min[i])}°<br>${dd.snowfall_sum[i]>0 ? "Snow" : dd.precipitation_sum[i]>1 ? "Rain" : "Dry"}</div>`).join("")}</div>
+      <p class="note">${stale ? "Offline: last saved weather from " + new Date(d.saved).toLocaleString("en-GB") : "Live · updated " + new Date().toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"})}. For the town area; peaks are colder.</p>`;
+  };
+  try{
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${p.lat}&longitude=${p.lon}&elevation=${p.alt}&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,snowfall_sum&timezone=Asia%2FKarachi&forecast_days=4`;
+    const res = await fetch(url); if(!res.ok) throw 0;
+    const d = await res.json(); d.saved = Date.now(); store(key, d); draw(d, false);
+  }catch(e){
+    const old = store(key);
+    if(old) draw(old, true);
+    else box.innerHTML = `<h3>Weather now</h3><p style="margin:0;font-size:15px">Live weather loads on the live website and is kept for offline use. This preview cannot reach the weather service. Typical season: <b>${esc(p.season)}</b>.</p>`;
+  }
+}
+
+/* ============ ROUTER ============ */
+function route(){
+  const h = (location.hash || "#home").slice(1);
+  const pr = h.startsWith("p-") ? (PLACES.find(p => "p-"+p.id===h) || {}).region : null;
+  document.querySelectorAll("nav.tabs a").forEach(a => a.setAttribute("aria-current", (h===a.dataset.tab || (pr && a.dataset.tab==="region-"+pr)) ? "page" : "false"));
+  if(h.startsWith("p-")) viewPlace(h.slice(2));
+  else if(h.startsWith("region-")) viewRegion(h.slice(7));
+  else if(h==="essentials") viewEssentials();
+  else viewHome();
+  window.scrollTo({top:0});
+}
+window.addEventListener("hashchange", route);
+route();
+
+function netState(){ const n = $("#net"); const on = navigator.onLine; n.textContent = on ? "Online" : "Offline mode"; n.classList.toggle("off", !on); }
+window.addEventListener("online", netState); window.addEventListener("offline", netState); netState();
+if("serviceWorker" in navigator){ try{ navigator.serviceWorker.register("sw.js").catch(()=>{}); }catch(e){} }
+</script>
+</body>
+</html>
