@@ -1,0 +1,85 @@
+# KohNoor
+
+> KohNoor (kohnoor.pages.dev) is a free, independent travel guide to Northern Pakistan: Gilgit-Baltistan, Swat, Kaghan & Naran, Azad Kashmir, Chitral, Dir & Kumrat and Murree & Galiyat. Every place page gives history, best season by month, how to get there from Islamabad, Peshawar and Lahore, an estimated trip cost, live weather, a packing list and travel tips. Available in English and Urdu.
+
+Costs are estimates based on current fuel, coach, hotel and food rates; travel times are approximate. Road conditions in the mountains change with weather.
+
+## Main pages
+
+- [Destinations](https://kohnoor.pages.dev/regions/): all 57 places in 7 regions
+- [When to go](https://kohnoor.pages.dev/when-to-go/): month-by-month calendar for every place
+- [Interests](https://kohnoor.pages.dev/interests/): lakes, meadows, treks, history, family trips, snow, jeep adventures, hidden places
+- [Itineraries](https://kohnoor.pages.dev/itineraries/): day-by-day routes
+- [Trip cost planner](https://kohnoor.pages.dev/plan/)
+- [Essentials](https://kohnoor.pages.dev/essentials/): emergency numbers, altitude sickness, permits, mobile networks
+- [Urdu version](https://kohnoor.pages.dev/ur/)
+
+## Regions
+
+- [Gilgit-Baltistan](https://kohnoor.pages.dev/regions/gb/): Where the Karakoram, Himalaya and Hindu Kush meet: K2, Nanga Parbat, Hunza, Skardu and the Karakoram Highway to China.
+- [Swat Valley](https://kohnoor.pages.dev/regions/swat/): Green river valley in Khyber Pakhtunkhwa, about 4–5 hours from Islamabad, once called the Switzerland of the East. It runs from the plains at Mingora up to glacier lakes above Kalam.
+- [Kaghan & Naran](https://kohnoor.pages.dev/regions/kaghan/): The Kunhar River valley in Mansehra district: lakes of folklore, high meadows and the road over Babusar Pass to Gilgit-Baltistan.
+- [Azad Kashmir](https://kohnoor.pages.dev/regions/ajk/): Forested hills of Poonch and the long Neelum Valley along the Line of Control: green, quiet and close to Islamabad.
+- [Chitral](https://kohnoor.pages.dev/regions/chitral/): Remote valley under Tirich Mir, home of the Kalash people and the Shandur polo festival, now reachable all year through the Lowari Tunnel.
+- [Dir & Kumrat](https://kohnoor.pages.dev/regions/dir/): Forested valleys of Upper Dir along the Panjkora River, led by Kumrat, one of the north's favourite camping valleys.
+- [Murree & Galiyat](https://kohnoor.pages.dev/regions/galiyat/): Pine-covered hill stations on the ridge between Islamabad and Abbottabad, the closest mountain escape from the capital.
+
+## Places
+
+- [Mingora & Saidu Sharif](https://kohnoor.pages.dev/places/mingora/): The twin cities at the heart of Swat: Mingora the busy market town, Saidu Sharif the old seat of the Wali of Swat. Best season: All year. About 4–5 h from Islamabad.
+- [Swat Museum](https://kohnoor.pages.dev/places/swat-museum/): A small, excellent museum on the Mingora–Saidu road holding Gandhara sculpture from the valley's Buddhist sites: Buddhas, scenes from the Buddha's life, jewellery and coins. Best season: All year. About 4–5 h from Islamabad.
+- [Butkara Stupa](https://kohnoor.pages.dev/places/butkara/): The ruins of one of the most important Buddhist sanctuaries of Gandhara, right inside Mingora: a great central stupa ringed by more than two hundred smaller stupas and shrines. Best season: All year. About 4–5 h from Islamabad.
+- [Udegram](https://kohnoor.pages.dev/places/udegram/): A village south of Mingora with two layers of history on one hillside: the ruins of the fortress of Raja Gira and the Ghaznavid mosque below it. Best season: Oct–Apr best (cooler). About 4 h from Islamabad.
+- [Jahanabad Buddha](https://kohnoor.pages.dev/places/jahanabad-buddha/): A giant seated Buddha carved into a granite cliff above the village of Jahanabad (Shakhorai), one of the largest rock carvings of its kind in South Asia. Best season: All year. About 4.5 h from Islamabad.
+- [Marghazar & White Palace](https://kohnoor.pages.dev/places/marghazar/): A cool side valley 13 km from Saidu Sharif with the white marble summer palace of the first Wali of Swat, now a hotel, at the foot of Elum mountain. Best season: Mar–Nov. About 4.5 h from Islamabad.
+- [Malam Jabba](https://kohnoor.pages.dev/places/malam-jabba/): Pakistan's best-known ski resort, on a ridge about 45 km from Mingora, with ski slopes, a chairlift, zipline and pine forest views in summer. Best season: Snow: Dec–Feb · Green: May–Sep. About 5–6 h from Islamabad.
+- [Madyan](https://kohnoor.pages.dev/places/madyan/): A riverside town where Swat starts to turn into the mountains: cool air, trout and a quieter base than Mingora. Best season: Mar–Nov. About 5.5 h from Islamabad.
+- [Bahrain](https://kohnoor.pages.dev/places/bahrain/): A lively town where the Daral stream meets the Swat River, with hotels on the water and the trail to Daral Lake. Best season: Mar–Nov. About 6 h from Islamabad.
+- [Kalam](https://kohnoor.pages.dev/places/kalam/): The capital of upper Swat, where the Ushu and Utror rivers join to form the Swat River. Best season: May–Oct · snow Dec–Feb. About 7–8 h from Islamabad.
+- [Ushu Forest & Matiltan](https://kohnoor.pages.dev/places/ushu-matiltan/): Tall deodar forest just above Kalam leading to Matiltan, where the white wall of Falak Sar (≈ 5,900 m) fills the end of the valley. Best season: May–Oct. About 8 h from Islamabad.
+- [Mahodand Lake](https://kohnoor.pages.dev/places/mahodand/): A wide lake about 35–40 km above Kalam surrounded by meadows and snow peaks. Best season: Jun–Sep. About 9–10 h from Islamabad.
+- [Utror & Gabral](https://kohnoor.pages.dev/places/utror-gabral/): The western branch of upper Swat: quieter than Kalam, with wooden villages, the Utror river and green meadows leading on to Gabral. Best season: May–Oct. About 8–9 h from Islamabad.
+- [Kandol & Spin Khwar Lakes](https://kohnoor.pages.dev/places/kandol-lake/): Two quiet alpine lakes above Utror. Best season: Jun–Sep. About 9–10 h from Islamabad.
+- [Daral Lake](https://kohnoor.pages.dev/places/daral-lake/): A remote high lake above Bahrain, reached by a multi-day trek up the Daral stream through forest and herders' huts. Best season: Jul–Sep. About 6 + trek h from Islamabad.
+- [Gabin Jabba](https://kohnoor.pages.dev/places/gabin-jabba/): A wide, quiet meadow in the hills above Matta, west of the main valley. Best season: May–Oct. About 5–6 h from Islamabad.
+- [Kaghan](https://kohnoor.pages.dev/places/kaghan/): The town that gives the whole valley its name, set along the Kunhar River below Naran. Best season: Apr–Oct. About 5–6 h from Islamabad.
+- [Naran & Lake Saif-ul-Malook](https://kohnoor.pages.dev/places/naran/): The busiest summer resort of the north, and the base for Lake Saif-ul-Malook, Lulusar Lake and Babusar Pass. Best season: May–Oct. About 6–7 h from Islamabad.
+- [Chilas](https://kohnoor.pages.dev/places/chilas/): A hot, rocky town on the Indus and the Karakoram Highway, where the Babusar road comes down. Best season: Mar–May, Sep–Nov (summer is very hot). About 9–10 (via Babusar, summer) h from Islamabad.
+- [Fairy Meadows](https://kohnoor.pages.dev/places/fairy-meadows/): A meadow in pine forest facing the north face of Nanga Parbat (8,126 m), the ninth-highest mountain on earth. Best season: May–Oct. About 11–12 + trek h from Islamabad.
+- [Hunza (Karimabad)](https://kohnoor.pages.dev/places/hunza/): Terraced valley under Rakaposhi and Ultar peaks, with old forts, apricot orchards, Attabad Lake and the road to Khunjerab Pass. Best season: Apr (blossom) – Oct (autumn colours). About 13–15 h from Islamabad.
+- [Skardu](https://kohnoor.pages.dev/places/skardu/): Capital of Baltistan on the Indus: cold desert, blue lakes and the gateway to K2 and the Baltoro glacier. Best season: Apr–Oct. About 18–20 by road h from Islamabad.
+- [Chitral & Kalash Valleys](https://kohnoor.pages.dev/places/chitral/): A remote town under Tirich Mir (7,708 m), the highest peak of the Hindu Kush, and the gateway to the Kalash valleys of Bumburet, Rumbur and Birir. Best season: May–Oct (Kalash festivals: Chilam Joshi in May). About 8–10 h from Islamabad.
+- [Rawalakot & Banjosa](https://kohnoor.pages.dev/places/rawalakot/): Main town of Poonch district in green pine hills, with Banjosa Lake and Toli Pir close by. Best season: All year (snow Dec–Feb). About 3–4 h from Islamabad.
+- [Neelum Valley](https://kohnoor.pages.dev/places/neelum/): A 200 km valley along the Neelum River from Muzaffarabad: Keran, Sharda, Kel, Arang Kel and Taobat, with Ratti Gali Lake high above Dowarian. Best season: Apr–Oct. About 7–9 to Sharda h from Islamabad.
+- [Murree](https://kohnoor.pages.dev/places/murree/): Pakistan's best-known hill station, an hour and a half from Islamabad, with Mall Road, pine ridges and winter snow. Best season: All year · snow Dec–Feb. About 1.5–2 h from Islamabad.
+- [Nathia Gali & Ayubia](https://kohnoor.pages.dev/places/nathia-gali/): The quieter, greener hill stations of the Galiyat ridge between Murree and Abbottabad: oak and pine forest, Mukshpuri and Miranjani peaks and the Pipeline walking track. Best season: All year · snow Dec–Feb. About 2.5 h from Islamabad.
+- [Kumrat Valley](https://kohnoor.pages.dev/places/kumrat/): A deep valley of giant deodar trees, meadows and the Panjkora River in Upper Dir. Best season: Jun–Sep. About 9–10 h from Islamabad.
+- [Shogran & Siri Paye](https://kohnoor.pages.dev/places/shogran/): A forested plateau above Kiwai with views of Malika Parbat, and the open meadows of Siri Paye a short jeep ride higher. Best season: Apr–Oct · snow Dec–Feb. About 5 h from Islamabad.
+- [Babusar Top & Lulusar](https://kohnoor.pages.dev/places/babusar/): The highest point of the Kaghan Valley road, a windswept pass between Kaghan and Chilas, with Lulusar Lake on the way up. Best season: Jun–Sep (pass usually open Jun–Oct). About 8 h from Islamabad.
+- [Gilgit City](https://kohnoor.pages.dev/places/gilgit/): The capital and crossroads of Gilgit-Baltistan, on the Gilgit River, where roads branch to Hunza, Naltar, Ghizer and Skardu. Best season: Mar–Nov. About 11–14 h from Islamabad.
+- [Naltar Valley](https://kohnoor.pages.dev/places/naltar/): A pine valley north of Gilgit with colourful lakes: Satrangi (seven-colour) Lake, Blue Lake and Pari Lake. Best season: Jun–Sep · skiing Dec–Feb. About 13–15 h from Islamabad.
+- [Attabad Lake](https://kohnoor.pages.dev/places/attabad/): A turquoise lake along the Karakoram Highway between Hunza and Gojal, with boating, jet skis and lakeside resorts. Best season: All year (frozen edges in winter). About 14–16 h from Islamabad.
+- [Passu & Khunjerab Pass](https://kohnoor.pages.dev/places/passu-khunjerab/): Upper Hunza (Gojal): the sharp Passu Cones, Hussaini suspension bridge, Passu glacier, and Khunjerab Pass at about 4,690 m on the China border, one of the highest paved border crossings in the world. Best season: May–Oct (Khunjerab usually closes for winter). About 16–18 h from Islamabad.
+- [Deosai Plains](https://kohnoor.pages.dev/places/deosai/): One of the highest plateaus in the world, a national park of wildflowers and streams, home of the Himalayan brown bear. Best season: Jul–Sep (snowbound the rest of the year). About Skardu + 3 h from Islamabad.
+- [Shigar Valley](https://kohnoor.pages.dev/places/shigar/): Green valley north of Skardu on the road to K2, with the restored Shigar Fort, the Sarfaranga cold desert and old wooden mosques. Best season: Apr–Oct. About Skardu + 1 h from Islamabad.
+- [Khaplu](https://kohnoor.pages.dev/places/khaplu/): Quiet town in the Ghanche valley east of Skardu, with the beautiful Khaplu Palace and Chaqchan Mosque, and views towards Masherbrum. Best season: Apr–Oct. About Skardu + 3 h from Islamabad.
+- [Astore & Rama Meadows](https://kohnoor.pages.dev/places/astore-rama/): Valley on the east side of Nanga Parbat. Best season: Jun–Sep. About 11–13 h from Islamabad.
+- [Phander & Ghizer](https://kohnoor.pages.dev/places/phander/): The western valleys of Gilgit-Baltistan: Phander Lake, trout streams and willow trees that turn gold in October, on the road towards Shandur. Best season: May–Oct (autumn colours Oct). About Gilgit + 5–6 h from Islamabad.
+- [Kalash Valleys](https://kohnoor.pages.dev/places/kalash/): Three valleys near Chitral, Bumburet, Rumbur and Birir, home to the Kalash people, with their own faith, colourful dress, wooden houses and spring, summer and winter festivals. Best season: May–Oct · festivals: Chilam Joshi (May), Uchal (Aug), Chaumos (Dec). About 9–11 h from Islamabad.
+- [Muzaffarabad & Pir Chinasi](https://kohnoor.pages.dev/places/muzaffarabad/): Capital of Azad Kashmir where the Neelum and Jhelum rivers meet. Best season: All year. About 3–4 h from Islamabad.
+- [Arang Kel](https://kohnoor.pages.dev/places/arang-kel/): A storybook village of wooden houses on a high meadow above Kel in upper Neelum, reached by a small cable car across the river and a steep walk. Best season: May–Oct. About 9–10 h from Islamabad.
+- [Ratti Gali Lake](https://kohnoor.pages.dev/places/ratti-gali/): A glacial lake surrounded by flower meadows and snow peaks above Dowarian in Neelum. Best season: Jul–Sep. About 7 + jeep h from Islamabad.
+- [Jahaz Banda](https://kohnoor.pages.dev/places/jahaz-banda/): A wide, flat alpine meadow above the Kumrat side of Upper Dir, ringed by pine forest and snow ridges. Best season: Jun–Sep. About 10–11 + hike h from Islamabad.
+- [Katora Lake](https://kohnoor.pages.dev/places/katora-lake/): A bowl-shaped glacial lake (katora means bowl) of icy turquoise water, tucked under snowfields above Jahaz Banda. Best season: Jul–Sep. About 10–11 + 2-day hike h from Islamabad.
+- [Shandur Pass](https://kohnoor.pages.dev/places/shandur/): A high, open plateau between Chitral and Ghizer with a lake and the famous polo ground often called the roof of the world. Best season: Jun–Sep (polo festival in early July). About 13–15 h from Islamabad.
+- [Garam Chashma](https://kohnoor.pages.dev/places/garam-chashma/): A green valley northwest of Chitral town known for its natural hot springs, used for bathing by locals and visitors. Best season: Apr–Oct. About 9–11 h from Islamabad.
+- [Upper Kachura Lake](https://kohnoor.pages.dev/places/kachura/): A clear, deep-green lake surrounded by apricot trees and steep mountains, a short drive from Skardu. Best season: Apr–Oct. About Flight + 40 min h from Islamabad.
+- [Sarfaranga Cold Desert](https://kohnoor.pages.dev/places/sarfaranga/): White sand dunes at high altitude, framed by snow peaks, in the Shigar–Skardu area. Best season: Apr–Oct. About Flight + 30 min h from Islamabad.
+- [Manthoka Waterfall](https://kohnoor.pages.dev/places/manthoka/): A tall waterfall falling through a green gorge in Kharmang district, south-east of Skardu. Best season: Apr–Oct. About Flight + 2.5 hrs h from Islamabad.
+- [Borith Lake & Hussaini](https://kohnoor.pages.dev/places/borith/): A small brackish lake above Hussaini village in Upper Hunza (Gojal), with views of the Passu Cones and the Batura glacier. Best season: Apr–Oct. About 15–17 h from Islamabad.
+- [Khalti Lake](https://kohnoor.pages.dev/places/khalti/): A long, calm, deep-blue lake beside the road in Ghizer, famous for trout and for freezing over completely in winter. Best season: Apr–Oct (frozen in winter). About 16–18 h from Islamabad.
+- [Dudipatsar Lake](https://kohnoor.pages.dev/places/dudipatsar/): A high glacial lake inside Lulusar–Dudipatsar National Park, its name meaning white lake for the snow around it. Best season: Jul–Sep. About 7–8 + 5–7 hour hike h from Islamabad.
+- [Sharda](https://kohnoor.pages.dev/places/sharda/): A riverside town in the Neelum Valley with the ruins of the ancient Sharda Peeth temple and university on the hillside above. Best season: Apr–Oct. About 7–9 h from Islamabad.
+- [Taobat](https://kohnoor.pages.dev/places/taobat/): The last village at the far end of the Neelum Valley, with wooden houses, meadows and the river running clear and fast. Best season: May–Oct. About 10–12 h from Islamabad.
+- [Leepa Valley](https://kohnoor.pages.dev/places/leepa/): A green valley of rice terraces and wooden houses on the eastern side of AJK, especially beautiful in autumn when the walnut and rice fields turn gold. Best season: May–Oct (autumn colours in October). About 7–8 h from Islamabad.
+- [Miranjani Peak](https://kohnoor.pages.dev/places/miranjani/): The highest peak of the Galiyat, reached by a forest trail from Nathia Gali. Best season: Apr–Nov (snow trek in winter). About 2.5 + 2–3 hour hike h from Islamabad.
