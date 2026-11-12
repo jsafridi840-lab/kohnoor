@@ -166,3 +166,43 @@ if("serviceWorker" in navigator){ window.addEventListener("load", function(){ na
 (function(){var m=new Date().getMonth();var t=document.querySelector('.cal');if(!t)return;
 var h=t.querySelector('thead th[data-m="'+m+'"]');if(h)h.classList.add('now');
 t.querySelectorAll('tbody tr').forEach(function(r){var c=r.querySelectorAll('td');if(c[m])c[m].classList.add('now');});})();
+/* v5: interactive maps (Leaflet, loaded on demand) */
+(function(){
+  var boxes=document.querySelectorAll('.kmap'); if(!boxes.length) return;
+  var KN=window.KN||{places:[]}, UR=document.documentElement.lang==="ur", PRE=UR?"/ur":"";
+  var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});};
+  function load(cb){
+    if(window.L) return cb();
+    var css=document.createElement('link'); css.rel='stylesheet'; css.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'; document.head.appendChild(css);
+    var js=document.createElement('script'); js.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'; js.onload=cb; js.onerror=function(){boxes.forEach(function(b){var l=b.querySelector('.kmap-load'); if(l) l.textContent=UR?'نقشے کے لیے انٹرنیٹ ضروری ہے۔':'The map needs an internet connection.';});}; document.head.appendChild(js);
+  }
+  function pin(hidden){ return L.divIcon({className:'kpin'+(hidden?' h':''),html:'<svg viewBox="0 0 32 40" aria-hidden="true"><path d="M16 39s13-13.6 13-23A13 13 0 0 0 3 16c0 9.4 13 23 13 23Z"/><path class="gm" d="m16 8 6 6-6 9-6-9 6-6Z"/></svg>',iconSize:[30,38],iconAnchor:[15,37],popupAnchor:[0,-32]}); }
+  function init(box){
+    var reg=box.getAttribute('data-region');
+    var map=L.map(box,{scrollWheelZoom:false,attributionControl:true});
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:17,subdomains:'abcd',attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'}).addTo(map);
+    var group=L.featureGroup().addTo(map), all=[];
+    KN.places.forEach(function(p){
+      if(reg && p.region!==reg) return;
+      var nm=UR&&p.ur?p.ur:p.name, rn=UR&&p.region_ur?p.region_ur:p.region_name;
+      var m=L.marker([p.lat,p.lon],{icon:pin(p.kind==="hidden"),title:nm,riseOnHover:true});
+      m.bindPopup('<a class="kpop" href="'+PRE+'/places/'+p.id+'/">'+(p.thumb?'<img src="'+p.thumb+'" alt="" loading="lazy">':'')+'<span><small>'+esc(rn)+'</small><b>'+esc(nm)+'</b><em>'+Number(p.alt).toLocaleString("en-US")+(UR?' میٹر':' m')+' · '+esc(p.hrs)+(UR?' گھنٹے':' h')+'</em><i>'+(UR?'رہنما کھولیں ←':'Open guide →')+'</i></span></a>',{maxWidth:260,minWidth:220});
+      m._kn=p; all.push(m); m.addTo(group);
+    });
+    if(all.length) map.fitBounds(group.getBounds(),{padding:[30,30],maxZoom:reg?10:8});
+    box.addEventListener('click',function(){map.scrollWheelZoom.enable();},{once:true});
+    var f=box.closest('section'); f=f&&f.querySelector('.map-filters');
+    if(f) f.addEventListener('click',function(e){var b=e.target.closest('[data-filter]'); if(!b) return; f.querySelectorAll('.chip').forEach(function(c){c.classList.toggle('on',c===b);});
+      var v=b.getAttribute('data-filter'); group.clearLayers(); all.forEach(function(m){var p=m._kn; if(v==='all'||p.region===v||(v==='hidden'&&p.kind==='hidden')) m.addTo(group);}); if(group.getLayers().length) map.fitBounds(group.getBounds(),{padding:[30,30],maxZoom:10});});
+  }
+  var io=('IntersectionObserver' in window)?new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){io.unobserve(x.target); load(function(){init(x.target);});}});},{rootMargin:'300px'}):null;
+  boxes.forEach(function(b){ if(io) io.observe(b); else load(function(){init(b);}); });
+})();
+/* v5: reveal on scroll */
+(function(){
+  if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var els=document.querySelectorAll('.card,.interest,.tile,.season,.why>div,.tier,.g-item,.tool-card,.alt-wrap');
+  document.documentElement.classList.add('rv');
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('shown');io.unobserve(x.target);}});},{rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el,i){ var r=el.getBoundingClientRect(); if(r.top<innerHeight){el.classList.add('shown');} else { el.style.transitionDelay=((i%4)*70)+'ms'; io.observe(el);} });
+})();
