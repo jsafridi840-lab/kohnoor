@@ -708,13 +708,14 @@ def alt_chart(lang="en"):
     y25 = base - (2500 / 5000) * (base - top)
     band = f'<line x1="0" x2="{W}" y1="{y25:.0f}" y2="{y25:.0f}" class="warn"/><text x="{W - 8}" y="{y25 - 7:.0f}" text-anchor="end" class="wl">{"2,500 میٹر سے اوپر بلندی کی بیماری ممکن" if lang == "ur" else "Above 2,500 m: altitude sickness possible"}</text>'
     pre = "/ur" if lang == "ur" else ""
+    caps = "".join(f'<path d="M{x - 9:.0f} {y + 8:.0f} L{x:.0f} {y:.0f} L{x + 9:.0f} {y + 8:.0f} L{x + 5:.0f} {y + 13:.0f} L{x + 1:.0f} {y + 9:.0f} L{x - 4:.0f} {y + 14:.0f} Z" fill="#F4F6F5"/>' for x, y, a, *_ in pts if a >= 3200)
     marks = "".join(f'<a href="{pre}/places/{pid}/"><line x1="{x:.0f}" x2="{x:.0f}" y1="{y:.0f}" y2="{y - 26:.0f}" class="st"/><circle cx="{x:.0f}" cy="{y:.0f}" r="6.5" class="dot"/><text x="{x:.0f}" y="{y - 46:.0f}" text-anchor="middle" class="nm">{e(nm)}</text><text x="{x:.0f}" y="{y - 31:.0f}" text-anchor="middle" class="al">{fmt(a)} {"میٹر" if lang == "ur" else "m"}</text></a>' for x, y, a, nm, pid in pts)
     return f'''<div class="alt-wrap"><svg class="alt-chart" viewBox="0 0 {W} {H}" role="img" aria-label="{"منزلوں کی بلندی" if lang == "ur" else "Altitude of destinations"}"><defs>
 <linearGradient id="altg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E6B57"/><stop offset="1" stop-color="#0E2433"/></linearGradient>
 <linearGradient id="snowg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".22" stop-color="#fff" stop-opacity="0"/></linearGradient>
 <clipPath id="ridge"><path d="{d}"/></clipPath></defs>
 <path d="{back}" fill="#21465E" opacity=".35"/>{grid}{band}<path d="{d}" fill="url(#altg)"/>
-<rect x="0" y="0" width="{W}" height="{base - (3600 / 5000) * (base - top):.0f}" fill="#F4F6F5" opacity=".9" clip-path="url(#ridge)"/>{marks}</svg></div>'''
+{caps}{marks}</svg></div>'''
 
 def map_box(region=None, lang="en", tall=False, filters=False):
     chips = ""

@@ -180,7 +180,7 @@ t.querySelectorAll('tbody tr').forEach(function(r){var c=r.querySelectorAll('td'
   function init(box){
     var reg=box.getAttribute('data-region');
     var map=L.map(box,{scrollWheelZoom:false,attributionControl:true});
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:17,subdomains:'abcd',attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'}).addTo(map);
+    L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:15,subdomains:'abc',attribution:'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, SRTM &middot; Map style &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)'}).addTo(map);
     var group=L.featureGroup().addTo(map), all=[];
     KN.places.forEach(function(p){
       if(reg && p.region!==reg) return;
