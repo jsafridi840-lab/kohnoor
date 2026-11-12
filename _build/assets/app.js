@@ -125,10 +125,19 @@ function renderPacks(box,p){
 
 /* weather */
 var WX={0:T("Clear"),1:T("Mostly clear"),2:T("Partly cloudy"),3:T("Cloudy"),45:T("Fog"),48:T("Fog"),51:T("Light drizzle"),53:T("Drizzle"),55:T("Drizzle"),61:T("Light rain"),63:T("Rain"),65:T("Heavy rain"),66:T("Freezing rain"),67:T("Freezing rain"),71:T("Light snow"),73:T("Snow"),75:T("Heavy snow"),77:T("Snow grains"),80:T("Showers"),81:T("Showers"),82:T("Heavy showers"),85:T("Snow showers"),86:T("Heavy snow showers"),95:T("Thunderstorm"),96:T("Thunderstorm, hail"),99:T("Thunderstorm, hail")};
+function wxChart(dd){
+  var mx=dd.temperature_2m_max.slice(0,4), mn=dd.temperature_2m_min.slice(0,4), hi=Math.max.apply(null,mx)+2, lo=Math.min.apply(null,mn)-2, W=260,H=90;
+  var X=function(i){return 20+i*(W-40)/3;}, Y=function(t){return 10+(hi-t)/(hi-lo||1)*(H-28);};
+  var pl=function(a){return a.map(function(t,i){return X(i).toFixed(0)+','+Y(t).toFixed(0);}).join(' ');};
+  var area=pl(mx)+' '+mn.map(function(t,i){return X(3-i).toFixed(0)+','+Y(mn[3-i]).toFixed(0);}).join(' ');
+  return '<svg class="wx-chart" viewBox="0 0 '+W+' '+H+'" aria-hidden="true"><polygon points="'+area+'" fill="rgba(224,154,62,.14)"/><polyline points="'+pl(mx)+'" fill="none" stroke="#E09A3E" stroke-width="2.5"/><polyline points="'+pl(mn)+'" fill="none" stroke="#5D9EB2" stroke-width="2.5"/>'+
+    mx.map(function(t,i){return '<circle cx="'+X(i)+'" cy="'+Y(t)+'" r="3.5" fill="#E09A3E"/><text x="'+X(i)+'" y="'+(Y(t)-7)+'" text-anchor="middle">'+Math.round(t)+'°</text>';}).join('')+
+    mn.map(function(t,i){return '<circle cx="'+X(i)+'" cy="'+Y(t)+'" r="3.5" fill="#5D9EB2"/><text x="'+X(i)+'" y="'+(Y(t)+15)+'" text-anchor="middle">'+Math.round(t)+'°</text>';}).join('')+'</svg>';
+}
 function loadWeather(box,p){
   var key="wx-"+p.id;
   function draw(d,stale){ var c=d.current, dd=d.daily;
-    box.innerHTML='<h3>'+T("Weather now")+'</h3><div class="wx-now"><b>'+Math.round(c.temperature_2m)+'°C</b><span>'+esc(WX[c.weather_code]||"")+'</span></div><div class="wx-days">'+dd.time.slice(0,4).map(function(t,i){return '<div><b>'+new Date(t).toLocaleDateString(UR?"ur-PK":"en-GB",{weekday:"short"})+'</b><br>'+Math.round(dd.temperature_2m_max[i])+'° / '+Math.round(dd.temperature_2m_min[i])+'°<br>'+(dd.snowfall_sum[i]>0?T("Snow"):dd.precipitation_sum[i]>1?T("Rain"):T("Dry"))+'</div>';}).join("")+'</div><p class="note">'+(UR?(stale?"آف لائن: آخری بار محفوظ "+new Date(d.saved).toLocaleString("ur-PK"):"لائیو · اپ ڈیٹ "+new Date().toLocaleTimeString("ur-PK",{hour:"2-digit",minute:"2-digit"}))+"۔ یہ قصبے کا موسم ہے؛ چوٹیاں زیادہ ٹھنڈی ہوتی ہیں۔</p>":(stale?"Offline: last saved "+new Date(d.saved).toLocaleString("en-GB"):"Live · updated "+new Date().toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"}))+'. For the town area; peaks are colder.</p>'); }
+    box.innerHTML='<h3>'+T("Weather now")+'</h3><div class="wx-now"><b>'+Math.round(c.temperature_2m)+'°C</b><span>'+esc(WX[c.weather_code]||"")+'</span></div><div class="wx-days">'+dd.time.slice(0,4).map(function(t,i){return '<div><b>'+new Date(t).toLocaleDateString(UR?"ur-PK":"en-GB",{weekday:"short"})+'</b><br>'+Math.round(dd.temperature_2m_max[i])+'° / '+Math.round(dd.temperature_2m_min[i])+'°<br>'+(dd.snowfall_sum[i]>0?T("Snow"):dd.precipitation_sum[i]>1?T("Rain"):T("Dry"))+'</div>';}).join("")+'</div>'+wxChart(dd)+'<p class="note">'+(UR?(stale?"آف لائن: آخری بار محفوظ "+new Date(d.saved).toLocaleString("ur-PK"):"لائیو · اپ ڈیٹ "+new Date().toLocaleTimeString("ur-PK",{hour:"2-digit",minute:"2-digit"}))+"۔ یہ قصبے کا موسم ہے؛ چوٹیاں زیادہ ٹھنڈی ہوتی ہیں۔</p>":(stale?"Offline: last saved "+new Date(d.saved).toLocaleString("en-GB"):"Live · updated "+new Date().toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"}))+'. For the town area; peaks are colder.</p>'); }
   fetch("https://api.open-meteo.com/v1/forecast?latitude="+p.lat+"&longitude="+p.lon+"&elevation="+p.alt+"&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,snowfall_sum&timezone=Asia%2FKarachi&forecast_days=4")
     .then(function(r){if(!r.ok)throw 0;return r.json();})
     .then(function(d){d.saved=Date.now();store(key,d);draw(d,false);})
@@ -178,10 +187,19 @@ t.querySelectorAll('tbody tr').forEach(function(r){var c=r.querySelectorAll('td'
   }
   function pin(hidden){ return L.divIcon({className:'kpin'+(hidden?' h':''),html:'<svg viewBox="0 0 32 40" aria-hidden="true"><path d="M16 39s13-13.6 13-23A13 13 0 0 0 3 16c0 9.4 13 23 13 23Z"/><path class="gm" d="m16 8 6 6-6 9-6-9 6-6Z"/></svg>',iconSize:[30,38],iconAnchor:[15,37],popupAnchor:[0,-32]}); }
   function init(box){
-    var reg=box.getAttribute('data-region');
+    var reg=box.getAttribute('data-region'), stops=(box.getAttribute('data-stops')||'').split(',').filter(Boolean);
     var map=L.map(box,{scrollWheelZoom:false,attributionControl:true});
     L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:15,subdomains:'abc',attribution:'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, SRTM &middot; Map style &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)'}).addTo(map);
     var group=L.featureGroup().addTo(map), all=[];
+    if(stops.length){
+      var byId={}; KN.places.forEach(function(p){byId[p.id]=p;});
+      var line=[[33.6844,73.0479]];
+      L.marker(line[0],{icon:L.divIcon({className:'kstop start',html:'<span>'+(UR?'آغاز':'Start')+'</span>',iconSize:[54,26],iconAnchor:[27,13]})}).bindTooltip(UR?'اسلام آباد':'Islamabad').addTo(group);
+      stops.forEach(function(id,i){var p=byId[id]; if(!p) return; line.push([p.lat,p.lon]);
+        L.marker([p.lat,p.lon],{icon:L.divIcon({className:'kstop',html:'<span>'+(i+1)+'</span>',iconSize:[30,30],iconAnchor:[15,15]})}).bindPopup('<a class="kpop" href="'+PRE+'/places/'+p.id+'/">'+(p.thumb?'<img src="'+p.thumb+'" alt="" loading="lazy">':'')+'<span><b>'+esc(UR&&p.ur?p.ur:p.name)+'</b><em>'+Number(p.alt).toLocaleString("en-US")+(UR?' میٹر':' m')+'</em><i>'+(UR?'رہنما کھولیں ←':'Open guide →')+'</i></span></a>',{maxWidth:260,minWidth:220}).addTo(group);});
+      L.polyline(line,{color:'#0E2433',weight:7,opacity:.25}).addTo(map); L.polyline(line,{color:'#E09A3E',weight:3.5,dashArray:'8 8'}).addTo(map);
+      map.fitBounds(group.getBounds(),{padding:[40,40],maxZoom:10}); box.addEventListener('click',function(){map.scrollWheelZoom.enable();},{once:true}); return;
+    }
     KN.places.forEach(function(p){
       if(reg && p.region!==reg) return;
       var nm=UR&&p.ur?p.ur:p.name, rn=UR&&p.region_ur?p.region_ur:p.region_name;
