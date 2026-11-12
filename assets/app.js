@@ -49,7 +49,7 @@ if(ov){
 }
 
 /* season badges on cards */
-function seasonBadge(m){ var s=m.charAt(NOW); return '<span class="badge s'+s+'">'+(s==="2"?"Great now":s==="1"?"Possible now":T("Closed now"))+'</span>'; }
+function seasonBadge(m){ var s=m.charAt(NOW); return '<span class="badge s'+s+'">'+(s==="2"?T("Great now"):s==="1"?T("Possible now"):T("Closed now"))+'</span>'; }
 $$("[data-months]").forEach(function(el){ var b = el.querySelector(".badges"); if(b) b.insertAdjacentHTML("beforeend", seasonBadge(el.getAttribute("data-months"))); });
 $$("[data-now-month]").forEach(function(el){ el.textContent = MONTH[NOW]; });
 
@@ -105,8 +105,8 @@ function packing(p,m){
   var winter=[10,11,0,1].indexOf(m)>-1, shoulder=[2,3,9].indexOf(m)>-1, summer=[4,5,6,7].indexOf(m)>-1, monsoon=[6,7].indexOf(m)>-1, g=[];
   g.push([T("Always"),[T("CNIC (passport for foreigners) + photocopies"),T("Cash: ATMs thin out after main towns"),T("Power bank and car charger"),T("First-aid kit and your regular medicines"),T("Sunscreen, sunglasses, cap"),T("Water bottle and snacks"),T("Rubbish bag: carry your litter back")]]);
   var cold=[];
-  if(p.alt>=1800||winter) cold.push("Warm jacket and a sweater",T("Warm cap"));
-  if((p.alt>=2500&&(winter||shoulder))||p.alt>=3500||(winter&&p.alt>=1800)) cold.push("Heavy down jacket",T("Gloves and woollen socks"),T("Thermal inner wear"),T("Lip balm and moisturiser"));
+  if(p.alt>=1800||winter) cold.push(T("Warm jacket and a sweater"),T("Warm cap"));
+  if((p.alt>=2500&&(winter||shoulder))||p.alt>=3500||(winter&&p.alt>=1800)) cold.push(T("Heavy down jacket"),T("Gloves and woollen socks"),T("Thermal inner wear"),T("Lip balm and moisturiser"));
   if(cold.length) g.push([T("For the cold"),cold]);
   if(winter&&p.alt>=1800) g.push([T("Snow & ice"),[T("Shoes with good grip or snow boots"),T("Snow chains for the car"),T("Blanket and extra food in the car"),T("Check road closures before leaving")]]);
   if(summer&&p.alt<1600) g.push([T("For the heat"),[T("Light cotton clothes"),T("ORS sachets"),T("Wide hat or umbrella for sun")]]);
@@ -128,7 +128,7 @@ var WX={0:T("Clear"),1:T("Mostly clear"),2:T("Partly cloudy"),3:T("Cloudy"),45:T
 function loadWeather(box,p){
   var key="wx-"+p.id;
   function draw(d,stale){ var c=d.current, dd=d.daily;
-    box.innerHTML='<h3>'+T("Weather now")+'</h3><div class="wx-now"><b>'+Math.round(c.temperature_2m)+'°C</b><span>'+esc(WX[c.weather_code]||"")+'</span></div><div class="wx-days">'+dd.time.slice(0,4).map(function(t,i){return '<div><b>'+new Date(t).toLocaleDateString(UR?"ur-PK":"en-GB",{weekday:"short"})+'</b><br>'+Math.round(dd.temperature_2m_max[i])+'° / '+Math.round(dd.temperature_2m_min[i])+'°<br>'+(dd.snowfall_sum[i]>0?"Snow":dd.precipitation_sum[i]>1?"Rain":T("Dry"))+'</div>';}).join("")+'</div><p class="note">'+(UR?(stale?"آف لائن: آخری بار محفوظ "+new Date(d.saved).toLocaleString("ur-PK"):"لائیو · اپ ڈیٹ "+new Date().toLocaleTimeString("ur-PK",{hour:"2-digit",minute:"2-digit"}))+"۔ یہ قصبے کا موسم ہے؛ چوٹیاں زیادہ ٹھنڈی ہوتی ہیں۔</p>":(stale?"Offline: last saved "+new Date(d.saved).toLocaleString("en-GB"):"Live · updated "+new Date().toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"}))+'. For the town area; peaks are colder.</p>'); }
+    box.innerHTML='<h3>'+T("Weather now")+'</h3><div class="wx-now"><b>'+Math.round(c.temperature_2m)+'°C</b><span>'+esc(WX[c.weather_code]||"")+'</span></div><div class="wx-days">'+dd.time.slice(0,4).map(function(t,i){return '<div><b>'+new Date(t).toLocaleDateString(UR?"ur-PK":"en-GB",{weekday:"short"})+'</b><br>'+Math.round(dd.temperature_2m_max[i])+'° / '+Math.round(dd.temperature_2m_min[i])+'°<br>'+(dd.snowfall_sum[i]>0?T("Snow"):dd.precipitation_sum[i]>1?T("Rain"):T("Dry"))+'</div>';}).join("")+'</div><p class="note">'+(UR?(stale?"آف لائن: آخری بار محفوظ "+new Date(d.saved).toLocaleString("ur-PK"):"لائیو · اپ ڈیٹ "+new Date().toLocaleTimeString("ur-PK",{hour:"2-digit",minute:"2-digit"}))+"۔ یہ قصبے کا موسم ہے؛ چوٹیاں زیادہ ٹھنڈی ہوتی ہیں۔</p>":(stale?"Offline: last saved "+new Date(d.saved).toLocaleString("en-GB"):"Live · updated "+new Date().toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"}))+'. For the town area; peaks are colder.</p>'); }
   fetch("https://api.open-meteo.com/v1/forecast?latitude="+p.lat+"&longitude="+p.lon+"&elevation="+p.alt+"&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,snowfall_sum&timezone=Asia%2FKarachi&forecast_days=4")
     .then(function(r){if(!r.ok)throw 0;return r.json();})
     .then(function(d){d.saved=Date.now();store(key,d);draw(d,false);})
