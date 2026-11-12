@@ -13,6 +13,8 @@ e = lambda s: html.escape(str(s), quote=True)
 
 for k, v in PHOTOS.items():
     v["src"] = f"/img/{k}.jpg"; v["thumb"] = f"/img/{k}-s.jpg"
+import hashlib
+ASSET_V = hashlib.md5((open(os.path.join(SRC,"assets","style.css")).read()+open(os.path.join(SRC,"assets","app.js")).read()).encode()).hexdigest()[:8]
 SIZES = json.load(open(os.path.join(SRC, "img_sizes.json")))
 def _srcset(m):
     n, small = m.group(1), bool(m.group(2))
@@ -135,9 +137,9 @@ def page(path, title, desc, body, active="", over=False, og=None, body_attr="", 
 <meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#0E2433">
 <link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="/assets/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/icon-180.png">
 <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/style.css">{ld}</head>
+<link rel="stylesheet" href="/assets/style.css?v={ASSET_V}">{ld}</head>
 <body{body_attr}>{header(active, over)}<main id="main">{body}</main>{footer()}
-<script src="/assets/data.js" defer></script><script src="/assets/app.js" defer></script></body></html>'''
+<script src="/assets/data.js?v={ASSET_V}" defer></script><script src="/assets/app.js?v={ASSET_V}" defer></script></body></html>'''
     dest = os.path.join(OUT, path.strip("/"), "index.html") if path.endswith("/") else os.path.join(OUT, path.lstrip("/"))
     os.makedirs(os.path.dirname(dest), exist_ok=True)
     open(dest, "w").write(responsive(doc))
