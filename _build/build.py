@@ -136,7 +136,7 @@ def footer():
     return f'''<footer class="site-foot">{topo(3)}<div class="wrap"><div class="foot-grid">
 <div><a class="brand" href="/">{gem()}<b>KohNoor</b></a><p>The jewel of the mountains: the complete, honest guide to Northern Pakistan. Places, history, live weather, trip costs and offline essentials.</p><p class="ur" lang="ur" style="font-size:18px;color:#fff">کوہِ نور — شمالی پاکستان کا مکمل رہنما</p></div>
 <div><h4>Regions</h4>{regs}</div><div><h4>Top places</h4>{top}</div>
-<div><h4>Plan</h4><a href="/interests/">Travel by interest</a><a href="/routes/">Route finder</a><a href="/trails/">Trails</a><a href="/wonders/">Curious places</a><a href="/when-to-go/">When to go</a><a href="/gallery/">Photo gallery</a><a href="/list-your-business/">List your business</a><a href="/ur/" lang="ur">اردو</a><a href="/itineraries/">Itineraries</a><a href="/plan/">Trip cost planner</a><a href="/essentials/">Offline essentials</a><a href="/about/">About KohNoor</a></div>
+<div><h4>Plan</h4><a href="/interests/">Travel by interest</a><a href="/routes/">Route finder</a><a href="/trails/">Trails</a><a href="/wonders/">Curious places</a><a href="/when-to-go/">When to go</a><a href="/gallery/">Photo gallery</a><a href="/list-your-business/">List your business</a><a href="/ur/" lang="ur">اردو</a><a href="/itineraries/">Itineraries</a><a href="/plan/">Trip cost planner</a><a href="/essentials/">Offline essentials</a><a href="/about/">About KohNoor</a><a href="https://urdu-pashto-keyboard.pages.dev/">Urdu &amp; Pashto keyboard</a></div>
 </div><div class="foot-bottom"><span>© {date.today().year} KohNoor. Costs and travel times are estimates; check road status before you travel.</span><span>Weather: Open-Meteo · Photos used under free licences</span></div></div></footer>
 <div class="net" role="status">You are offline · saved pages still work</div>'''
 
@@ -534,7 +534,7 @@ def footer_ur():
     return f'''<footer class="site-foot">{topo(3)}<div class="wrap"><div class="foot-grid">
 <div><a class="brand" href="/ur/">{gem()}<b class="ur-brand">کوہِ نور</b></a><p>پہاڑوں کا ہیرا: شمالی پاکستان کا مکمل اور دیانتدار رہنما۔ جگہیں، تاریخ، لائیو موسم، سفر کا خرچ اور آف لائن معلومات۔</p></div>
 <div><h4>علاقے</h4>{regs}</div><div><h4>مشہور جگہیں</h4>{top}</div>
-<div><h4>منصوبہ</h4><a href="/ur/interests/">دلچسپی کے مطابق سفر</a><a href="/ur/routes/">راستہ تلاش کریں</a><a href="/ur/trails/">ٹریلز</a><a href="/ur/wonders/">عجیب و غریب جگہیں</a><a href="/ur/when-to-go/">کب جائیں</a><a href="/ur/essentials/">ضروری معلومات</a><a href="/ur/list-your-business/">اپنا کاروبار شامل کریں</a><a href="/">English</a></div>
+<div><h4>منصوبہ</h4><a href="/ur/interests/">دلچسپی کے مطابق سفر</a><a href="/ur/routes/">راستہ تلاش کریں</a><a href="/ur/trails/">ٹریلز</a><a href="/ur/wonders/">عجیب و غریب جگہیں</a><a href="/ur/when-to-go/">کب جائیں</a><a href="/ur/essentials/">ضروری معلومات</a><a href="/ur/list-your-business/">اپنا کاروبار شامل کریں</a><a href="https://urdu-pashto-keyboard.pages.dev/">اردو اور پشتو کی بورڈ</a><a href="/">English</a></div>
 </div><div class="foot-bottom"><span>© {date.today().year} کوہِ نور۔ خرچ اور سفر کا وقت اندازاً ہیں؛ سفر سے پہلے سڑک کی صورتحال معلوم کریں۔</span><span>موسم: Open-Meteo · تصاویر آزاد لائسنس کے تحت</span></div></div></footer>
 <div class="net" role="status">آپ آف لائن ہیں · محفوظ صفحات چلتے رہیں گے</div>'''
 
