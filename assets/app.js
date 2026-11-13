@@ -247,3 +247,68 @@ t.querySelectorAll('tbody tr').forEach(function(r){var c=r.querySelectorAll('td'
   var rf=document.getElementById('rf'); if(rf){var show=function(){document.querySelectorAll('.rblock').forEach(function(b){b.hidden=b.getAttribute('data-r')!==rf.value;}); history.replaceState(null,'','#'+rf.value);};
     var h=location.hash.slice(1); if(h && document.querySelector('.rblock[data-r="'+h+'"]')) rf.value=h; else rf.value='hunza'; rf.addEventListener('change',show); show();}
 })();
+/* v8: traveller reports (backend) */
+(function(){
+  var UR=document.documentElement.lang==="ur", PRE=UR?"/ur":"";
+  var esc=function(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});};
+  var T=function(en,ur){return UR?ur:en;};
+  var ago=function(t){var m=Math.round((Date.now()-t)/60000); if(m<60) return UR?m+' منٹ پہلے':m+' min ago'; var h=Math.round(m/60); if(h<48) return UR?h+' گھنٹے پہلے':h+' h ago'; var d=Math.round(h/24); return UR?d+' دن پہلے':d+' days ago';};
+  var ROAD={open:[T('Open','کھلا'),'ok'],slow:[T('Slow / partly blocked','سست / جزوی بند'),'slow'],closed:[T('Closed','بند'),'closed']};
+  var stars=function(n){var s='';for(var i=1;i<=5;i++)s+='<i class="st'+(i<=n?' on':'')+'">★</i>';return s;};
+  var KN=window.KN||{places:[]}, byId={}; KN.places.forEach(function(p){byId[p.id]=p;});
+  var live=document.getElementById('live-road');
+  if(live){fetch('/api/updates').then(function(r){return r.json();}).then(function(d){
+    var h='<div class="lr-head"><b>'+T('Latest road reports from travellers','مسافروں کی تازہ سڑک رپورٹس')+'</b><span>'+T('Approved before publishing','شائع کرنے سے پہلے منظور شدہ')+'</span></div>';
+    if(!d.road||!d.road.length){live.innerHTML=h+'<p class="note">'+T('No reports in the last 7 days. Been on the road? Send an update from any place page.','پچھلے 7 دن میں کوئی رپورٹ نہیں۔ سفر کیا ہے؟ کسی بھی جگہ کے صفحے سے اپڈیٹ بھیجیں۔')+'</p>'; live.className='live-road'; return;}
+    live.className='live-road'; live.innerHTML=h+'<div class="lr-list">'+d.road.map(function(x){var p=byId[x.place]||{name:x.place}; var rd=ROAD[x.road]||ROAD.open; return '<a class="lr" href="'+PRE+'/places/'+x.place+'/#reports"><span class="rd '+rd[1]+'">'+esc(rd[0])+'</span><b>'+esc(UR&&p.ur?p.ur:p.name)+'</b><small>'+esc(x.text.slice(0,110))+' · '+ago(x.created)+'</small></a>';}).join('')+'</div>';
+  }).catch(function(){});}
+  var sec=document.getElementById('reports'); if(!sec) return;
+  var place=sec.getAttribute('data-place');
+  function render(d){
+    sec.querySelector('.rp-sum').innerHTML=d.count?'<div class="rp-score"><b>'+d.avg+'</b><span>'+stars(Math.round(d.avg))+'<small>'+d.count+' '+T('reviews','جائزے')+'</small></span></div>':'<p class="note">'+T('No traveller reviews yet. Be the first to share how your trip went.','ابھی کوئی جائزہ نہیں۔ اپنے سفر کا تجربہ سب سے پہلے بتائیں۔')+'</p>';
+    sec.querySelector('.rp-road').innerHTML=d.road&&d.road.length?'<h3>'+T('Recent road updates','حالیہ سڑک اپڈیٹس')+'</h3>'+d.road.map(function(x){var rd=ROAD[x.road]||ROAD.open; return '<div class="rp-item"><span class="rd '+rd[1]+'">'+esc(rd[0])+'</span><p>'+esc(x.text)+'</p><small>'+esc(x.name)+' · '+ago(x.created)+'</small></div>';}).join(''):'';
+    sec.querySelector('.rp-photos').innerHTML=d.photos&&d.photos.length?'<h3>'+T('Traveller photos','مسافروں کی تصاویر')+'</h3><div class="rp-ph">'+d.photos.map(function(x){return '<figure><img src="/api/photo/'+x.id+'" alt="'+esc(x.caption)+'" loading="lazy"><figcaption>'+esc(x.caption)+' · '+esc(x.name)+'</figcaption></figure>';}).join('')+'</div>':'';
+    sec.querySelector('.rp-reviews').innerHTML=d.reviews&&d.reviews.length?'<h3>'+T('Reviews','جائزے')+'</h3>'+d.reviews.map(function(x){return '<div class="rp-item"><span class="rv-st">'+stars(x.rating)+'</span><p>'+esc(x.text)+'</p><small>'+esc(x.name)+(x.month?' · '+T('visited ','گئے ')+esc(x.month):'')+(x.cost?' · Rs '+Number(x.cost).toLocaleString('en-US')+' '+T('per person','فی کس'):'')+'</small></div>';}).join(''):'';
+  }
+  fetch('/api/place/'+place).then(function(r){return r.json();}).then(render).catch(function(){render({count:0,road:[],photos:[],reviews:[]});});
+  var months=UR?["جنوری","فروری","مارچ","اپریل","مئی","جون","جولائی","اگست","ستمبر","اکتوبر","نومبر","دسمبر"]:["January","February","March","April","May","June","July","August","September","October","November","December"];
+  var now=new Date(), mopts=''; for(var i=0;i<12;i++){var dt=new Date(now.getFullYear(),now.getMonth()-i,1); var v=months[dt.getMonth()]+' '+dt.getFullYear(); mopts+='<option>'+v+'</option>';}
+  sec.querySelector('.rp-form').innerHTML='<div class="rp-tabs" role="tablist"><button type="button" class="on" data-tab="road">'+T('Road update','سڑک اپڈیٹ')+'</button><button type="button" data-tab="review">'+T('Review','جائزہ')+'</button><button type="button" data-tab="photo">'+T('Photo','تصویر')+'</button></div>'+
+   '<form class="rp-f" novalidate><input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">'+
+   '<div class="f-road"><label>'+T('Road condition','سڑک کی حالت')+'<select name="road"><option value="open">'+ROAD.open[0]+'</option><option value="slow">'+ROAD.slow[0]+'</option><option value="closed">'+ROAD.closed[0]+'</option></select></label></div>'+
+   '<div class="f-review" hidden><label>'+T('Your rating','آپ کی ریٹنگ')+'<span class="rate">'+[1,2,3,4,5].map(function(n){return '<button type="button" data-r="'+n+'" aria-label="'+n+'">★</button>';}).join('')+'</span></label><div class="f-row"><label>'+T('Month visited','کب گئے')+'<select name="month">'+mopts+'</select></label><label>'+T('Cost per person (Rs, optional)','خرچ فی کس (روپے، اختیاری)')+'<input name="cost" type="number" min="0" step="500" inputmode="numeric"></label></div></div>'+
+   '<div class="f-photo" hidden><label>'+T('Photo (JPG)','تصویر (JPG)')+'<input name="file" type="file" accept="image/*"></label><label>'+T('Caption','عنوان')+'<input name="caption" maxlength="200"></label></div>'+
+   '<label class="f-text">'+T('What did you see? (road, snow, crowds, prices…)','آپ نے کیا دیکھا؟ (سڑک، برف، رش، قیمتیں…)')+'<textarea name="text" rows="3" maxlength="1200"></textarea></label>'+
+   '<label>'+T('Your name (optional)','آپ کا نام (اختیاری)')+'<input name="name" maxlength="60"></label>'+
+   '<button class="btn" type="submit">'+T('Send for review','منظوری کے لیے بھیجیں')+'</button><p class="note rp-msg">'+T('We read every message before it appears. Please do not share phone numbers.','ہر پیغام شائع ہونے سے پہلے پڑھا جاتا ہے۔ براہِ کرم فون نمبر نہ لکھیں۔')+'</p></form>';
+  var f=sec.querySelector('.rp-f'), tab='road', rating=0, msg=sec.querySelector('.rp-msg');
+  sec.querySelector('.rp-tabs').addEventListener('click',function(e){var b=e.target.closest('[data-tab]'); if(!b) return; tab=b.getAttribute('data-tab'); sec.querySelectorAll('.rp-tabs button').forEach(function(x){x.classList.toggle('on',x===b);});
+    f.querySelector('.f-road').hidden=tab!=='road'; f.querySelector('.f-review').hidden=tab!=='review'; f.querySelector('.f-photo').hidden=tab!=='photo'; f.querySelector('.f-text').hidden=tab==='photo';});
+  f.querySelector('.rate').addEventListener('click',function(e){var b=e.target.closest('[data-r]'); if(!b) return; rating=+b.getAttribute('data-r'); f.querySelectorAll('.rate button').forEach(function(x){x.classList.toggle('on',+x.getAttribute('data-r')<=rating);});});
+  function resize(file){return new Promise(function(res,rej){var img=new Image(); img.onload=function(){var s=Math.min(1,1400/Math.max(img.width,img.height)); var c=document.createElement('canvas'); c.width=Math.round(img.width*s); c.height=Math.round(img.height*s); c.getContext('2d').drawImage(img,0,0,c.width,c.height); var q=.82, u=c.toDataURL('image/jpeg',q); while(u.length>780000&&q>.4){q-=.1;u=c.toDataURL('image/jpeg',q);} res(u);}; img.onerror=rej; img.src=URL.createObjectURL(file);});}
+  f.addEventListener('submit',function(e){e.preventDefault(); var fd=new FormData(f), btn=f.querySelector('button[type=submit]'); btn.disabled=true; msg.textContent=T('Sending…','بھیجا جا رہا ہے…');
+    var done=function(d){btn.disabled=false; if(d&&d.ok){msg.textContent=T('Thank you! Your message will appear after we check it.','شکریہ! جانچ کے بعد آپ کا پیغام شائع ہو جائے گا۔'); msg.className='note rp-msg ok'; f.reset(); rating=0; f.querySelectorAll('.rate button').forEach(function(x){x.classList.remove('on');});} else {msg.textContent=(d&&d.error)||T('Could not send. Please try again.','بھیجا نہیں جا سکا۔ دوبارہ کوشش کریں۔'); msg.className='note rp-msg err';}};
+    var fail=function(){done({ok:false});};
+    if(tab==='photo'){var file=fd.get('file'); if(!file||!file.size){done({ok:false,error:T('Please choose a photo.','براہِ کرم تصویر چنیں۔')});return;}
+      resize(file).then(function(u){return fetch('/api/photo',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({place:place,image:u,caption:fd.get('caption'),name:fd.get('name'),website:fd.get('website')})});}).then(function(r){return r.json();}).then(done).catch(fail); return;}
+    fetch('/api/submit',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({place:place,kind:tab,road:fd.get('road'),rating:rating,month:fd.get('month'),cost:fd.get('cost'),text:fd.get('text'),name:fd.get('name'),website:fd.get('website'),lang:UR?'ur':'en'})}).then(function(r){return r.json();}).then(done).catch(fail);});
+})();
+/* v8: admin moderation page */
+(function(){
+  var form=document.getElementById('adm-login'); if(!form) return;
+  var list=document.getElementById('adm-list'), msg=document.getElementById('adm-msg'), pw=sessionStorage.getItem('kn-adm')||'';
+  var esc=function(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});};
+  var H=function(){return {'authorization':'Bearer '+pw,'content-type':'application/json'};};
+  function load(){msg.textContent='Loading…'; fetch('/api/admin/pending',{headers:H()}).then(function(r){return r.json().then(function(d){return [r.status,d];});}).then(function(x){var st=x[0], d=x[1];
+    if(st===401){msg.textContent='Wrong password.'; sessionStorage.removeItem('kn-adm'); return;} if(!d.ok){msg.textContent=d.error||'Error'; return;}
+    sessionStorage.setItem('kn-adm',pw); form.hidden=true;
+    var items=d.reports.map(function(r){return '<div class="adm-item" data-type="report" data-id="'+r.id+'"><div><b>'+esc(r.place)+'</b> · '+(r.kind==='road'?'Road: '+esc(r.road):'Review: '+'★'.repeat(r.rating||0))+' · '+esc(r.name)+(r.month?' · '+esc(r.month):'')+(r.cost?' · Rs '+r.cost:'')+' · '+new Date(r.created).toLocaleString()+'</div><p>'+esc(r.text)+'</p><div class="adm-act"><button class="btn" data-a="approve">Approve</button><button class="btn ghost" data-a="reject">Reject</button><button class="btn ghost" data-a="delete">Delete</button></div></div>';}).join('')+
+      d.photos.map(function(p){return '<div class="adm-item" data-type="photo" data-id="'+p.id+'"><div><b>'+esc(p.place)+'</b> · Photo · '+esc(p.name)+' · '+esc(p.caption)+'</div><img class="adm-img" data-src="/api/photo/'+p.id+'" alt=""><div class="adm-act"><button class="btn" data-a="approve">Approve</button><button class="btn ghost" data-a="reject">Reject</button><button class="btn ghost" data-a="delete">Delete</button></div></div>';}).join('');
+    list.innerHTML='<h2>'+(d.reports.length+d.photos.length)+' waiting</h2>'+(items||'<p>Nothing waiting. 🎉</p>')+'<p><button class="btn ghost" id="adm-out">Log out</button></p>'; msg.textContent='';
+    list.querySelectorAll('.adm-img').forEach(function(im){fetch(im.getAttribute('data-src'),{headers:H()}).then(function(r){return r.blob();}).then(function(b){im.src=URL.createObjectURL(b);});});
+  }).catch(function(){msg.textContent='Could not reach the server.';});}
+  form.addEventListener('submit',function(e){e.preventDefault(); pw=document.getElementById('adm-pw').value; load();});
+  list.addEventListener('click',function(e){var b=e.target.closest('[data-a]'); if(b){var it=b.closest('.adm-item'); fetch('/api/admin/moderate',{method:'POST',headers:H(),body:JSON.stringify({type:it.getAttribute('data-type'),id:it.getAttribute('data-id'),action:b.getAttribute('data-a')})}).then(function(r){return r.json();}).then(function(d){if(d.ok) it.remove();});}
+    if(e.target.id==='adm-out'){sessionStorage.removeItem('kn-adm'); location.reload();}});
+  if(pw) load();
+})();

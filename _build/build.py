@@ -239,7 +239,7 @@ def build_home():
                 extra=f'''<div class="hero-search"><button data-open-search>{icon("search")}Where do you want to go?</button></div>
 <div class="chips">{"".join(f'<a class="chip" href="/interests/{t["slug"]}/">{icon(t["icon"])}{e(t["name"])}</a>' for t in THEMES[:6])}</div>''', credit="Hunza Valley in autumn")
     body += f'''<div class="strip"><div class="wrap"><div><b>{len(PLACES)}</b><span>destinations, famous and hidden</span></div><div><b>{len(REGIONS)}</b><span>regions, from Murree to Khunjerab</span></div><div><b>Live</b><span>weather for every place</span></div><div><b>Offline</b><span>works where the signal ends</span></div></div></div>
-<section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">Roads & passes</span><h2>What is usually open this month</h2></div><a class="more" href="/essentials/">Safety essentials →</a></div>{passes_html()}</div></section>
+<section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">Roads & passes</span><h2>What is usually open this month</h2></div><a class="more" href="/essentials/">Safety essentials →</a></div>{passes_html()}<div id="live-road"></div></div></section>
 <section class="block tight"><div class="wrap"><div class="feat3">
 <a href="/routes/" class="f3"><img src="/img/babusar-s.jpg" alt="" loading="lazy"><div><span class="kicker">Route finder</span><h3>How do I get there?</h3><p>Step-by-step: car, jeep, foot or flight, with time and cost for every leg.</p></div></a>
 <a href="/trails/" class="f3"><img src="/img/fairy-meadows-s.jpg" alt="" loading="lazy"><div><span class="kicker">Trails</span><h3>{len(EX.TRAILS)} hikes & treks</h3><p>Difficulty, length, elevation gain and profile for every trail.</p></div></a>
@@ -337,7 +337,7 @@ def build_places():
 <h2 id="stay">Where to stay & eat</h2><p><b>Stay:</b> {e(p["stay"])}</p><p><b>Food:</b> {e(p["food"])}</p>
 <h2>Good to know</h2><ul>{"".join(f"<li>{e(t)}</li>" for t in p["tips"])}</ul>
 {"".join(['<h2>Trails here</h2><div class="trails one">' + "".join(trail_card(t) for t in EX.TRAILS if t["place"] == p["id"]) + '</div>']) if any(t["place"] == p["id"] for t in EX.TRAILS) else ""}
-<div class="share-box"><div><h3>Been here recently?</h3><p>Send us a road update, a correction or your photos. We check every message and credit photos we use.</p></div>{f'<a class="btn" href="mailto:{CONTACT["email"]}?subject=KohNoor%20update%3A%20{p["name"].replace(" ", "%20").replace("&", "and")}">Send an update</a>' if CONTACT.get("email") else ""}</div>
+<section class="reports" id="reports" data-place="{p["id"]}"><h2>Traveller reports</h2><div class="rp-sum"></div><div class="rp-road"></div><div class="rp-photos"></div><div class="rp-reviews"></div><div class="rp-form"></div></section>
 <h2 id="map">Map</h2><iframe class="map" loading="lazy" title="Map of {e(p["name"])}" src="https://www.openstreetmap.org/export/embed.html?bbox={bbox}&amp;layer=mapnik&amp;marker={p["lat"]}%2C{p["lon"]}"></iframe>
 <p class="note">Location is approximate. <a href="https://www.google.com/maps/search/?api=1&amp;query={p["lat"]},{p["lon"]}" rel="noopener">Open in Google Maps</a></p>
 </div>
@@ -560,7 +560,7 @@ def build_urdu():
                 extra=f'''<div class="hero-search"><button data-open-search>{icon("search")}کہاں جانا چاہتے ہیں؟</button></div>
 <div class="chips">{"".join(f'<a class="chip" href="/ur/interests/{t["slug"]}/">{icon(t["icon"])}{e(th[t["slug"]][0])}</a>' for t in THEMES[:6])}</div>''', credit="خزاں میں وادیٔ ہنزہ")
     body += f'''<div class="strip"><div class="wrap"><div><b>{len(PLACES)}</b><span>مشہور اور چھپی منزلیں</span></div><div><b>{len(REGIONS)}</b><span>علاقے، مری سے خنجراب تک</span></div><div><b>لائیو</b><span>ہر جگہ کا موسم</span></div><div><b>آف لائن</b><span>سگنل کے بغیر بھی چلتا ہے</span></div></div></div>
-<section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">سڑکیں اور درے</span><h2>اس مہینے عموماً کیا کھلا ہے</h2></div><a class="more" href="/ur/essentials/">حفاظتی معلومات ←</a></div>{passes_html("ur")}</div></section>
+<section class="block tight"><div class="wrap"><div class="sec-head"><div><span class="kicker">سڑکیں اور درے</span><h2>اس مہینے عموماً کیا کھلا ہے</h2></div><a class="more" href="/ur/essentials/">حفاظتی معلومات ←</a></div>{passes_html("ur")}<div id="live-road"></div></div></section>
 <section class="block tight"><div class="wrap"><div class="feat3">
 <a href="/ur/routes/" class="f3"><img src="/img/babusar-s.jpg" alt="" loading="lazy"><div><span class="kicker">راستہ تلاش کریں</span><h3>وہاں کیسے پہنچیں؟</h3><p>قدم بہ قدم: گاڑی، جیپ، پیدل یا پرواز، ہر حصے کے وقت اور خرچ کے ساتھ۔</p></div></a>
 <a href="/ur/trails/" class="f3"><img src="/img/fairy-meadows-s.jpg" alt="" loading="lazy"><div><span class="kicker">ٹریلز</span><h3>{len(EX.TRAILS)} پیدل راستے</h3><p>ہر راستے کی مشکل، فاصلہ، چڑھائی اور بلندی کا خاکہ۔</p></div></a>
@@ -628,7 +628,7 @@ def build_urdu():
 <h2 id="stay">رہائش اور کھانا</h2><p><b>رہائش:</b> {e(u["stay"])}</p><p><b>کھانا:</b> {e(u["food"])}</p>
 <h2>اہم مشورے</h2><ul>{"".join(f"<li>{e(t)}</li>" for t in u["tips"])}</ul>
 {"".join(['<h2>یہاں کے ٹریلز</h2><div class="trails one">' + "".join(trail_card(t, "ur") for t in EX.TRAILS if t["place"] == p["id"]) + '</div>']) if any(t["place"] == p["id"] for t in EX.TRAILS) else ""}
-<div class="share-box"><div><h3>حال ہی میں یہاں گئے؟</h3><p>سڑک کی تازہ صورتحال، کوئی تصحیح یا اپنی تصاویر بھیجیں۔ ہم ہر پیغام دیکھتے ہیں اور استعمال شدہ تصاویر پر آپ کا نام دیتے ہیں۔</p></div>{f'<a class="btn" href="mailto:{CONTACT["email"]}?subject=KohNoor%20update%3A%20{p["name"].replace(" ", "%20").replace("&", "and")}">اپڈیٹ بھیجیں</a>' if CONTACT.get("email") else ""}</div>
+<section class="reports" id="reports" data-place="{p["id"]}"><h2>مسافروں کی رپورٹس</h2><div class="rp-sum"></div><div class="rp-road"></div><div class="rp-photos"></div><div class="rp-reviews"></div><div class="rp-form"></div></section>
 <h2 id="map">نقشہ</h2><iframe class="map" loading="lazy" title="{e(p["ur"])} کا نقشہ" src="https://www.openstreetmap.org/export/embed.html?bbox={bbox}&amp;layer=mapnik&amp;marker={p["lat"]}%2C{p["lon"]}"></iframe>
 <p class="note">مقام اندازاً ہے۔ <a href="https://www.google.com/maps/search/?api=1&amp;query={p["lat"]},{p["lon"]}" rel="noopener">گوگل میپس میں کھولیں</a></p>
 </div>
@@ -974,6 +974,16 @@ def offline_map_svg(region=None):
     labels = "".join(f'<text x="{X(p["lon"]) + 9:.0f}" y="{Y(p["lat"]) + 4:.0f}">{e(p["name"].split(" (")[0].split(" &")[0])}</text>' for p in big)
     return f'<svg class="omap" viewBox="0 0 {W} {H}" aria-hidden="true">{topo(9)}{dots}{labels}</svg>'
 
+def build_admin():
+    body = """<section class="block"><div class="wrap admin"><h1>KohNoor admin</h1><p class="note">Approve or reject traveller reports and photos. Nothing appears on the site until you approve it.</p>
+<form id="adm-login" class="card-box"><label for="adm-pw">Admin password</label><input id="adm-pw" type="password" autocomplete="current-password" required><button class="btn" type="submit">Open</button><p class="note" id="adm-msg"></p></form>
+<div id="adm-list"></div></div></section>"""
+    page("/admin/", "Admin", "Moderation", body)
+    p = os.path.join(OUT, "admin", "index.html"); h = open(p).read().replace('<meta name="viewport"', '<meta name="robots" content="noindex, nofollow"><meta name="viewport"', 1); open(p, "w").write(h)
+    open(os.path.join(OUT, "_routes.json"), "w").write(json.dumps({"version": 1, "include": ["/api/*"], "exclude": []}))
+    fsrc = os.path.join(SRC, "functions")
+    if os.path.isdir(fsrc): shutil.copytree(fsrc, os.path.join(OUT, "functions"), dirs_exist_ok=True)
+
 def build_misc():
     body = hero('<img src="/img/naltar.jpg" alt="">', "Lost in the mountains", "This page is off the map", lede="The page you were looking for does not exist. Try searching for a place instead.", extra=f'<div class="hero-search"><button data-open-search>{icon("search")}Search a valley, lake or town</button></div>', short=True)
     page("/404.html", "Page not found", "This page does not exist.", body, over=True)
@@ -1011,7 +1021,7 @@ self.addEventListener('fetch',e=>{{
 """)
     urls = ["/", "/map/", "/trails/", "/wonders/", "/routes/", "/regions/", "/interests/", "/when-to-go/", "/gallery/", "/itineraries/", "/plan/", "/essentials/", "/about/"] + [f"/interests/{t['slug']}/" for t in THEMES] + ["/list-your-business/", "/ur/"] + sorted("/ur" + u for u in UR_PATHS) + [f"/regions/{k}/" for k in REGION_ORDER] + [f"/places/{p['id']}/" for p in PLACES] + [f"/itineraries/{x['id']}/" for x in ITINS]
     open(os.path.join(OUT, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{date.today()}</lastmod></url>\n" for u in urls) + "</urlset>\n")
-    open(os.path.join(OUT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
+    open(os.path.join(OUT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\nSitemap: {SITE}/sitemap.xml\n")
     open(os.path.join(OUT, "_headers"), "w").write("/assets/fonts/*\n  Cache-Control: public, max-age=31536000, immutable\n/img/*\n  Cache-Control: public, max-age=2592000\n/assets/*\n  Cache-Control: public, max-age=86400\n/sw.js\n  Cache-Control: no-cache\n")
     return len(urls)
 
@@ -1019,5 +1029,5 @@ if __name__ == "__main__":
     if os.path.exists(OUT): shutil.rmtree(OUT)
     os.makedirs(OUT)
     n = build_assets()
-    build_home(); build_regions(); build_places(); build_itins(); build_plan(); build_essentials(); build_about(); build_interests(); build_when(); build_gallery(); build_urdu(); build_maps(); build_v7(); build_business(); build_llms(); cheat_sheets(); build_misc()
+    build_home(); build_regions(); build_places(); build_itins(); build_plan(); build_essentials(); build_about(); build_interests(); build_when(); build_gallery(); build_urdu(); build_maps(); build_v7(); build_business(); build_llms(); cheat_sheets(); build_admin(); build_misc()
     print("pages in sitemap:", n)
