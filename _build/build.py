@@ -153,7 +153,7 @@ def page(path, title, desc, body, active="", over=False, og=None, body_attr="", 
     alts = (f'<link rel="alternate" hreflang="en" href="{SITE}{enp}"><link rel="alternate" hreflang="ur" href="{SITE}{urp}"><link rel="alternate" hreflang="x-default" href="{SITE}{enp}">') if urp else ""
     ld = f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>' if jsonld else ""
     doc = f'''<!DOCTYPE html>
-<html lang="{lang}" dir="{'rtl' if lang == 'ur' else 'ltr'}"><head><meta charset="utf-8"><meta name="p:domain_verify" content="6ef7d37610002a038628dcf7f6d8d944"/><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="msvalidate.01" content="63E67156202205CA85D99A9BBF952FAC">
+<html lang="{lang}" dir="{'rtl' if lang == 'ur' else 'ltr'}"><head><meta charset="utf-8"><meta name="p:domain_verify" content="6ef7d37610002a038628dcf7f6d8d944"/><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="msvalidate.01" content="63E67156202205CA85D99A9BBF952FAC"><script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WF2S4L3J"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());</script>
 <title>{e(full)}</title><meta name="description" content="{e(desc)}"><link rel="canonical" href="{SITE}{path}">{alts}
 <meta property="og:type" content="website"><meta property="og:site_name" content="KohNoor"><meta property="og:title" content="{e(full)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{SITE}{path}"><meta property="og:image" content="{SITE}{og}">
 <meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#0E2433">
