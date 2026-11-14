@@ -1,5 +1,5 @@
 // KohNoor service worker
-const V='kohnoor-v5', CORE=["/", "/essentials/", "/plan/", "/offline/", "/assets/style.css", "/assets/app.js", "/assets/data.js", "/assets/icon.svg", "/assets/fonts/bricolage-grotesque-latin-800-normal.woff2", "/assets/fonts/source-sans-3-latin-400-normal.woff2", "/img/kaghan.jpg"];
+const V='kohnoor-v6', CORE=["/", "/essentials/", "/plan/", "/offline/", "/assets/style.css", "/assets/app.js", "/assets/data.js", "/assets/icon.svg", "/assets/fonts/bricolage-grotesque-latin-800-normal.woff2", "/assets/fonts/source-sans-3-latin-400-normal.woff2", "/img/kaghan.jpg"];
 self.addEventListener('install',e=>e.waitUntil(caches.open(V).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==V).map(x=>caches.delete(x)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{

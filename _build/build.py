@@ -137,7 +137,7 @@ def footer():
 <div><a class="brand" href="/">{gem()}<b>KohNoor</b></a><p>The jewel of the mountains: the complete, honest guide to Northern Pakistan. Places, history, live weather, trip costs and offline essentials.</p><p class="ur" lang="ur" style="font-size:18px;color:#fff">کوہِ نور — شمالی پاکستان کا مکمل رہنما</p></div>
 <div><h4>Regions</h4>{regs}</div><div><h4>Top places</h4>{top}</div>
 <div><h4>Plan</h4><a href="/interests/">Travel by interest</a><a href="/routes/">Route finder</a><a href="/trails/">Trails</a><a href="/wonders/">Curious places</a><a href="/when-to-go/">When to go</a><a href="/gallery/">Photo gallery</a><a href="/list-your-business/">List your business</a><a href="/ur/" lang="ur">اردو</a><a href="/itineraries/">Itineraries</a><a href="/plan/">Trip cost planner</a><a href="/essentials/">Offline essentials</a><a href="/about/">About KohNoor</a><a href="https://urdu-pashto-keyboard.pages.dev/">Urdu &amp; Pashto keyboard</a></div>
-</div><div class="foot-bottom"><span>© {date.today().year} KohNoor. Costs and travel times are estimates; check road status before you travel.</span><span>Weather: Open-Meteo · Photos used under free licences</span></div></div></footer>
+</div><div class="foot-bottom"><span>© {date.today().year} KohNoor. Costs and travel times are estimates; check road status before you travel.</span><span>Weather: Open-Meteo · Photos used under free licences · <a href="#" onclick="siteConsent.open();return false">Cookie settings</a></span></div></div></footer>
 <div class="net" role="status">You are offline · saved pages still work</div>'''
 
 def ur_path(path):
@@ -153,7 +153,7 @@ def page(path, title, desc, body, active="", over=False, og=None, body_attr="", 
     alts = (f'<link rel="alternate" hreflang="en" href="{SITE}{enp}"><link rel="alternate" hreflang="ur" href="{SITE}{urp}"><link rel="alternate" hreflang="x-default" href="{SITE}{enp}">') if urp else ""
     ld = f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>' if jsonld else ""
     doc = f'''<!DOCTYPE html>
-<html lang="{lang}" dir="{'rtl' if lang == 'ur' else 'ltr'}"><head><meta charset="utf-8"><meta name="p:domain_verify" content="6ef7d37610002a038628dcf7f6d8d944"/><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="msvalidate.01" content="63E67156202205CA85D99A9BBF952FAC"><script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WF2S4L3J"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());</script>
+<html lang="{lang}" dir="{'rtl' if lang == 'ur' else 'ltr'}"><head><meta charset="utf-8"><meta name="p:domain_verify" content="6ef7d37610002a038628dcf7f6d8d944"/><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="msvalidate.01" content="63E67156202205CA85D99A9BBF952FAC"><script src="/consent.js?v=1" data-privacy="/about/"></script><script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WF2S4L3J"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());</script>
 <title>{e(full)}</title><meta name="description" content="{e(desc)}"><link rel="canonical" href="{SITE}{path}">{alts}
 <meta property="og:type" content="website"><meta property="og:site_name" content="KohNoor"><meta property="og:title" content="{e(full)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{SITE}{path}"><meta property="og:image" content="{SITE}{og}">
 <meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#0E2433">
@@ -535,7 +535,7 @@ def footer_ur():
 <div><a class="brand" href="/ur/">{gem()}<b class="ur-brand">کوہِ نور</b></a><p>پہاڑوں کا ہیرا: شمالی پاکستان کا مکمل اور دیانتدار رہنما۔ جگہیں، تاریخ، لائیو موسم، سفر کا خرچ اور آف لائن معلومات۔</p></div>
 <div><h4>علاقے</h4>{regs}</div><div><h4>مشہور جگہیں</h4>{top}</div>
 <div><h4>منصوبہ</h4><a href="/ur/interests/">دلچسپی کے مطابق سفر</a><a href="/ur/routes/">راستہ تلاش کریں</a><a href="/ur/trails/">ٹریلز</a><a href="/ur/wonders/">عجیب و غریب جگہیں</a><a href="/ur/when-to-go/">کب جائیں</a><a href="/ur/essentials/">ضروری معلومات</a><a href="/ur/list-your-business/">اپنا کاروبار شامل کریں</a><a href="https://urdu-pashto-keyboard.pages.dev/">اردو اور پشتو کی بورڈ</a><a href="/">English</a></div>
-</div><div class="foot-bottom"><span>© {date.today().year} کوہِ نور۔ خرچ اور سفر کا وقت اندازاً ہیں؛ سفر سے پہلے سڑک کی صورتحال معلوم کریں۔</span><span>موسم: Open-Meteo · تصاویر آزاد لائسنس کے تحت</span></div></div></footer>
+</div><div class="foot-bottom"><span>© {date.today().year} کوہِ نور۔ خرچ اور سفر کا وقت اندازاً ہیں؛ سفر سے پہلے سڑک کی صورتحال معلوم کریں۔</span><span>موسم: Open-Meteo · تصاویر آزاد لائسنس کے تحت · <a href="#" onclick="siteConsent.open();return false">کوکی کی ترتیبات</a></span></div></div></footer>
 <div class="net" role="status">آپ آف لائن ہیں · محفوظ صفحات چلتے رہیں گے</div>'''
 
 def card_ur(p, near_km=None):
@@ -1010,7 +1010,7 @@ def build_assets():
     core = ["/", "/essentials/", "/plan/", "/offline/", "/assets/style.css", "/assets/app.js", "/assets/data.js", "/assets/icon.svg",
             "/assets/fonts/bricolage-grotesque-latin-800-normal.woff2", "/assets/fonts/source-sans-3-latin-400-normal.woff2", "/img/kaghan.jpg"]
     open(os.path.join(OUT, "sw.js"), "w").write(f"""// KohNoor service worker
-const V='kohnoor-v5', CORE={json.dumps(core)};
+const V='kohnoor-v6', CORE={json.dumps(core)};
 self.addEventListener('install',e=>e.waitUntil(caches.open(V).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==V).map(x=>caches.delete(x)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{{
