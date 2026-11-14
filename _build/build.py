@@ -1029,5 +1029,5 @@ if __name__ == "__main__":
     if os.path.exists(OUT): shutil.rmtree(OUT)
     os.makedirs(OUT)
     n = build_assets()
-    build_home(); build_regions(); build_places(); build_itins(); build_plan(); build_essentials(); build_about(); build_interests(); build_when(); build_gallery(); build_urdu(); build_maps(); build_v7(); build_business(); build_llms(); cheat_sheets(); build_admin(); build_misc()
+    build_home(); build_regions(); build_places(); build_itins(); build_plan(); build_essentials(); build_about(); build_interests(); build_when(); build_gallery(); build_urdu(); build_maps(); build_v7(); build_business(); build_llms(); cheat_sheets(); __import__('pins').build_pins(); build_admin(); build_misc()
     print("pages in sitemap:", n)
