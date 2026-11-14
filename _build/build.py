@@ -153,7 +153,7 @@ def page(path, title, desc, body, active="", over=False, og=None, body_attr="", 
     alts = (f'<link rel="alternate" hreflang="en" href="{SITE}{enp}"><link rel="alternate" hreflang="ur" href="{SITE}{urp}"><link rel="alternate" hreflang="x-default" href="{SITE}{enp}">') if urp else ""
     ld = f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>' if jsonld else ""
     doc = f'''<!DOCTYPE html>
-<html lang="{lang}" dir="{'rtl' if lang == 'ur' else 'ltr'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="msvalidate.01" content="63E67156202205CA85D99A9BBF952FAC">
+<html lang="{lang}" dir="{'rtl' if lang == 'ur' else 'ltr'}"><head><meta charset="utf-8"><meta name="p:domain_verify" content="6ef7d37610002a038628dcf7f6d8d944"/><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="msvalidate.01" content="63E67156202205CA85D99A9BBF952FAC">
 <title>{e(full)}</title><meta name="description" content="{e(desc)}"><link rel="canonical" href="{SITE}{path}">{alts}
 <meta property="og:type" content="website"><meta property="og:site_name" content="KohNoor"><meta property="og:title" content="{e(full)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{SITE}{path}"><meta property="og:image" content="{SITE}{og}">
 <meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#0E2433">
@@ -979,7 +979,7 @@ def build_admin():
 <form id="adm-login" class="card-box"><label for="adm-pw">Admin password</label><input id="adm-pw" type="password" autocomplete="current-password" required><button class="btn" type="submit">Open</button><p class="note" id="adm-msg"></p></form>
 <div id="adm-list"></div></div></section>"""
     page("/admin/", "Admin", "Moderation", body)
-    p = os.path.join(OUT, "admin", "index.html"); h = open(p).read().replace('<meta name="viewport"', '<meta name="robots" content="noindex, nofollow"><meta name="viewport"', 1); open(p, "w").write(h)
+    p = os.path.join(OUT, "admin", "index.html"); h = open(p).read().replace('<meta name="p:domain_verify" content="6ef7d37610002a038628dcf7f6d8d944"/><meta name="viewport"', '<meta name="robots" content="noindex, nofollow"><meta name="p:domain_verify" content="6ef7d37610002a038628dcf7f6d8d944"/><meta name="viewport"', 1); open(p, "w").write(h)
     open(os.path.join(OUT, "_routes.json"), "w").write(json.dumps({"version": 1, "include": ["/api/*"], "exclude": []}))
     fsrc = os.path.join(SRC, "functions")
     if os.path.isdir(fsrc): shutil.copytree(fsrc, os.path.join(OUT, "functions"), dirs_exist_ok=True)
