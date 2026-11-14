@@ -18,6 +18,7 @@
   var T = ur ? { msg: 'ہم یہ جاننے کے لیے کہ کون سے صفحات مفید ہیں Google Analytics کی کوکیز استعمال کرتے ہیں۔ کوئی اشتہار نہیں۔', yes: 'قبول کریں', no: 'انکار', more: 'رازداری' }
              : { msg: 'We use Google Analytics cookies to see which pages are useful. No ads, and nothing you type is collected.', yes: 'Accept', no: 'Reject', more: 'Privacy' };
 
+  if (!ur && me && me.getAttribute('data-msg')) T.msg = me.getAttribute('data-msg');
   function choose(v) {
     try { localStorage.setItem(K, v); } catch (e) {}
     w.gtag('consent', 'update', v === 'granted' ? { analytics_storage: 'granted' } : DENY);
