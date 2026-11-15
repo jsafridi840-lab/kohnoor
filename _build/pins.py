@@ -107,3 +107,72 @@ def build_pins():
 
 if __name__ == "__main__":
     build_pins()
+
+
+# ---------- Design B (region boards): cream title panel on top, photo below ----------
+REGION_BOARDS = {
+    "swat": "Swat Valley Travel Guide",
+    "gb": "Gilgit-Baltistan: Hunza, Skardu & Fairy Meadows",
+    "kaghan": "Naran Kaghan Valley Travel",
+    "ajk": "Azad Kashmir & Neelum Valley Travel",
+    "chitral": "Chitral & Kalash Valley Travel",
+    "galiyat": "Murree, Nathia Gali & Galiyat",
+    "dir": "Kumrat Valley & Dir Travel",
+}
+
+
+def pin_image_b(p):
+    W, H = 1000, 1500
+    cream, ink, gold = (247, 242, 232), (18, 38, 48), (196, 132, 30)
+    im = Image.new("RGB", (W, H), cream)
+    ph = Image.open(os.path.join(SRC, "img", p["id"] + ".jpg")).convert("RGB")
+    PW, PH = 1000, 1060
+    r = max(PW / ph.width, PH / ph.height)
+    ph = ph.resize((round(ph.width * r), round(ph.height * r)), Image.LANCZOS)
+    l, t = (0 if p['id'] == 'kalash' else (ph.width - PW) // 2), max(0, (ph.height - PH) // 2)
+    im.paste(ph.crop((l, t, l + PW, t + PH)), (0, H - PH))
+    d = ImageDraw.Draw(im)
+    d.text((60, 48), "KOHNOOR  ·  NORTHERN PAKISTAN TRAVEL GUIDE", font=F("source-sans-3-latin-700-normal.ttf" if os.path.exists(os.path.join(SRC, "fonts", "source-sans-3-latin-700-normal.ttf")) else "source-sans-3-latin-600-normal.ttf", 28), fill=gold)
+    tfont = F("bricolage-grotesque-latin-800-normal.ttf", 104)
+    lines = wrap(d, p["name"], tfont, 880)
+    if len(lines) > 1:
+        tfont = F("bricolage-grotesque-latin-800-normal.ttf", 76); lines = wrap(d, p["name"], tfont, 880)
+    if len(lines) > 2:
+        tfont = F("bricolage-grotesque-latin-800-normal.ttf", 62); lines = wrap(d, p["name"], tfont, 880)
+    block = len(lines) * (tfont.size + 4) + 60
+    y = 100 + max(0, (300 - block) // 2)
+    for ln in lines:
+        d.text((56, y), ln, font=tfont, fill=ink); y += tfont.size + 4
+    sub = "Hidden gem: how to get there" if p["kind"] == "hidden" else "Things to do, route & costs"
+    sf = F("source-sans-3-latin-600-normal.ttf", 36); line2 = sub + "  ·  " + REGIONS[p["region"]]["name"]
+    if d.textlength(line2, font=sf) > 890: line2 = sub
+    d.text((60, y + 12), line2, font=sf, fill=(70, 86, 94))
+    # info chip on photo
+    chip = f"{p['alt']:,} m  ·  Best: {p['season'].split('(')[0].strip()}"
+    cf = F("source-sans-3-latin-600-normal.ttf", 30)
+    cw = d.textlength(chip, font=cf)
+    d.rounded_rectangle((40, H - 110, 40 + cw + 48, H - 50), 30, fill=(255, 255, 255))
+    d.text((64, H - 101), chip, font=cf, fill=ink)
+    os.makedirs(os.path.join(OUT, "pins", "b"), exist_ok=True)
+    im.save(os.path.join(OUT, "pins", "b", p["id"] + ".jpg"), quality=86, optimize=True, progressive=True)
+
+
+def describe_b(p):
+    reg = REGIONS[p["region"]]["name"]
+    todo = "; ".join(p.get("todo", [])[:3])
+    return (f"Planning a trip to {p['name']} in {reg}? Top things to do: {todo}. "
+            f"Best time: {p['season']}. Full route from Islamabad, budget, hotels and live weather on KohNoor.")[:495]
+
+
+def build_pins_b():
+    boards = {}
+    for i in ORDER:
+        p = PLACES[i]
+        pin_image_b(p)
+        boards.setdefault(p["region"], []).append({
+            "id": i, "title": f"Things to Do in {p['name']}, Pakistan"[:100],
+            "link": f"https://kohnoor.pages.dev/places/{i}/", "img": f"https://kohnoor.pages.dev/pins/b/{i}.jpg",
+            "desc": describe_b(p)})
+    js = "export const BOARDS = " + json.dumps(boards, ensure_ascii=False) + ";\n"
+    open(os.path.join(SRC, "functions", "_pins_b.js"), "w").write(js)
+    print("pins B:", sum(len(v) for v in boards.values()))
