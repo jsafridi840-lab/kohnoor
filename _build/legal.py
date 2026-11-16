@@ -3,7 +3,7 @@ from datetime import date
 
 UPDATED = "16 November 2026"
 UPDATED_UR = "16 نومبر 2026"
-SOCIAL = [("Pinterest", "https://www.pinterest.com/kohnoorguide/")]
+SOCIAL = [("Facebook", "https://www.facebook.com/profile.php?id=61596627986405"), ("Pinterest", "https://www.pinterest.com/kohnoorguide/")]
 
 
 def social_links(sep=""):
