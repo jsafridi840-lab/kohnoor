@@ -17,7 +17,7 @@ export async function onRequestGet({ params }) {
       `<enclosure url="${esc(p.img)}" type="image/jpeg" length="0"/><media:content url="${esc(p.img)}" medium="image" type="image/jpeg"/></item>`;
   }).reverse().join("");
   const xml = `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel>` +
-    `<title>KohNoor – ${esc(region)}</title><link>https://kohnoor.pages.dev/</link>` +
+    `<title>KohNoor – ${esc(region)}</title><link>https://kohnoor.peakheron.com/</link>` +
     `<description>Northern Pakistan travel guide pins.</description><language>en</language>${items}</channel></rss>`;
   return new Response(xml, { headers: { "content-type": "application/rss+xml; charset=utf-8", "cache-control": "public, max-age=3600" } });
 }

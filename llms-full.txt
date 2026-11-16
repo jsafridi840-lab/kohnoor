@@ -1,7 +1,7 @@
 # KohNoor — full guide text
 
 ## Mingora & Saidu Sharif (Swat Valley)
-URL: https://kohnoor.pages.dev/places/mingora/
+URL: https://kohnoor.peakheron.com/places/mingora/
 Altitude: about 980 m. From Islamabad: about 250 km, 4–5 h. Best season: All year. Vehicle: Any car. Mobile signal: All networks.
 
 The twin cities at the heart of Swat: Mingora the busy market town, Saidu Sharif the old seat of the Wali of Swat. Every trip into the valley starts here.
@@ -17,7 +17,7 @@ Stay: From budget hotels in the bazaar to mid-range and upscale hotels along the
 Tips: Last city with full banking: withdraw cash for the upper valley here. Traffic in Mingora is heavy at midday; leave early for Kalam.
 
 ## Swat Museum (Swat Valley)
-URL: https://kohnoor.pages.dev/places/swat-museum/
+URL: https://kohnoor.peakheron.com/places/swat-museum/
 Altitude: about 980 m. From Islamabad: about 250 km, 4–5 h. Best season: All year. Vehicle: Any car. Mobile signal: All networks.
 
 A small, excellent museum on the Mingora–Saidu road holding Gandhara sculpture from the valley's Buddhist sites: Buddhas, scenes from the Buddha's life, jewellery and coins.
@@ -33,7 +33,7 @@ Stay: Stay in Mingora. Food: Cafés in Saidu Sharif.
 Tips: Check the opening days before you go; government museums usually close one day a week. Combine with Butkara stupa in one morning.
 
 ## Butkara Stupa (Swat Valley)
-URL: https://kohnoor.pages.dev/places/butkara/
+URL: https://kohnoor.peakheron.com/places/butkara/
 Altitude: about 980 m. From Islamabad: about 252 km, 4–5 h. Best season: All year. Vehicle: Any car. Mobile signal: All networks.
 
 The ruins of one of the most important Buddhist sanctuaries of Gandhara, right inside Mingora: a great central stupa ringed by more than two hundred smaller stupas and shrines.
@@ -49,7 +49,7 @@ Stay: Stay in Mingora. Food: Mingora bazaar.
 Tips: Go in the morning; there is little shade at midday in summer.
 
 ## Udegram (Swat Valley)
-URL: https://kohnoor.pages.dev/places/udegram/
+URL: https://kohnoor.peakheron.com/places/udegram/
 Altitude: about 1000 m. From Islamabad: about 240 km, 4 h. Best season: Oct–Apr best (cooler). Vehicle: Any car to the village. Mobile signal: All networks.
 
 A village south of Mingora with two layers of history on one hillside: the ruins of the fortress of Raja Gira and the Ghaznavid mosque below it.
@@ -65,7 +65,7 @@ Stay: Stay in Mingora. Food: Bring water for the climb.
 Tips: Wear proper shoes for the castle climb. Avoid summer afternoons; the hillside gets very hot.
 
 ## Jahanabad Buddha (Swat Valley)
-URL: https://kohnoor.pages.dev/places/jahanabad-buddha/
+URL: https://kohnoor.peakheron.com/places/jahanabad-buddha/
 Altitude: about 1100 m. From Islamabad: about 262 km, 4.5 h. Best season: All year. Vehicle: Car to the village, then a short walk. Mobile signal: Most networks.
 
 A giant seated Buddha carved into a granite cliff above the village of Jahanabad (Shakhorai), one of the largest rock carvings of its kind in South Asia.
@@ -81,7 +81,7 @@ Stay: Mingora or Malam Jabba. Food: Small shops in Manglawar.
 Tips: Respect the site: do not climb on the carving.
 
 ## Marghazar & White Palace (Swat Valley)
-URL: https://kohnoor.pages.dev/places/marghazar/
+URL: https://kohnoor.peakheron.com/places/marghazar/
 Altitude: about 1300 m. From Islamabad: about 258 km, 4.5 h. Best season: Mar–Nov. Vehicle: Any car. Mobile signal: Most networks.
 
 A cool side valley 13 km from Saidu Sharif with the white marble summer palace of the first Wali of Swat, now a hotel, at the foot of Elum mountain.
@@ -97,7 +97,7 @@ Stay: White Palace hotel or day trip from Mingora. Food: Hotel restaurant and dh
 Tips: Weekends get busy with local families; go on a weekday.
 
 ## Malam Jabba (Swat Valley)
-URL: https://kohnoor.pages.dev/places/malam-jabba/
+URL: https://kohnoor.peakheron.com/places/malam-jabba/
 Altitude: about 2700 m. From Islamabad: about 290 km, 5–6 h. Best season: Snow: Dec–Feb · Green: May–Sep. Vehicle: Car in summer; 4x4 or chains after snowfall. Mobile signal: Jazz, Zong, Telenor.
 
 Pakistan's best-known ski resort, on a ridge about 45 km from Mingora, with ski slopes, a chairlift, zipline and pine forest views in summer.
@@ -113,7 +113,7 @@ Stay: Resort hotel at the top, or guesthouses lower down. Food: Resort restauran
 Tips: After heavy snow the road may need chains or 4x4; ask in Manglawar. Temperatures drop well below freezing in winter nights.
 
 ## Madyan (Swat Valley)
-URL: https://kohnoor.pages.dev/places/madyan/
+URL: https://kohnoor.peakheron.com/places/madyan/
 Altitude: about 1320 m. From Islamabad: about 300 km, 5.5 h. Best season: Mar–Nov. Vehicle: Any car. Mobile signal: All networks.
 
 A riverside town where Swat starts to turn into the mountains: cool air, trout and a quieter base than Mingora.
@@ -129,7 +129,7 @@ Stay: Riverside hotels and guesthouses. Food: Fresh river trout.
 Tips: Good night stop if you reach Swat late.
 
 ## Bahrain (Swat Valley)
-URL: https://kohnoor.pages.dev/places/bahrain/
+URL: https://kohnoor.peakheron.com/places/bahrain/
 Altitude: about 1400 m. From Islamabad: about 310 km, 6 h. Best season: Mar–Nov. Vehicle: Any car. Mobile signal: All networks.
 
 A lively town where the Daral stream meets the Swat River, with hotels on the water and the trail to Daral Lake.
@@ -145,7 +145,7 @@ Stay: Many hotels along the river. Food: Trout, tikka and bazaar food.
 Tips: Last good ATM stop before Kalam; carry enough cash.
 
 ## Kalam (Swat Valley)
-URL: https://kohnoor.pages.dev/places/kalam/
+URL: https://kohnoor.peakheron.com/places/kalam/
 Altitude: about 2000 m. From Islamabad: about 350 km, 7–8 h. Best season: May–Oct · snow Dec–Feb. Vehicle: Car to Kalam; jeep beyond. Mobile signal: Jazz, Zong, Telenor in town.
 
 The capital of upper Swat, where the Ushu and Utror rivers join to form the Swat River. Pine forests, snow peaks and the base for Mahodand, Ushu and Utror.
@@ -161,7 +161,7 @@ Stay: Large choice of hotels; book ahead in June–August and on Eid. Food: Trou
 Tips: Bring cash from Mingora; card payment is rare. Hire jeeps from the stand in Kalam bazaar for Mahodand and Ushu; agree the price first. Nights are cold even in July: bring a warm layer.
 
 ## Ushu Forest & Matiltan (Swat Valley)
-URL: https://kohnoor.pages.dev/places/ushu-matiltan/
+URL: https://kohnoor.peakheron.com/places/ushu-matiltan/
 Altitude: about 2300 m. From Islamabad: about 360 km, 8 h. Best season: May–Oct. Vehicle: Jeep recommended. Mobile signal: Patchy.
 
 Tall deodar forest just above Kalam leading to Matiltan, where the white wall of Falak Sar (≈ 5,900 m) fills the end of the valley.
@@ -177,7 +177,7 @@ Stay: Camps and a few hotels; most stay in Kalam. Food: Tea stalls; carry water.
 Tips: Do not leave litter in the forest; there is no collection.
 
 ## Mahodand Lake (Swat Valley)
-URL: https://kohnoor.pages.dev/places/mahodand/
+URL: https://kohnoor.peakheron.com/places/mahodand/
 Altitude: about 2865 m. From Islamabad: about 390 km, 9–10 h. Best season: Jun–Sep. Vehicle: 4x4 jeep only. Mobile signal: No signal.
 
 A wide lake about 35–40 km above Kalam surrounded by meadows and snow peaks. Its name means lake of fish, and it is famous for trout.
@@ -193,7 +193,7 @@ Stay: Seasonal camps; most return to Kalam. Food: Seasonal stalls; carry food an
 Tips: No phone signal: tell someone your plan before leaving Kalam. Snow can close the track until late May or June.
 
 ## Utror & Gabral (Swat Valley)
-URL: https://kohnoor.pages.dev/places/utror-gabral/
+URL: https://kohnoor.peakheron.com/places/utror-gabral/
 Altitude: about 2300 m. From Islamabad: about 365 km, 8–9 h. Best season: May–Oct. Vehicle: Jeep recommended beyond Utror. Mobile signal: Limited.
 
 The western branch of upper Swat: quieter than Kalam, with wooden villages, the Utror river and green meadows leading on to Gabral.
@@ -209,7 +209,7 @@ Stay: Guesthouses and camps. Food: Simple local food.
 Tips: Ask locals about road damage after rain.
 
 ## Kandol & Spin Khwar Lakes (Swat Valley)
-URL: https://kohnoor.pages.dev/places/kandol-lake/
+URL: https://kohnoor.peakheron.com/places/kandol-lake/
 Altitude: about 2900 m. From Islamabad: about 375 km, 9–10 h. Best season: Jun–Sep. Vehicle: Jeep to the trailhead, then hike. Mobile signal: No signal.
 
 Two quiet alpine lakes above Utror. Kandol is a deep blue lake below pine ridges; Spin Khwar, meaning white stream, sits higher among meadows. Far fewer visitors than Mahodand.
@@ -225,7 +225,7 @@ Stay: Camping only, with a guide. Food: Carry all food and water.
 Tips: Less verified: hire a local guide in Utror. Weather changes fast; start early and be down by afternoon.
 
 ## Daral Lake (Swat Valley)
-URL: https://kohnoor.pages.dev/places/daral-lake/
+URL: https://kohnoor.peakheron.com/places/daral-lake/
 Altitude: about 3400 m. From Islamabad: about 315 km, 6 + trek h. Best season: Jul–Sep. Vehicle: Car to Bahrain, then trek. Mobile signal: No signal on the trek.
 
 A remote high lake above Bahrain, reached by a multi-day trek up the Daral stream through forest and herders' huts. Only for fit hikers.
@@ -241,7 +241,7 @@ Stay: Camping only. Food: Carry all supplies.
 Tips: Less verified: go only with an experienced local guide. Not suitable for children or first-time hikers.
 
 ## Gabin Jabba (Swat Valley)
-URL: https://kohnoor.pages.dev/places/gabin-jabba/
+URL: https://kohnoor.peakheron.com/places/gabin-jabba/
 Altitude: about 2500 m. From Islamabad: about 280 km, 5–6 h. Best season: May–Oct. Vehicle: Jeep recommended for the last stretch. Mobile signal: Limited.
 
 A wide, quiet meadow in the hills above Matta, west of the main valley. Open grassland, pine edges and camping under clear skies.
@@ -257,7 +257,7 @@ Stay: Camps run by local operators. Food: Camp meals.
 Tips: Less verified: book through a known camp operator. Nights are cold; bring warm clothes.
 
 ## Kaghan (Kaghan & Naran)
-URL: https://kohnoor.pages.dev/places/kaghan/
+URL: https://kohnoor.peakheron.com/places/kaghan/
 Altitude: about 2000 m. From Islamabad: about 245 km, 5–6 h. Best season: Apr–Oct. Vehicle: Any car. Mobile signal: Jazz, Zong, Telenor.
 
 The town that gives the whole valley its name, set along the Kunhar River below Naran. A calmer stop than Naran with riverside hotels.
@@ -273,7 +273,7 @@ Stay: Hotels on the river. Food: Trout and roadside dhabas.
 Tips: Beyond Naran the road is closed by snow in winter.
 
 ## Naran & Lake Saif-ul-Malook (Kaghan & Naran)
-URL: https://kohnoor.pages.dev/places/naran/
+URL: https://kohnoor.peakheron.com/places/naran/
 Altitude: about 2400 m. From Islamabad: about 270 km, 6–7 h. Best season: May–Oct. Vehicle: Car to Naran; jeep to the lake. Mobile signal: Jazz, Zong, Telenor in town.
 
 The busiest summer resort of the north, and the base for Lake Saif-ul-Malook, Lulusar Lake and Babusar Pass.
@@ -289,7 +289,7 @@ Stay: Hundreds of hotels; very busy June–August. Food: Trout, BBQ, pakoras in 
 Tips: Naran is mostly shut from about November to April. Agree jeep prices for the lake before setting out.
 
 ## Chilas (Gilgit-Baltistan)
-URL: https://kohnoor.pages.dev/places/chilas/
+URL: https://kohnoor.peakheron.com/places/chilas/
 Altitude: about 1265 m. From Islamabad: about 400 km, 9–10 (via Babusar, summer) h. Best season: Mar–May, Sep–Nov (summer is very hot). Vehicle: Any car on the KKH. Mobile signal: SCOM, Jazz, Zong.
 
 A hot, rocky town on the Indus and the Karakoram Highway, where the Babusar road comes down. Main stop between Kaghan and Gilgit.
@@ -305,7 +305,7 @@ Stay: Hotels in Chilas town. Food: Local hotels on the KKH.
 Tips: In summer temperatures can pass 40°C; travel early. Babusar Pass is usually open only from about June to October.
 
 ## Fairy Meadows (Gilgit-Baltistan)
-URL: https://kohnoor.pages.dev/places/fairy-meadows/
+URL: https://kohnoor.peakheron.com/places/fairy-meadows/
 Altitude: about 3300 m. From Islamabad: about 470 km, 11–12 + trek h. Best season: May–Oct. Vehicle: Jeep from Raikot Bridge, then 2–3 hour hike. Mobile signal: Weak or none.
 
 A meadow in pine forest facing the north face of Nanga Parbat (8,126 m), the ninth-highest mountain on earth.
@@ -321,7 +321,7 @@ Stay: Wooden huts and camps run by locals. Food: Simple camp meals.
 Tips: The jeep track is narrow and frightening for some; only use the official jeep stand. Carry warm clothes; nights are near freezing.
 
 ## Hunza (Karimabad) (Gilgit-Baltistan)
-URL: https://kohnoor.pages.dev/places/hunza/
+URL: https://kohnoor.peakheron.com/places/hunza/
 Altitude: about 2400 m. From Islamabad: about 600 km, 13–15 h. Best season: Apr (blossom) – Oct (autumn colours). Vehicle: Any car on the KKH. Mobile signal: SCOM, Jazz, Zong.
 
 Terraced valley under Rakaposhi and Ultar peaks, with old forts, apricot orchards, Attabad Lake and the road to Khunjerab Pass.
@@ -337,7 +337,7 @@ Stay: Wide choice in Karimabad and Aliabad. Food: Chapshuro, diram fitti, aprico
 Tips: Khunjerab Pass usually closes for winter around December. Gilgit flights are often cancelled for weather; keep a spare day.
 
 ## Skardu (Gilgit-Baltistan)
-URL: https://kohnoor.pages.dev/places/skardu/
+URL: https://kohnoor.peakheron.com/places/skardu/
 Altitude: about 2230 m. From Islamabad: about 640 km, 18–20 by road h. Best season: Apr–Oct. Vehicle: Car to Skardu; jeep for Deosai and Shigar side valleys. Mobile signal: SCOM, Jazz, Zong.
 
 Capital of Baltistan on the Indus: cold desert, blue lakes and the gateway to K2 and the Baltoro glacier.
@@ -353,7 +353,7 @@ Stay: From guesthouses to resorts at Shangrila and Shigar. Food: Balti dishes: m
 Tips: Deosai is snowbound outside summer. Flights are cheap to cancel for weather; keep a buffer day.
 
 ## Chitral & Kalash Valleys (Chitral)
-URL: https://kohnoor.pages.dev/places/chitral/
+URL: https://kohnoor.peakheron.com/places/chitral/
 Altitude: about 1500 m. From Islamabad: about 365 km, 8–10 h. Best season: May–Oct (Kalash festivals: Chilam Joshi in May). Vehicle: Car to Chitral; jeep useful for Kalash. Mobile signal: Jazz, Zong, Telenor in town.
 
 A remote town under Tirich Mir (7,708 m), the highest peak of the Hindu Kush, and the gateway to the Kalash valleys of Bumburet, Rumbur and Birir.
@@ -369,7 +369,7 @@ Stay: Hotels in Chitral; guesthouses in Bumburet. Food: Chitrali bread, walnuts,
 Tips: Ask permission before photographing Kalash people, especially women. Foreign visitors may need to register with police.
 
 ## Rawalakot & Banjosa (Azad Kashmir)
-URL: https://kohnoor.pages.dev/places/rawalakot/
+URL: https://kohnoor.peakheron.com/places/rawalakot/
 Altitude: about 1615 m. From Islamabad: about 120 km, 3–4 h. Best season: All year (snow Dec–Feb). Vehicle: Any car. Mobile signal: SCOM, Zong, Jazz.
 
 Main town of Poonch district in green pine hills, with Banjosa Lake and Toli Pir close by. The easiest mountain trip from Islamabad.
@@ -385,7 +385,7 @@ Stay: Hotels in Rawalakot and at Banjosa. Food: Local Pahari dishes and kebabs.
 Tips: Good choice for a two-day family trip.
 
 ## Neelum Valley (Azad Kashmir)
-URL: https://kohnoor.pages.dev/places/neelum/
+URL: https://kohnoor.peakheron.com/places/neelum/
 Altitude: about 2000 m. From Islamabad: about 270 km, 7–9 to Sharda h. Best season: Apr–Oct. Vehicle: Car to Sharda/Kel; jeep beyond. Mobile signal: SCOM, Zong; patchy.
 
 A 200 km valley along the Neelum River from Muzaffarabad: Keran, Sharda, Kel, Arang Kel and Taobat, with Ratti Gali Lake high above Dowarian.
@@ -401,7 +401,7 @@ Stay: Hotels and guesthouses in Keran, Sharda and Kel. Food: Trout and local foo
 Tips: Respect restrictions near the Line of Control and carry your CNIC. Do not photograph security posts.
 
 ## Murree (Murree & Galiyat)
-URL: https://kohnoor.pages.dev/places/murree/
+URL: https://kohnoor.peakheron.com/places/murree/
 Altitude: about 2290 m. From Islamabad: about 60 km, 1.5–2 h. Best season: All year · snow Dec–Feb. Vehicle: Any car (chains in heavy snow). Mobile signal: All networks.
 
 Pakistan's best-known hill station, an hour and a half from Islamabad, with Mall Road, pine ridges and winter snow.
@@ -417,7 +417,7 @@ Stay: Hundreds of hotels from budget to upscale; book ahead on weekends. Food: M
 Tips: In heavy snowfall, follow police advisories; in January 2022 people died stuck in their cars in a snowstorm. Weekends and public holidays bring huge traffic jams; go on weekdays.
 
 ## Nathia Gali & Ayubia (Murree & Galiyat)
-URL: https://kohnoor.pages.dev/places/nathia-gali/
+URL: https://kohnoor.peakheron.com/places/nathia-gali/
 Altitude: about 2500 m. From Islamabad: about 85 km, 2.5 h. Best season: All year · snow Dec–Feb. Vehicle: Any car (chains in heavy snow). Mobile signal: All networks.
 
 The quieter, greener hill stations of the Galiyat ridge between Murree and Abbottabad: oak and pine forest, Mukshpuri and Miranjani peaks and the Pipeline walking track.
@@ -433,7 +433,7 @@ Stay: Hotels and cottages in Nathia Gali, Dunga Gali and Bhurban. Food: Hotel re
 Tips: Leopards live in these forests; do not walk trails alone after dark.
 
 ## Kumrat Valley (Dir & Kumrat)
-URL: https://kohnoor.pages.dev/places/kumrat/
+URL: https://kohnoor.peakheron.com/places/kumrat/
 Altitude: about 2300 m. From Islamabad: about 400 km, 9–10 h. Best season: Jun–Sep. Vehicle: Car to Thall; jeep into the valley. Mobile signal: Weak or none beyond Thall.
 
 A deep valley of giant deodar trees, meadows and the Panjkora River in Upper Dir. It became famous after 2016 and is now one of the most loved camping spots in the north.
@@ -449,7 +449,7 @@ Stay: Camps and simple huts; a few hotels in Thall. Food: Camp meals and trout.
 Tips: Bring cash from Dir; there are no ATMs in the valley. Rivers are fast and cold: do not swim.
 
 ## Shogran & Siri Paye (Kaghan & Naran)
-URL: https://kohnoor.pages.dev/places/shogran/
+URL: https://kohnoor.peakheron.com/places/shogran/
 Altitude: about 2360 m. From Islamabad: about 210 km, 5 h. Best season: Apr–Oct · snow Dec–Feb. Vehicle: Car to Kiwai; jeep up to Shogran and Siri Paye. Mobile signal: Jazz, Zong.
 
 A forested plateau above Kiwai with views of Malika Parbat, and the open meadows of Siri Paye a short jeep ride higher. A gentler alternative to Naran.
@@ -465,7 +465,7 @@ Stay: Hotels and cottages in Shogran. Food: Hotel restaurants.
 Tips: The Kiwai–Shogran road is steep; low-power cars struggle.
 
 ## Babusar Top & Lulusar (Kaghan & Naran)
-URL: https://kohnoor.pages.dev/places/babusar/
+URL: https://kohnoor.peakheron.com/places/babusar/
 Altitude: about 4170 m. From Islamabad: about 340 km, 8 h. Best season: Jun–Sep (pass usually open Jun–Oct). Vehicle: Car in summer if driven carefully. Mobile signal: Weak.
 
 The highest point of the Kaghan Valley road, a windswept pass between Kaghan and Chilas, with Lulusar Lake on the way up. On clear days Nanga Parbat shows on the horizon.
@@ -481,7 +481,7 @@ Stay: Stay in Naran or Chilas. Food: Tea stalls at the top in summer.
 Tips: Altitude above 4,000 m: do not run or stay long if you feel dizzy. Snow can close the pass any day outside summer.
 
 ## Gilgit City (Gilgit-Baltistan)
-URL: https://kohnoor.pages.dev/places/gilgit/
+URL: https://kohnoor.peakheron.com/places/gilgit/
 Altitude: about 1500 m. From Islamabad: about 500 km, 11–14 h. Best season: Mar–Nov. Vehicle: Any car. Mobile signal: SCOM, Jazz, Zong.
 
 The capital and crossroads of Gilgit-Baltistan, on the Gilgit River, where roads branch to Hunza, Naltar, Ghizer and Skardu.
@@ -497,7 +497,7 @@ Stay: Wide choice of hotels. Food: Chapshuro, local trout, dried apricots.
 Tips: Good place to rest one night before going higher.
 
 ## Naltar Valley (Gilgit-Baltistan)
-URL: https://kohnoor.pages.dev/places/naltar/
+URL: https://kohnoor.peakheron.com/places/naltar/
 Altitude: about 2900 m. From Islamabad: about 540 km, 13–15 h. Best season: Jun–Sep · skiing Dec–Feb. Vehicle: Jeep from Nomal. Mobile signal: Limited.
 
 A pine valley north of Gilgit with colourful lakes: Satrangi (seven-colour) Lake, Blue Lake and Pari Lake. In winter it hosts skiing.
@@ -513,7 +513,7 @@ Stay: Guesthouses and camps. Food: Simple local food.
 Tips: The jeep track is rough; take an experienced local driver.
 
 ## Attabad Lake (Gilgit-Baltistan)
-URL: https://kohnoor.pages.dev/places/attabad/
+URL: https://kohnoor.peakheron.com/places/attabad/
 Altitude: about 2550 m. From Islamabad: about 620 km, 14–16 h. Best season: All year (frozen edges in winter). Vehicle: Any car on the KKH. Mobile signal: SCOM, Jazz, Zong.
 
 A turquoise lake along the Karakoram Highway between Hunza and Gojal, with boating, jet skis and lakeside resorts.
@@ -529,7 +529,7 @@ Stay: Lakeside resorts or stay in Hunza. Food: Lakeside cafés.
 Tips: Wear life jackets on every boat ride.
 
 ## Passu & Khunjerab Pass (Gilgit-Baltistan)
-URL: https://kohnoor.pages.dev/places/passu-khunjerab/
+URL: https://kohnoor.peakheron.com/places/passu-khunjerab/
 Altitude: about 2500 m. From Islamabad: about 660 km, 16–18 h. Best season: May–Oct (Khunjerab usually closes for winter). Vehicle: Any car on the KKH. Mobile signal: SCOM; none near the pass.
 
 Upper Hunza (Gojal): the sharp Passu Cones, Hussaini suspension bridge, Passu glacier, and Khunjerab Pass at about 4,690 m on the China border, one of the highest paved border crossings in the world.
@@ -545,7 +545,7 @@ Stay: Guesthouses in Passu, Gulmit and Sost. Food: Wakhi bread and soups.
 Tips: Khunjerab is above 4,600 m: stay less than an hour and go back down. Carry your CNIC for checkposts.
 
 ## Deosai Plains (Gilgit-Baltistan)
-URL: https://kohnoor.pages.dev/places/deosai/
+URL: https://kohnoor.peakheron.com/places/deosai/
 Altitude: about 4100 m. From Islamabad: about 670 km, Skardu + 3 h. Best season: Jul–Sep (snowbound the rest of the year). Vehicle: 4x4 jeep. Mobile signal: No signal.
 
 One of the highest plateaus in the world, a national park of wildflowers and streams, home of the Himalayan brown bear. Sheosar Lake lies at its western edge.
@@ -561,7 +561,7 @@ Stay: Licensed camps only. Food: Carry food and water.
 Tips: Very cold even in summer nights; take a sleeping bag. Never approach or feed bears.
 
 ## Shigar Valley (Gilgit-Baltistan)
-URL: https://kohnoor.pages.dev/places/shigar/
+URL: https://kohnoor.peakheron.com/places/shigar/
 Altitude: about 2300 m. From Islamabad: about 670 km, Skardu + 1 h. Best season: Apr–Oct. Vehicle: Any car. Mobile signal: SCOM, Zong.
 
 Green valley north of Skardu on the road to K2, with the restored Shigar Fort, the Sarfaranga cold desert and old wooden mosques.
@@ -577,7 +577,7 @@ Stay: Shigar Fort hotel or guesthouses. Food: Balti dishes.
 Tips: Base for the long trek to K2 base camp (needs permits and a licensed operator).
 
 ## Khaplu (Gilgit-Baltistan)
-URL: https://kohnoor.pages.dev/places/khaplu/
+URL: https://kohnoor.peakheron.com/places/khaplu/
 Altitude: about 2600 m. From Islamabad: about 740 km, Skardu + 3 h. Best season: Apr–Oct. Vehicle: Any car. Mobile signal: SCOM, Zong.
 
 Quiet town in the Ghanche valley east of Skardu, with the beautiful Khaplu Palace and Chaqchan Mosque, and views towards Masherbrum.
@@ -593,7 +593,7 @@ Stay: Khaplu Palace hotel or guesthouses. Food: Balti food, apricots.
 Tips: Good choice for travellers who want Baltistan without crowds.
 
 ## Astore & Rama Meadows (Gilgit-Baltistan)
-URL: https://kohnoor.pages.dev/places/astore-rama/
+URL: https://kohnoor.peakheron.com/places/astore-rama/
 Altitude: about 3300 m. From Islamabad: about 470 km, 11–13 h. Best season: Jun–Sep. Vehicle: Car to Astore; jeep to Rama. Mobile signal: SCOM in Astore.
 
 Valley on the east side of Nanga Parbat. Above Astore town, Rama meadows and Rama Lake sit under the Nanga Parbat massif.
@@ -609,7 +609,7 @@ Stay: Guesthouses and camps. Food: Simple local food.
 Tips: Combine with Deosai: the road crosses from Astore to Skardu in summer.
 
 ## Phander & Ghizer (Gilgit-Baltistan)
-URL: https://kohnoor.pages.dev/places/phander/
+URL: https://kohnoor.peakheron.com/places/phander/
 Altitude: about 2900 m. From Islamabad: about 680 km, Gilgit + 5–6 h. Best season: May–Oct (autumn colours Oct). Vehicle: Car if driven carefully; jeep better. Mobile signal: SCOM.
 
 The western valleys of Gilgit-Baltistan: Phander Lake, trout streams and willow trees that turn gold in October, on the road towards Shandur.
@@ -625,7 +625,7 @@ Stay: Guesthouses and small hotels. Food: Trout.
 Tips: October autumn colours are spectacular but nights are freezing.
 
 ## Kalash Valleys (Chitral)
-URL: https://kohnoor.pages.dev/places/kalash/
+URL: https://kohnoor.peakheron.com/places/kalash/
 Altitude: about 2000 m. From Islamabad: about 405 km, 9–11 h. Best season: May–Oct · festivals: Chilam Joshi (May), Uchal (Aug), Chaumos (Dec). Vehicle: Car to Bumburet if driven carefully; jeep for Rumbur and Birir. Mobile signal: Limited.
 
 Three valleys near Chitral, Bumburet, Rumbur and Birir, home to the Kalash people, with their own faith, colourful dress, wooden houses and spring, summer and winter festivals.
@@ -641,7 +641,7 @@ Stay: Guesthouses run by Kalash families. Food: Local walnut bread, cheese, grap
 Tips: Always ask before photographing anyone. Do not enter graveyards or sacred places.
 
 ## Muzaffarabad & Pir Chinasi (Azad Kashmir)
-URL: https://kohnoor.pages.dev/places/muzaffarabad/
+URL: https://kohnoor.peakheron.com/places/muzaffarabad/
 Altitude: about 740 m. From Islamabad: about 140 km, 3–4 h. Best season: All year. Vehicle: Any car. Mobile signal: All networks.
 
 Capital of Azad Kashmir where the Neelum and Jhelum rivers meet. Pir Chinasi, about 30 km away at around 2,900 m, gives wide views over the valley.
@@ -657,7 +657,7 @@ Stay: Hotels in the city. Food: Kashmiri food.
 Tips: Gateway to Neelum Valley: fill up and withdraw cash here.
 
 ## Arang Kel (Azad Kashmir)
-URL: https://kohnoor.pages.dev/places/arang-kel/
+URL: https://kohnoor.peakheron.com/places/arang-kel/
 Altitude: about 2400 m. From Islamabad: about 300 km, 9–10 h. Best season: May–Oct. Vehicle: Car to Kel, then cable car or a steep hike. Mobile signal: SCOM, weak.
 
 A storybook village of wooden houses on a high meadow above Kel in upper Neelum, reached by a small cable car across the river and a steep walk.
@@ -673,7 +673,7 @@ Stay: Guesthouses in Arang Kel and Kel. Food: Simple local food.
 Tips: The hike is steep: good shoes and water.
 
 ## Ratti Gali Lake (Azad Kashmir)
-URL: https://kohnoor.pages.dev/places/ratti-gali/
+URL: https://kohnoor.peakheron.com/places/ratti-gali/
 Altitude: about 3700 m. From Islamabad: about 240 km, 7 + jeep h. Best season: Jul–Sep. Vehicle: 4x4 jeep from Dowarian, then a short hike. Mobile signal: No signal.
 
 A glacial lake surrounded by flower meadows and snow peaks above Dowarian in Neelum. One of the most beautiful lakes in Kashmir.
@@ -689,7 +689,7 @@ Stay: Camps at base camp. Food: Camp meals.
 Tips: Snow often blocks the jeep track until July. Start early: weather turns in the afternoon.
 
 ## Jahaz Banda (Dir & Kumrat)
-URL: https://kohnoor.pages.dev/places/jahaz-banda/
+URL: https://kohnoor.peakheron.com/places/jahaz-banda/
 Altitude: about 3100 m. From Islamabad: about 410 km, 10–11 + hike h. Best season: Jun–Sep. Vehicle: Car to Thall; jeep to Jandrai, then 3–4 hour hike. Mobile signal: No signal on the meadow.
 
 A wide, flat alpine meadow above the Kumrat side of Upper Dir, ringed by pine forest and snow ridges. Herders' huts, grazing horses and a sky full of stars at night.
@@ -705,7 +705,7 @@ Stay: Simple camps and huts run by locals on the meadow in season; bring a warm 
 Tips: Hire horses or porters in Jandrai if carrying heavy gear. Nights are cold even in July; pack a down jacket.
 
 ## Katora Lake (Dir & Kumrat)
-URL: https://kohnoor.pages.dev/places/katora-lake/
+URL: https://kohnoor.peakheron.com/places/katora-lake/
 Altitude: about 3500 m. From Islamabad: about 410 km, 10–11 + 2-day hike h. Best season: Jul–Sep. Vehicle: Jeep to Jandrai, then hike via Jahaz Banda. Mobile signal: No signal.
 
 A bowl-shaped glacial lake (katora means bowl) of icy turquoise water, tucked under snowfields above Jahaz Banda. One of the most striking lakes in Upper Dir.
@@ -721,7 +721,7 @@ Stay: Camp at Jahaz Banda; there is no lodging at the lake. Food: Carry all food
 Tips: Snow can cover the trail until early July. Go with a guide from Jandrai; the route is not marked.
 
 ## Shandur Pass (Chitral)
-URL: https://kohnoor.pages.dev/places/shandur/
+URL: https://kohnoor.peakheron.com/places/shandur/
 Altitude: about 3700 m. From Islamabad: about 530 km, 13–15 h. Best season: Jun–Sep (polo festival in early July). Vehicle: 4x4 or jeep recommended from Mastuj. Mobile signal: Weak or none.
 
 A high, open plateau between Chitral and Ghizer with a lake and the famous polo ground often called the roof of the world.
@@ -737,7 +737,7 @@ Stay: Tents during the festival; otherwise rest houses in Mastuj or Phander. Foo
 Tips: Festival dates change each year; check before planning. Altitude is high; go slowly if coming straight from the plains.
 
 ## Garam Chashma (Chitral)
-URL: https://kohnoor.pages.dev/places/garam-chashma/
+URL: https://kohnoor.peakheron.com/places/garam-chashma/
 Altitude: about 2500 m. From Islamabad: about 410 km, 9–11 h. Best season: Apr–Oct. Vehicle: Any car in dry weather; jeep in winter. Mobile signal: Patchy.
 
 A green valley northwest of Chitral town known for its natural hot springs, used for bathing by locals and visitors.
@@ -753,7 +753,7 @@ Stay: A few small guesthouses; most visitors stay in Chitral town. Food: Local t
 Tips: Separate bathing times for men and women at some baths. Good half-day trip from Chitral.
 
 ## Upper Kachura Lake (Gilgit-Baltistan)
-URL: https://kohnoor.pages.dev/places/kachura/
+URL: https://kohnoor.peakheron.com/places/kachura/
 Altitude: about 2500 m. From Islamabad: about 660 km, Flight + 40 min h. Best season: Apr–Oct. Vehicle: Any car to the lake path. Mobile signal: SCOM, Zong.
 
 A clear, deep-green lake surrounded by apricot trees and steep mountains, a short drive from Skardu. Quieter than its famous neighbour Shangrila (Lower Kachura).
@@ -769,7 +769,7 @@ Stay: Hotels in Skardu or resorts around Kachura. Food: Small café at the lake;
 Tips: Go early morning for calm water and reflections. Bring cash; card payment is rare.
 
 ## Sarfaranga Cold Desert (Gilgit-Baltistan)
-URL: https://kohnoor.pages.dev/places/sarfaranga/
+URL: https://kohnoor.peakheron.com/places/sarfaranga/
 Altitude: about 2200 m. From Islamabad: about 650 km, Flight + 30 min h. Best season: Apr–Oct. Vehicle: Jeep or 4x4 for the dunes. Mobile signal: SCOM, Zong.
 
 White sand dunes at high altitude, framed by snow peaks, in the Shigar–Skardu area. A rare cold desert landscape.
@@ -785,7 +785,7 @@ Stay: Hotels in Skardu; camping possible with a guide. Food: Carry water and sna
 Tips: Afternoon winds can be strong. Go with a local driver who knows the dunes.
 
 ## Manthoka Waterfall (Gilgit-Baltistan)
-URL: https://kohnoor.pages.dev/places/manthoka/
+URL: https://kohnoor.peakheron.com/places/manthoka/
 Altitude: about 2600 m. From Islamabad: about 730 km, Flight + 2.5 hrs h. Best season: Apr–Oct. Vehicle: Any car. Mobile signal: SCOM.
 
 A tall waterfall falling through a green gorge in Kharmang district, south-east of Skardu. Small eateries sit right beside the cold spray.
@@ -801,7 +801,7 @@ Stay: Day trip from Skardu; a few small guesthouses near the falls. Food: Trout 
 Tips: Carry your CNIC; there are checkposts. Water is ice cold even in summer.
 
 ## Borith Lake & Hussaini (Gilgit-Baltistan)
-URL: https://kohnoor.pages.dev/places/borith/
+URL: https://kohnoor.peakheron.com/places/borith/
 Altitude: about 2600 m. From Islamabad: about 640 km, 15–17 h. Best season: Apr–Oct. Vehicle: Any car on the KKH; short track to the lake. Mobile signal: SCOM.
 
 A small brackish lake above Hussaini village in Upper Hunza (Gojal), with views of the Passu Cones and the Batura glacier.
@@ -817,7 +817,7 @@ Stay: Borith Lake Hotel and guesthouses in Passu and Gulmit. Food: Hunza food in
 Tips: The bridge sways a lot; avoid it in strong wind. Bird-watching is best in spring and autumn.
 
 ## Khalti Lake (Gilgit-Baltistan)
-URL: https://kohnoor.pages.dev/places/khalti/
+URL: https://kohnoor.peakheron.com/places/khalti/
 Altitude: about 2200 m. From Islamabad: about 700 km, 16–18 h. Best season: Apr–Oct (frozen in winter). Vehicle: Any car on the Gilgit–Chitral road. Mobile signal: SCOM.
 
 A long, calm, deep-blue lake beside the road in Ghizer, famous for trout and for freezing over completely in winter.
@@ -833,7 +833,7 @@ Stay: PTDC motel and guesthouses at Gupis/Khalti. Food: Fresh trout at the lakes
 Tips: Get a fishing permit from the fisheries office. In winter the road is open but very cold.
 
 ## Dudipatsar Lake (Kaghan & Naran)
-URL: https://kohnoor.pages.dev/places/dudipatsar/
+URL: https://kohnoor.peakheron.com/places/dudipatsar/
 Altitude: about 3800 m. From Islamabad: about 315 km, 7–8 + 5–7 hour hike h. Best season: Jul–Sep. Vehicle: Car to Besal, then hike. Mobile signal: No signal.
 
 A high glacial lake inside Lulusar–Dudipatsar National Park, its name meaning white lake for the snow around it. Reached only on foot.
@@ -849,7 +849,7 @@ Stay: Camping only; local guides arrange tents. Food: Carry all food.
 Tips: Very cold at night; serious camping gear needed. Hire a guide and porters at Besal.
 
 ## Sharda (Azad Kashmir)
-URL: https://kohnoor.pages.dev/places/sharda/
+URL: https://kohnoor.peakheron.com/places/sharda/
 Altitude: about 1980 m. From Islamabad: about 270 km, 7–9 h. Best season: Apr–Oct. Vehicle: Any car. Mobile signal: SCOM, Zong.
 
 A riverside town in the Neelum Valley with the ruins of the ancient Sharda Peeth temple and university on the hillside above.
@@ -865,7 +865,7 @@ Stay: Guesthouses and hotels along the river. Food: River trout and simple local
 Tips: Sharda is near the Line of Control; carry your CNIC. Foreigners may need extra permission for some areas.
 
 ## Taobat (Azad Kashmir)
-URL: https://kohnoor.pages.dev/places/taobat/
+URL: https://kohnoor.peakheron.com/places/taobat/
 Altitude: about 2300 m. From Islamabad: about 330 km, 10–12 h. Best season: May–Oct. Vehicle: Jeep beyond Kel. Mobile signal: Weak.
 
 The last village at the far end of the Neelum Valley, with wooden houses, meadows and the river running clear and fast.
@@ -881,7 +881,7 @@ Stay: A few basic guesthouses. Food: Simple meals at guesthouses.
 Tips: Road can close after rain. Close to the LoC; follow local advice.
 
 ## Leepa Valley (Azad Kashmir)
-URL: https://kohnoor.pages.dev/places/leepa/
+URL: https://kohnoor.peakheron.com/places/leepa/
 Altitude: about 1900 m. From Islamabad: about 230 km, 7–8 h. Best season: May–Oct (autumn colours in October). Vehicle: Jeep or high car over Reshian pass. Mobile signal: Patchy.
 
 A green valley of rice terraces and wooden houses on the eastern side of AJK, especially beautiful in autumn when the walnut and rice fields turn gold.
@@ -897,7 +897,7 @@ Stay: Guesthouses and a few hotels in the valley. Food: Leepa red rice and local
 Tips: Pass road may close in winter snow. Near the LoC; carry ID.
 
 ## Miranjani Peak (Murree & Galiyat)
-URL: https://kohnoor.pages.dev/places/miranjani/
+URL: https://kohnoor.peakheron.com/places/miranjani/
 Altitude: about 2990 m. From Islamabad: about 90 km, 2.5 + 2–3 hour hike h. Best season: Apr–Nov (snow trek in winter). Vehicle: Any car to Nathia Gali. Mobile signal: Good near the trailhead.
 
 The highest peak of the Galiyat, reached by a forest trail from Nathia Gali. On clear days you can see Nanga Parbat from the top.

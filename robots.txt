@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/
-Sitemap: https://kohnoor.pages.dev/sitemap.xml
+Sitemap: https://kohnoor.peakheron.com/sitemap.xml

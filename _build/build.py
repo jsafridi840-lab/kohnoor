@@ -5,7 +5,7 @@ from datetime import date
 
 SRC = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(SRC, "out")
-SITE = "https://kohnoor.pages.dev"
+SITE = "https://kohnoor.peakheron.com"
 D = json.load(open(os.path.join(SRC, "data.json")))
 REGIONS, PLACES, ESS, COSTS, PHOTOS = D["REGIONS"], D["PLACES"], D["ESSENTIALS"], D["COSTS"], D["PHOTOS"]
 BYID = {p["id"]: p for p in PLACES}
@@ -136,7 +136,7 @@ def footer():
     return f'''<footer class="site-foot">{topo(3)}<div class="wrap"><div class="foot-grid">
 <div><a class="brand" href="/">{gem()}<b>KohNoor</b></a><p>The jewel of the mountains: the complete, honest guide to Northern Pakistan. Places, history, live weather, trip costs and offline essentials.</p><p class="ur" lang="ur" style="font-size:18px;color:#fff">کوہِ نور — شمالی پاکستان کا مکمل رہنما</p></div>
 <div><h4>Regions</h4>{regs}</div><div><h4>Top places</h4>{top}</div>
-<div><h4>Plan</h4><a href="/interests/">Travel by interest</a><a href="/routes/">Route finder</a><a href="/trails/">Trails</a><a href="/wonders/">Curious places</a><a href="/when-to-go/">When to go</a><a href="/gallery/">Photo gallery</a><a href="/list-your-business/">List your business</a><a href="/ur/" lang="ur">اردو</a><a href="/itineraries/">Itineraries</a><a href="/plan/">Trip cost planner</a><a href="/essentials/">Offline essentials</a><a href="/about/">About KohNoor</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy policy</a><a href="https://urdu-pashto-keyboard.pages.dev/">Urdu &amp; Pashto keyboard</a></div>
+<div><h4>Plan</h4><a href="/interests/">Travel by interest</a><a href="/routes/">Route finder</a><a href="/trails/">Trails</a><a href="/wonders/">Curious places</a><a href="/when-to-go/">When to go</a><a href="/gallery/">Photo gallery</a><a href="/list-your-business/">List your business</a><a href="/ur/" lang="ur">اردو</a><a href="/itineraries/">Itineraries</a><a href="/plan/">Trip cost planner</a><a href="/essentials/">Offline essentials</a><a href="/about/">About KohNoor</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy policy</a><a href="https://harf.peakheron.com/">Urdu &amp; Pashto keyboard</a></div>
 </div><div class="foot-bottom"><span>© {date.today().year} KohNoor. Costs and travel times are estimates; check road status before you travel.</span><span>A <a href="https://peakheron.com/products/kohnoor">PeakHeron</a> project · Weather: Open-Meteo · Photos used under free licences · <a href="/privacy/">Privacy</a> · <a href="#" onclick="siteConsent.open();return false">Cookie settings</a> · Follow: {__import__("legal").social_links(" · ")}</span></div></div></footer>
 <div class="net" role="status">You are offline · saved pages still work</div>'''
 
@@ -534,7 +534,7 @@ def footer_ur():
     return f'''<footer class="site-foot">{topo(3)}<div class="wrap"><div class="foot-grid">
 <div><a class="brand" href="/ur/">{gem()}<b class="ur-brand">کوہِ نور</b></a><p>پہاڑوں کا ہیرا: شمالی پاکستان کا مکمل اور دیانتدار رہنما۔ جگہیں، تاریخ، لائیو موسم، سفر کا خرچ اور آف لائن معلومات۔</p></div>
 <div><h4>علاقے</h4>{regs}</div><div><h4>مشہور جگہیں</h4>{top}</div>
-<div><h4>منصوبہ</h4><a href="/ur/interests/">دلچسپی کے مطابق سفر</a><a href="/ur/routes/">راستہ تلاش کریں</a><a href="/ur/trails/">ٹریلز</a><a href="/ur/wonders/">عجیب و غریب جگہیں</a><a href="/ur/when-to-go/">کب جائیں</a><a href="/ur/essentials/">ضروری معلومات</a><a href="/ur/list-your-business/">اپنا کاروبار شامل کریں</a><a href="/ur/contact/">رابطہ</a><a href="/ur/privacy/">رازداری کی پالیسی</a><a href="https://urdu-pashto-keyboard.pages.dev/">اردو اور پشتو کی بورڈ</a><a href="/">English</a></div>
+<div><h4>منصوبہ</h4><a href="/ur/interests/">دلچسپی کے مطابق سفر</a><a href="/ur/routes/">راستہ تلاش کریں</a><a href="/ur/trails/">ٹریلز</a><a href="/ur/wonders/">عجیب و غریب جگہیں</a><a href="/ur/when-to-go/">کب جائیں</a><a href="/ur/essentials/">ضروری معلومات</a><a href="/ur/list-your-business/">اپنا کاروبار شامل کریں</a><a href="/ur/contact/">رابطہ</a><a href="/ur/privacy/">رازداری کی پالیسی</a><a href="https://harf.peakheron.com/">اردو اور پشتو کی بورڈ</a><a href="/">English</a></div>
 </div><div class="foot-bottom"><span>© {date.today().year} کوہِ نور۔ خرچ اور سفر کا وقت اندازاً ہیں؛ سفر سے پہلے سڑک کی صورتحال معلوم کریں۔</span><span><a href="https://peakheron.com/products/kohnoor">PeakHeron</a> · موسم: Open-Meteo · تصاویر آزاد لائسنس کے تحت · <a href="/ur/privacy/">رازداری</a> · <a href="#" onclick="siteConsent.open();return false">کوکی کی ترتیبات</a></span></div></div></footer>
 <div class="net" role="status">آپ آف لائن ہیں · محفوظ صفحات چلتے رہیں گے</div>'''
 
@@ -708,7 +708,7 @@ def build_business():
              body, active=("/ur/list-your-business/" if U_ else ""), over=True, lang=lang)
 
 def build_llms():
-    lines = ["# KohNoor", "", "> KohNoor (kohnoor.pages.dev) is a free, independent travel guide to Northern Pakistan: Gilgit-Baltistan, Swat, Kaghan & Naran, Azad Kashmir, Chitral, Dir & Kumrat and Murree & Galiyat. Every place page gives history, best season by month, how to get there from Islamabad, Peshawar and Lahore, an estimated trip cost, live weather, a packing list and travel tips. Available in English and Urdu.", "",
+    lines = ["# KohNoor", "", "> KohNoor (kohnoor.peakheron.com) is a free, independent travel guide to Northern Pakistan: Gilgit-Baltistan, Swat, Kaghan & Naran, Azad Kashmir, Chitral, Dir & Kumrat and Murree & Galiyat. Every place page gives history, best season by month, how to get there from Islamabad, Peshawar and Lahore, an estimated trip cost, live weather, a packing list and travel tips. Available in English and Urdu.", "",
              "Costs are estimates based on current fuel, coach, hotel and food rates; travel times are approximate. Road conditions in the mountains change with weather.", "", "## Main pages", "",
              f"- [Destinations]({SITE}/regions/): all {len(PLACES)} places in {len(REGIONS)} regions", f"- [When to go]({SITE}/when-to-go/): month-by-month calendar for every place",
              f"- [Interests]({SITE}/interests/): lakes, meadows, treks, history, family trips, snow, jeep adventures, hidden places", f"- [Itineraries]({SITE}/itineraries/): day-by-day routes", f"- [Trip cost planner]({SITE}/plan/)", f"- [Essentials]({SITE}/essentials/): emergency numbers, altitude sickness, permits, mobile networks", f"- [Urdu version]({SITE}/ur/)", "", "## Regions", ""]
@@ -816,14 +816,14 @@ def ess_graphics(lang="en"):
     pk = '<div class="pack-grid">' + "".join(f'<div><span class="ico">{icon(c)}</span><b>{e(t)}</b></div>' for t, c in packs) + '</div>'
     def phone(kind):
         if kind == "android":
-            bar = '<rect x="14" y="30" width="152" height="24" rx="12" fill="#F1F4F5"/><text x="26" y="46" class="pm-url">kohnoor.pages.dev</text><g class="pm-hl"><circle cx="152" cy="42" r="11"/><circle cx="152" cy="36" r="1.8" fill="#0E2433"/><circle cx="152" cy="42" r="1.8" fill="#0E2433"/><circle cx="152" cy="48" r="1.8" fill="#0E2433"/></g>'
+            bar = '<rect x="14" y="30" width="152" height="24" rx="12" fill="#F1F4F5"/><text x="26" y="46" class="pm-url">kohnoor.peakheron.com</text><g class="pm-hl"><circle cx="152" cy="42" r="11"/><circle cx="152" cy="36" r="1.8" fill="#0E2433"/><circle cx="152" cy="42" r="1.8" fill="#0E2433"/><circle cx="152" cy="48" r="1.8" fill="#0E2433"/></g>'
             menu = f'<rect x="62" y="60" width="110" height="96" rx="10" fill="#fff" stroke="#DDE5E8"/><text x="74" y="84" class="pm-mi">{"نیا ٹیب" if U_ else "New tab"}</text><text x="74" y="106" class="pm-mi">{"بُک مارکس" if U_ else "Bookmarks"}</text><rect x="66" y="116" width="102" height="28" rx="7" fill="#FBEBD3"/><text x="74" y="135" class="pm-mi b">{"ہوم اسکرین پر شامل کریں" if U_ else "Add to Home screen"}</text>'
         else:
-            bar = '<rect x="14" y="300" width="152" height="24" rx="12" fill="#F1F4F5"/><text x="26" y="316" class="pm-url">kohnoor.pages.dev</text><g class="pm-hl"><circle cx="90" cy="345" r="13"/><path d="M90 338v12M85 343l5-5 5 5M84 348v5h12v-5" fill="none" stroke="#0E2433" stroke-width="1.8"/></g>'
+            bar = '<rect x="14" y="300" width="152" height="24" rx="12" fill="#F1F4F5"/><text x="26" y="316" class="pm-url">kohnoor.peakheron.com</text><g class="pm-hl"><circle cx="90" cy="345" r="13"/><path d="M90 338v12M85 343l5-5 5 5M84 348v5h12v-5" fill="none" stroke="#0E2433" stroke-width="1.8"/></g>'
             menu = f'<rect x="20" y="186" width="140" height="96" rx="10" fill="#fff" stroke="#DDE5E8"/><text x="32" y="210" class="pm-mi">{"کاپی" if U_ else "Copy"}</text><text x="32" y="232" class="pm-mi">{"بُک مارک" if U_ else "Add Bookmark"}</text><rect x="24" y="242" width="132" height="28" rx="7" fill="#FBEBD3"/><text x="32" y="261" class="pm-mi b">{"ہوم اسکرین پر شامل کریں" if U_ else "Add to Home Screen"}</text>'
         return f'<svg class="pmock" viewBox="0 0 180 370" role="img" aria-label="{"اینڈرائیڈ" if kind == "android" else "iPhone"}"><rect x="2" y="2" width="176" height="366" rx="28" fill="#0E2433"/><rect x="10" y="12" width="160" height="346" rx="20" fill="#F4F6F5"/><rect x="66" y="16" width="48" height="8" rx="4" fill="#0E2433"/><rect x="22" y="160" width="136" height="20" rx="6" fill="#DDE5E8" opacity=".6"/>{bar}{menu}</svg>'
-    inst = ([("اینڈرائیڈ (کروم)", "android", ["کروم میں kohnoor.pages.dev کھولیں", "اوپر دائیں ⋮ مینو دبائیں", "‘ہوم اسکرین پر شامل کریں’ چنیں"]), ("آئی فون (سفاری)", "ios", ["سفاری میں سائٹ کھولیں", "نیچے شیئر کا بٹن دبائیں", "‘ہوم اسکرین پر شامل کریں’ چنیں"])] if U_ else
-            [("Android (Chrome)", "android", ["Open kohnoor.pages.dev in Chrome", "Tap the ⋮ menu at the top right", "Choose “Add to Home screen”"]), ("iPhone (Safari)", "ios", ["Open the site in Safari", "Tap the Share button at the bottom", "Choose “Add to Home Screen”"])])
+    inst = ([("اینڈرائیڈ (کروم)", "android", ["کروم میں kohnoor.peakheron.com کھولیں", "اوپر دائیں ⋮ مینو دبائیں", "‘ہوم اسکرین پر شامل کریں’ چنیں"]), ("آئی فون (سفاری)", "ios", ["سفاری میں سائٹ کھولیں", "نیچے شیئر کا بٹن دبائیں", "‘ہوم اسکرین پر شامل کریں’ چنیں"])] if U_ else
+            [("Android (Chrome)", "android", ["Open kohnoor.peakheron.com in Chrome", "Tap the ⋮ menu at the top right", "Choose “Add to Home screen”"]), ("iPhone (Safari)", "ios", ["Open the site in Safari", "Tap the Share button at the bottom", "Choose “Add to Home Screen”"])])
     ins = '<div class="install">' + "".join(f'<div class="inst">{phone(k)}<div><h4>{e(t)}</h4><ol>{"".join(f"<li>{e(s)}</li>" for s in st)}</ol></div></div>' for t, k, st in inst) + '</div>'
     return nums, alt, pk, ins
 
@@ -961,7 +961,7 @@ def cheat_sheets():
             txt((X, y), a, fr(36 if not U_ else 30), "#fff", A); txt(((70) if U_ else (W - 70), y + 4), b[:48], fr(28 if not U_ else 24), "#9FB4BF", "la" if U_ else "ra")
             y += 92
         d.rectangle([0, H - 110, W, H], fill="#E09A3E")
-        d.text((W // 2, H - 55), "kohnoor.pages.dev", font=font("bricolage-grotesque-latin-800-normal.ttf", 44), fill="#0E2433", anchor="mm")
+        d.text((W // 2, H - 55), "kohnoor.peakheron.com", font=font("bricolage-grotesque-latin-800-normal.ttf", 44), fill="#0E2433", anchor="mm")
         im.save(os.path.join(OUT, "assets", f"kohnoor-cheatsheet-{lang}.png"), optimize=True)
 
 def offline_map_svg(region=None):

@@ -78,7 +78,7 @@ def pin_image(p):
         d.ellipse((62, y + 14, 76, y + 28), fill=(232, 168, 56))
         d.text((92, y), fct, font=ff, fill=(240, 244, 246)); y += 48
     # footer
-    d.text((60, H - 80), "Route · Costs · Weather  |  kohnoor.pages.dev", font=F("source-sans-3-latin-600-normal.ttf", 32), fill=(255, 255, 255))
+    d.text((60, H - 80), "Route · Costs · Weather  |  kohnoor.peakheron.com", font=F("source-sans-3-latin-600-normal.ttf", 32), fill=(255, 255, 255))
     os.makedirs(os.path.join(OUT, "pins"), exist_ok=True)
     im.save(os.path.join(OUT, "pins", p["id"] + ".jpg"), quality=86, optimize=True, progressive=True)
 
@@ -97,7 +97,7 @@ def build_pins():
         p = PLACES[i]
         pin_image(p)
         items.append({"id": i, "title": f"{p['name']} Travel Guide: Route, Costs & Best Time",
-                      "link": f"https://kohnoor.pages.dev/places/{i}/", "img": f"https://kohnoor.pages.dev/pins/{i}.jpg",
+                      "link": f"https://kohnoor.peakheron.com/places/{i}/", "img": f"https://kohnoor.peakheron.com/pins/{i}.jpg",
                       "desc": describe(p)})
     js = "export const PINS = " + json.dumps(items, ensure_ascii=False) + ";\n"
     os.makedirs(os.path.join(SRC, "functions"), exist_ok=True)
@@ -171,7 +171,7 @@ def build_pins_b():
         pin_image_b(p)
         boards.setdefault(p["region"], []).append({
             "id": i, "title": f"Things to Do in {p['name']}, Pakistan"[:100],
-            "link": f"https://kohnoor.pages.dev/places/{i}/", "img": f"https://kohnoor.pages.dev/pins/b/{i}.jpg",
+            "link": f"https://kohnoor.peakheron.com/places/{i}/", "img": f"https://kohnoor.peakheron.com/pins/b/{i}.jpg",
             "desc": describe_b(p)})
     js = "export const BOARDS = " + json.dumps(boards, ensure_ascii=False) + ";\n"
     open(os.path.join(SRC, "functions", "_pins_b.js"), "w").write(js)

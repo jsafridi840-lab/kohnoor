@@ -17,7 +17,7 @@ def build_legal(B):
     # ---------- Privacy (EN) ----------
     body = hero('<img src="/img/passu-khunjerab.jpg" alt="">', "Privacy", "Privacy policy", "رازداری کی پالیسی", f"Last updated {UPDATED}.", short=True)
     body += f'''<div class="wrap"><div class="layout"><div class="prose">
-<p class="lead">KohNoor (kohnoor.pages.dev) is a free travel guide to Northern Pakistan. This page explains what information is collected when you use the site, why, and the choices you have. We keep it as small as we can.</p>
+<p class="lead">KohNoor (kohnoor.peakheron.com) is a free travel guide to Northern Pakistan. This page explains what information is collected when you use the site, why, and the choices you have. We keep it as small as we can.</p>
 <h2>What we collect</h2>
 <ul>
 <li><b>Usage statistics.</b> We use Google Analytics (through Google Tag Manager) and Cloudflare Web Analytics to see which pages are read and how people find the site. These tools record things like pages visited, device and browser type, approximate country and the page that sent you. Cloudflare Web Analytics does not use cookies. Google Analytics uses cookies only as allowed by your choice in the cookie banner.</li>
