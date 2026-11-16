@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """KohNoor static site builder. Reads data.json + content below, writes the site to ./out"""
-import json, os, re, shutil, html, random, math
+import sys, json, os, re, shutil, html, random, math
 from datetime import date
 
 SRC = os.path.dirname(os.path.abspath(__file__))
@@ -136,8 +136,8 @@ def footer():
     return f'''<footer class="site-foot">{topo(3)}<div class="wrap"><div class="foot-grid">
 <div><a class="brand" href="/">{gem()}<b>KohNoor</b></a><p>The jewel of the mountains: the complete, honest guide to Northern Pakistan. Places, history, live weather, trip costs and offline essentials.</p><p class="ur" lang="ur" style="font-size:18px;color:#fff">کوہِ نور — شمالی پاکستان کا مکمل رہنما</p></div>
 <div><h4>Regions</h4>{regs}</div><div><h4>Top places</h4>{top}</div>
-<div><h4>Plan</h4><a href="/interests/">Travel by interest</a><a href="/routes/">Route finder</a><a href="/trails/">Trails</a><a href="/wonders/">Curious places</a><a href="/when-to-go/">When to go</a><a href="/gallery/">Photo gallery</a><a href="/list-your-business/">List your business</a><a href="/ur/" lang="ur">اردو</a><a href="/itineraries/">Itineraries</a><a href="/plan/">Trip cost planner</a><a href="/essentials/">Offline essentials</a><a href="/about/">About KohNoor</a><a href="https://urdu-pashto-keyboard.pages.dev/">Urdu &amp; Pashto keyboard</a></div>
-</div><div class="foot-bottom"><span>© {date.today().year} KohNoor. Costs and travel times are estimates; check road status before you travel.</span><span>Weather: Open-Meteo · Photos used under free licences · <a href="#" onclick="siteConsent.open();return false">Cookie settings</a></span></div></div></footer>
+<div><h4>Plan</h4><a href="/interests/">Travel by interest</a><a href="/routes/">Route finder</a><a href="/trails/">Trails</a><a href="/wonders/">Curious places</a><a href="/when-to-go/">When to go</a><a href="/gallery/">Photo gallery</a><a href="/list-your-business/">List your business</a><a href="/ur/" lang="ur">اردو</a><a href="/itineraries/">Itineraries</a><a href="/plan/">Trip cost planner</a><a href="/essentials/">Offline essentials</a><a href="/about/">About KohNoor</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy policy</a><a href="https://urdu-pashto-keyboard.pages.dev/">Urdu &amp; Pashto keyboard</a></div>
+</div><div class="foot-bottom"><span>© {date.today().year} KohNoor. Costs and travel times are estimates; check road status before you travel.</span><span>Weather: Open-Meteo · Photos used under free licences · <a href="/privacy/">Privacy</a> · <a href="#" onclick="siteConsent.open();return false">Cookie settings</a> · Follow: {__import__("legal").social_links(" · ")}</span></div></div></footer>
 <div class="net" role="status">You are offline · saved pages still work</div>'''
 
 def ur_path(path):
@@ -153,7 +153,7 @@ def page(path, title, desc, body, active="", over=False, og=None, body_attr="", 
     alts = (f'<link rel="alternate" hreflang="en" href="{SITE}{enp}"><link rel="alternate" hreflang="ur" href="{SITE}{urp}"><link rel="alternate" hreflang="x-default" href="{SITE}{enp}">') if urp else ""
     ld = f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>' if jsonld else ""
     doc = f'''<!DOCTYPE html>
-<html lang="{lang}" dir="{'rtl' if lang == 'ur' else 'ltr'}"><head><meta charset="utf-8"><meta name="p:domain_verify" content="6ef7d37610002a038628dcf7f6d8d944"/><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="msvalidate.01" content="63E67156202205CA85D99A9BBF952FAC"><script src="/consent.js?v=1" data-privacy="/about/"></script><script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WF2S4L3J"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());</script>
+<html lang="{lang}" dir="{'rtl' if lang == 'ur' else 'ltr'}"><head><meta charset="utf-8"><meta name="p:domain_verify" content="6ef7d37610002a038628dcf7f6d8d944"/><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="msvalidate.01" content="63E67156202205CA85D99A9BBF952FAC"><script src="/consent.js?v=1" data-privacy="/privacy/"></script><script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WF2S4L3J"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());</script>
 <title>{e(full)}</title><meta name="description" content="{e(desc)}"><link rel="canonical" href="{SITE}{path}">{alts}
 <meta property="og:type" content="website"><meta property="og:site_name" content="KohNoor"><meta property="og:title" content="{e(full)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{SITE}{path}"><meta property="og:image" content="{SITE}{og}">
 <meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#0E2433">
@@ -270,7 +270,7 @@ def build_home():
 <div class="steps" style="position:relative"><div><b>Android:</b> Chrome menu → Add to Home screen</div><div><b>iPhone:</b> Safari share → Add to Home Screen</div><div><b>Tip:</b> open your destinations once while you have signal</div></div></div></div></section>'''
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": "KohNoor", "url": SITE + "/", "description": "The complete travel guide to Northern Pakistan.",
           "potentialAction": {"@type": "SearchAction", "target": SITE + "/plan/?place={search_term_string}", "query-input": "required name=search_term_string"}}
-    ld = [ld, faq_ld(FAQ)]
+    ld = [ld, {"@context": "https://schema.org", "@type": "Organization", "name": "KohNoor", "url": SITE + "/", "logo": SITE + "/assets/icon-512.png", "email": CONTACT.get("email", ""), "sameAs": [u for _, u in __import__("legal").SOCIAL]}, faq_ld(FAQ)]
     page("/", "KohNoor — The complete travel guide to Northern Pakistan",
          "Plan trips to Hunza, Skardu, Swat, Naran, Neelum, Chitral and more: places and history, live weather, trip costs from Islamabad, Peshawar and Lahore, itineraries and offline essentials.",
          body, over=True, jsonld=ld)
@@ -513,7 +513,7 @@ URP = {}
 for f in sorted(os.listdir(os.path.join(SRC, "ur"))):
     if f.startswith("places"): URP.update(json.load(open(os.path.join(SRC, "ur", f))))
 URS = json.load(open(os.path.join(SRC, "ur", "site.json")))
-UR_PATHS = {"/map/", "/trails/", "/wonders/", "/routes/", "/regions/", "/interests/", "/when-to-go/", "/essentials/", "/list-your-business/"} | {f"/regions/{k}/" for k in REGION_ORDER} | {f"/places/{p['id']}/" for p in PLACES if p["id"] in URP} | {f"/interests/{t['slug']}/" for t in THEMES}
+UR_PATHS = {"/map/", "/trails/", "/wonders/", "/routes/", "/regions/", "/interests/", "/when-to-go/", "/essentials/", "/list-your-business/", "/privacy/", "/contact/"} | {f"/regions/{k}/" for k in REGION_ORDER} | {f"/places/{p['id']}/" for p in PLACES if p["id"] in URP} | {f"/interests/{t['slug']}/" for t in THEMES}
 UMON = ["جنوری","فروری","مارچ","اپریل","مئی","جون","جولائی","اگست","ستمبر","اکتوبر","نومبر","دسمبر"]
 def urfirst(t): return t.split("۔")[0].strip() + "۔"
 NAV_UR = [("/ur/regions/", "منزلیں"), ("/ur/interests/", "دلچسپیاں"), ("/ur/trails/", "ٹریلز"), ("/ur/when-to-go/", "کب جائیں"), ("/ur/map/", "نقشہ"), ("/ur/essentials/", "ضروری معلومات"), ("/ur/list-your-business/", "اپنا کاروبار شامل کریں")]
@@ -534,8 +534,8 @@ def footer_ur():
     return f'''<footer class="site-foot">{topo(3)}<div class="wrap"><div class="foot-grid">
 <div><a class="brand" href="/ur/">{gem()}<b class="ur-brand">کوہِ نور</b></a><p>پہاڑوں کا ہیرا: شمالی پاکستان کا مکمل اور دیانتدار رہنما۔ جگہیں، تاریخ، لائیو موسم، سفر کا خرچ اور آف لائن معلومات۔</p></div>
 <div><h4>علاقے</h4>{regs}</div><div><h4>مشہور جگہیں</h4>{top}</div>
-<div><h4>منصوبہ</h4><a href="/ur/interests/">دلچسپی کے مطابق سفر</a><a href="/ur/routes/">راستہ تلاش کریں</a><a href="/ur/trails/">ٹریلز</a><a href="/ur/wonders/">عجیب و غریب جگہیں</a><a href="/ur/when-to-go/">کب جائیں</a><a href="/ur/essentials/">ضروری معلومات</a><a href="/ur/list-your-business/">اپنا کاروبار شامل کریں</a><a href="https://urdu-pashto-keyboard.pages.dev/">اردو اور پشتو کی بورڈ</a><a href="/">English</a></div>
-</div><div class="foot-bottom"><span>© {date.today().year} کوہِ نور۔ خرچ اور سفر کا وقت اندازاً ہیں؛ سفر سے پہلے سڑک کی صورتحال معلوم کریں۔</span><span>موسم: Open-Meteo · تصاویر آزاد لائسنس کے تحت · <a href="#" onclick="siteConsent.open();return false">کوکی کی ترتیبات</a></span></div></div></footer>
+<div><h4>منصوبہ</h4><a href="/ur/interests/">دلچسپی کے مطابق سفر</a><a href="/ur/routes/">راستہ تلاش کریں</a><a href="/ur/trails/">ٹریلز</a><a href="/ur/wonders/">عجیب و غریب جگہیں</a><a href="/ur/when-to-go/">کب جائیں</a><a href="/ur/essentials/">ضروری معلومات</a><a href="/ur/list-your-business/">اپنا کاروبار شامل کریں</a><a href="/ur/contact/">رابطہ</a><a href="/ur/privacy/">رازداری کی پالیسی</a><a href="https://urdu-pashto-keyboard.pages.dev/">اردو اور پشتو کی بورڈ</a><a href="/">English</a></div>
+</div><div class="foot-bottom"><span>© {date.today().year} کوہِ نور۔ خرچ اور سفر کا وقت اندازاً ہیں؛ سفر سے پہلے سڑک کی صورتحال معلوم کریں۔</span><span>موسم: Open-Meteo · تصاویر آزاد لائسنس کے تحت · <a href="/ur/privacy/">رازداری</a> · <a href="#" onclick="siteConsent.open();return false">کوکی کی ترتیبات</a></span></div></div></footer>
 <div class="net" role="status">آپ آف لائن ہیں · محفوظ صفحات چلتے رہیں گے</div>'''
 
 def card_ur(p, near_km=None):
@@ -1020,7 +1020,7 @@ self.addEventListener('fetch',e=>{{
   e.respondWith(caches.match(e.request).then(hit=>{{const net=fetch(e.request).then(r=>{{const c=r.clone();caches.open(V).then(x=>x.put(e.request,c));return r;}}).catch(()=>hit); return hit||net;}}));
 }});
 """)
-    urls = ["/", "/map/", "/trails/", "/wonders/", "/routes/", "/regions/", "/interests/", "/when-to-go/", "/gallery/", "/itineraries/", "/plan/", "/essentials/", "/about/"] + [f"/interests/{t['slug']}/" for t in THEMES] + ["/list-your-business/", "/ur/"] + sorted("/ur" + u for u in UR_PATHS) + [f"/regions/{k}/" for k in REGION_ORDER] + [f"/places/{p['id']}/" for p in PLACES] + [f"/itineraries/{x['id']}/" for x in ITINS]
+    urls = ["/", "/map/", "/trails/", "/wonders/", "/routes/", "/regions/", "/interests/", "/when-to-go/", "/gallery/", "/itineraries/", "/plan/", "/essentials/", "/about/", "/contact/", "/privacy/"] + [f"/interests/{t['slug']}/" for t in THEMES] + ["/list-your-business/", "/ur/"] + sorted("/ur" + u for u in UR_PATHS) + [f"/regions/{k}/" for k in REGION_ORDER] + [f"/places/{p['id']}/" for p in PLACES] + [f"/itineraries/{x['id']}/" for x in ITINS]
     open(os.path.join(OUT, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{date.today()}</lastmod></url>\n" for u in urls) + "</urlset>\n")
     open(os.path.join(OUT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\nSitemap: {SITE}/sitemap.xml\n")
     open(os.path.join(OUT, "_headers"), "w").write("/assets/fonts/*\n  Cache-Control: public, max-age=31536000, immutable\n/img/*\n  Cache-Control: public, max-age=2592000\n/assets/*\n  Cache-Control: public, max-age=86400\n/sw.js\n  Cache-Control: no-cache\n")
@@ -1030,5 +1030,5 @@ if __name__ == "__main__":
     if os.path.exists(OUT): shutil.rmtree(OUT)
     os.makedirs(OUT)
     n = build_assets()
-    build_home(); build_regions(); build_places(); build_itins(); build_plan(); build_essentials(); build_about(); build_interests(); build_when(); build_gallery(); build_urdu(); build_maps(); build_v7(); build_business(); build_llms(); cheat_sheets(); __import__('pins').build_pins(); __import__('pins').build_pins_b(); build_admin(); build_misc()
+    build_home(); build_regions(); build_places(); build_itins(); build_plan(); build_essentials(); build_about(); build_interests(); build_when(); build_gallery(); build_urdu(); build_maps(); build_v7(); build_business(); build_llms(); cheat_sheets(); __import__('pins').build_pins(); __import__('pins').build_pins_b(); build_admin(); build_misc(); __import__("legal").build_legal(sys.modules[__name__])
     print("pages in sitemap:", n)
