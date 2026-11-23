@@ -990,6 +990,8 @@ def build_misc():
     page("/404.html", "Page not found", "This page does not exist.", body, over=True)
     body = hero('<img src="/img/kaghan.jpg" alt="">', "Offline", "You are offline", lede="This page has not been saved yet. Pages you opened before still work, and the essentials are always saved.", extra='<p style="margin-top:20px"><a class="btn" href="/essentials/">Open offline essentials</a></p>', short=True)
     page("/offline/", "Offline", "You are offline.", body, over=True)
+    p = os.path.join(OUT, "offline", "index.html"); h = open(p).read()
+    if 'name="robots"' not in h: h = h.replace('<meta name="viewport"', '<meta name="robots" content="noindex, follow"><meta name="viewport"', 1); open(p, "w").write(h)
 
 def build_assets():
     A = os.path.join(OUT, "assets"); os.makedirs(os.path.join(A, "fonts"), exist_ok=True)
